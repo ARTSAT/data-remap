@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07D9FE671B63842100ED5F86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE661B63842100ED5F86 /* AppDelegate.m */; };
 		07D9FE691B63842100ED5F86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE681B63842100ED5F86 /* main.m */; };
 		07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6A1B63842100ED5F86 /* Images.xcassets */; };
 		07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6C1B63842100ED5F86 /* MainMenu.xib */; };
 		07D9FE7A1B63842100ED5F86 /* GLTelemetryPictTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE791B63842100ED5F86 /* GLTelemetryPictTests.m */; };
+		07D9FE961B6384A800ED5F86 /* Controller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE861B6384A800ED5F86 /* Controller.mm */; };
+		07D9FE971B6384A800ED5F86 /* Renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE881B6384A800ED5F86 /* Renderer.mm */; };
+		07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE8C1B6384A800ED5F86 /* charTex.mm */; };
+		07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE8E1B6384A800ED5F86 /* GLFrameBuffer.mm */; };
+		07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE901B6384A800ED5F86 /* NHGLView.mm */; };
+		07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */; };
+		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,14 +33,27 @@
 /* Begin PBXFileReference section */
 		07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLTelemetryPict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D9FE641B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07D9FE651B63842100ED5F86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		07D9FE661B63842100ED5F86 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		07D9FE681B63842100ED5F86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07D9FE6A1B63842100ED5F86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07D9FE6D1B63842100ED5F86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		07D9FE731B63842100ED5F86 /* GLTelemetryPictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GLTelemetryPictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D9FE781B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D9FE791B63842100ED5F86 /* GLTelemetryPictTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLTelemetryPictTests.m; sourceTree = "<group>"; };
+		07D9FE841B6384A800ED5F86 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		07D9FE851B6384A800ED5F86 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		07D9FE861B6384A800ED5F86 /* Controller.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Controller.mm; sourceTree = "<group>"; };
+		07D9FE871B6384A800ED5F86 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		07D9FE881B6384A800ED5F86 /* Renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Renderer.mm; sourceTree = "<group>"; };
+		07D9FE8B1B6384A800ED5F86 /* charTex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = charTex.h; sourceTree = "<group>"; };
+		07D9FE8C1B6384A800ED5F86 /* charTex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = charTex.mm; sourceTree = "<group>"; };
+		07D9FE8D1B6384A800ED5F86 /* GLFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFrameBuffer.h; sourceTree = "<group>"; };
+		07D9FE8E1B6384A800ED5F86 /* GLFrameBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFrameBuffer.mm; sourceTree = "<group>"; };
+		07D9FE8F1B6384A800ED5F86 /* NHGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHGLView.h; sourceTree = "<group>"; };
+		07D9FE901B6384A800ED5F86 /* NHGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NHGLView.mm; sourceTree = "<group>"; };
+		07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NHGLWrapper.cpp; sourceTree = "<group>"; };
+		07D9FE921B6384A800ED5F86 /* NHGLWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHGLWrapper.h; sourceTree = "<group>"; };
+		07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = telemetryReader.cpp; sourceTree = "<group>"; };
+		07D9FE951B6384A800ED5F86 /* telemetryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +95,10 @@
 		07D9FE621B63842100ED5F86 /* GLTelemetryPict */ = {
 			isa = PBXGroup;
 			children = (
-				07D9FE651B63842100ED5F86 /* AppDelegate.h */,
-				07D9FE661B63842100ED5F86 /* AppDelegate.m */,
+				07D9FE831B6384A800ED5F86 /* base */,
+				07D9FE891B6384A800ED5F86 /* common */,
+				07D9FE8A1B6384A800ED5F86 /* GL */,
+				07D9FE931B6384A800ED5F86 /* telemetry */,
 				07D9FE6A1B63842100ED5F86 /* Images.xcassets */,
 				07D9FE6C1B63842100ED5F86 /* MainMenu.xib */,
 				07D9FE631B63842100ED5F86 /* Supporting Files */,
@@ -109,6 +130,49 @@
 				07D9FE781B63842100ED5F86 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07D9FE831B6384A800ED5F86 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE841B6384A800ED5F86 /* config.h */,
+				07D9FE851B6384A800ED5F86 /* Controller.h */,
+				07D9FE861B6384A800ED5F86 /* Controller.mm */,
+				07D9FE871B6384A800ED5F86 /* Renderer.h */,
+				07D9FE881B6384A800ED5F86 /* Renderer.mm */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		07D9FE891B6384A800ED5F86 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		07D9FE8A1B6384A800ED5F86 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE8B1B6384A800ED5F86 /* charTex.h */,
+				07D9FE8C1B6384A800ED5F86 /* charTex.mm */,
+				07D9FE8D1B6384A800ED5F86 /* GLFrameBuffer.h */,
+				07D9FE8E1B6384A800ED5F86 /* GLFrameBuffer.mm */,
+				07D9FE8F1B6384A800ED5F86 /* NHGLView.h */,
+				07D9FE901B6384A800ED5F86 /* NHGLView.mm */,
+				07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */,
+				07D9FE921B6384A800ED5F86 /* NHGLWrapper.h */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		07D9FE931B6384A800ED5F86 /* telemetry */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
+				07D9FE951B6384A800ED5F86 /* telemetryReader.h */,
+			);
+			path = telemetry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */,
+				07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */,
+				07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */,
+				07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */,
 				07D9FE691B63842100ED5F86 /* main.m in Sources */,
-				07D9FE671B63842100ED5F86 /* AppDelegate.m in Sources */,
+				07D9FE971B6384A800ED5F86 /* Renderer.mm in Sources */,
+				07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */,
+				07D9FE961B6384A800ED5F86 /* Controller.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
