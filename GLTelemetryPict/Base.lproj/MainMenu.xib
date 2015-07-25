@@ -689,7 +689,7 @@
                     </button>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-T6-D0e">
                         <rect key="frame" x="18" y="314" width="602" height="21"/>
-                        <sliderCell key="cell" state="on" alignment="left" maxValue="194" tickMarkPosition="above" sliderType="linear" id="B5J-cr-oe6"/>
+                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="194" tickMarkPosition="above" sliderType="linear" id="B5J-cr-oe6"/>
                         <connections>
                             <action selector="changeRenderingTargetTime:" target="euB-tm-ib5" id="xfY-5K-fOW"/>
                         </connections>

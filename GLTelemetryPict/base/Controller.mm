@@ -110,6 +110,13 @@ static telemetryReader * reader;
         [targetRenderer renderFromUnixTime:secStart
                                   duration:duration];
         if (needExport) {
+
+            NSFileManager *fn = [NSFileManager defaultManager];
+            if ( ! [fn fileExistsAtPath:[@"~/Desktop/imgs" stringByExpandingTildeInPath]]) {
+                [fn createDirectoryAtPath:[@"~/Desktop/imgs" stringByExpandingTildeInPath]
+              withIntermediateDirectories:NO attributes:nil error:nil];
+            }
+
             NSString *fileName = [[NSString  stringWithFormat:@"~/Desktop/imgs/test_%03i.png",index] stringByExpandingTildeInPath];
             [fbo writeToFile:fileName];
         }
