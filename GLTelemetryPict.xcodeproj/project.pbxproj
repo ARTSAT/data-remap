@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07D9FE671B63842100ED5F86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE661B63842100ED5F86 /* AppDelegate.m */; };
+		07D9FE691B63842100ED5F86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE681B63842100ED5F86 /* main.m */; };
+		07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6A1B63842100ED5F86 /* Images.xcassets */; };
+		07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6C1B63842100ED5F86 /* MainMenu.xib */; };
+		07D9FE7A1B63842100ED5F86 /* GLTelemetryPictTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE791B63842100ED5F86 /* GLTelemetryPictTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07D9FE741B63842100ED5F86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D9FE581B63842100ED5F86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D9FE5F1B63842100ED5F86;
+			remoteInfo = GLTelemetryPict;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLTelemetryPict.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D9FE641B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D9FE651B63842100ED5F86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		07D9FE661B63842100ED5F86 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		07D9FE681B63842100ED5F86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		07D9FE6A1B63842100ED5F86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		07D9FE6D1B63842100ED5F86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		07D9FE731B63842100ED5F86 /* GLTelemetryPictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GLTelemetryPictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D9FE781B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07D9FE791B63842100ED5F86 /* GLTelemetryPictTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLTelemetryPictTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07D9FE5D1B63842100ED5F86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07D9FE701B63842100ED5F86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07D9FE571B63842100ED5F86 = {
+			isa = PBXGroup;
+			children = (
+				07D9FE621B63842100ED5F86 /* GLTelemetryPict */,
+				07D9FE761B63842100ED5F86 /* GLTelemetryPictTests */,
+				07D9FE611B63842100ED5F86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07D9FE611B63842100ED5F86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */,
+				07D9FE731B63842100ED5F86 /* GLTelemetryPictTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07D9FE621B63842100ED5F86 /* GLTelemetryPict */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE651B63842100ED5F86 /* AppDelegate.h */,
+				07D9FE661B63842100ED5F86 /* AppDelegate.m */,
+				07D9FE6A1B63842100ED5F86 /* Images.xcassets */,
+				07D9FE6C1B63842100ED5F86 /* MainMenu.xib */,
+				07D9FE631B63842100ED5F86 /* Supporting Files */,
+			);
+			path = GLTelemetryPict;
+			sourceTree = "<group>";
+		};
+		07D9FE631B63842100ED5F86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE641B63842100ED5F86 /* Info.plist */,
+				07D9FE681B63842100ED5F86 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		07D9FE761B63842100ED5F86 /* GLTelemetryPictTests */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE791B63842100ED5F86 /* GLTelemetryPictTests.m */,
+				07D9FE771B63842100ED5F86 /* Supporting Files */,
+			);
+			path = GLTelemetryPictTests;
+			sourceTree = "<group>";
+		};
+		07D9FE771B63842100ED5F86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07D9FE781B63842100ED5F86 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07D9FE5F1B63842100ED5F86 /* GLTelemetryPict */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07D9FE7D1B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPict" */;
+			buildPhases = (
+				07D9FE5C1B63842100ED5F86 /* Sources */,
+				07D9FE5D1B63842100ED5F86 /* Frameworks */,
+				07D9FE5E1B63842100ED5F86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GLTelemetryPict;
+			productName = GLTelemetryPict;
+			productReference = 07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07D9FE721B63842100ED5F86 /* GLTelemetryPictTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07D9FE801B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPictTests" */;
+			buildPhases = (
+				07D9FE6F1B63842100ED5F86 /* Sources */,
+				07D9FE701B63842100ED5F86 /* Frameworks */,
+				07D9FE711B63842100ED5F86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07D9FE751B63842100ED5F86 /* PBXTargetDependency */,
+			);
+			name = GLTelemetryPictTests;
+			productName = GLTelemetryPictTests;
+			productReference = 07D9FE731B63842100ED5F86 /* GLTelemetryPictTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07D9FE581B63842100ED5F86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = h;
+				TargetAttributes = {
+					07D9FE5F1B63842100ED5F86 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					07D9FE721B63842100ED5F86 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 07D9FE5F1B63842100ED5F86;
+					};
+				};
+			};
+			buildConfigurationList = 07D9FE5B1B63842100ED5F86 /* Build configuration list for PBXProject "GLTelemetryPict" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07D9FE571B63842100ED5F86;
+			productRefGroup = 07D9FE611B63842100ED5F86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07D9FE5F1B63842100ED5F86 /* GLTelemetryPict */,
+				07D9FE721B63842100ED5F86 /* GLTelemetryPictTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07D9FE5E1B63842100ED5F86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */,
+				07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07D9FE711B63842100ED5F86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07D9FE5C1B63842100ED5F86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07D9FE691B63842100ED5F86 /* main.m in Sources */,
+				07D9FE671B63842100ED5F86 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07D9FE6F1B63842100ED5F86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07D9FE7A1B63842100ED5F86 /* GLTelemetryPictTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07D9FE751B63842100ED5F86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D9FE5F1B63842100ED5F86 /* GLTelemetryPict */;
+			targetProxy = 07D9FE741B63842100ED5F86 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07D9FE6C1B63842100ED5F86 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07D9FE6D1B63842100ED5F86 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07D9FE7B1B63842100ED5F86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		07D9FE7C1B63842100ED5F86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		07D9FE7E1B63842100ED5F86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GLTelemetryPict/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		07D9FE7F1B63842100ED5F86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GLTelemetryPict/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		07D9FE811B63842100ED5F86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GLTelemetryPictTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GLTelemetryPict.app/Contents/MacOS/GLTelemetryPict";
+			};
+			name = Debug;
+		};
+		07D9FE821B63842100ED5F86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GLTelemetryPictTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GLTelemetryPict.app/Contents/MacOS/GLTelemetryPict";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07D9FE5B1B63842100ED5F86 /* Build configuration list for PBXProject "GLTelemetryPict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07D9FE7B1B63842100ED5F86 /* Debug */,
+				07D9FE7C1B63842100ED5F86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07D9FE7D1B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPict" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07D9FE7E1B63842100ED5F86 /* Debug */,
+				07D9FE7F1B63842100ED5F86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		07D9FE801B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPictTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07D9FE811B63842100ED5F86 /* Debug */,
+				07D9FE821B63842100ED5F86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07D9FE581B63842100ED5F86 /* Project object */;
+}
