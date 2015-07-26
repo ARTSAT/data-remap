@@ -12,13 +12,21 @@
 
 -(id)init {
     self = [super init];
-    offsetY = 1400;
+    offsetY = 400;
+    
+    
+    //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
+    
+    NSString *path = [NSString stringWithFormat:@"../../data/INVADER_azimuth.csv"];
+    
+    telemetry_az = new telemetryReaderAzimuth([path UTF8String]);
+    
     return self;
 };
 
 -(void)renderFromUnixTime:(int)sec duration:(int)duration {
     
-    vector<telemetry> telemsInTerm = reader->telemetriesInRange( sec , duration);
+    vector<telemetryAzimuth> telemsInTerm = telemetry_az->telemetriesInRangeAz(sec , duration);
     
     glPushMatrix();
     
@@ -33,14 +41,32 @@
         
         glColor3f(0,0,0);
         glPushMatrix();
-        glTranslatef(interm, 0, 0);
-        [self drawCircle:0 cy:0 r:4 num_segments:32];
+            glTranslatef(interm, 0, 0);
+            [self drawCircle:0 cy:0 r:4 num_segments:32];
+        
+        glPopMatrix();
+    
+        glPushMatrix();
+            glTranslatef(interm, 0, 0);
+            PointAzimuth from, to;
+            from.x = from.y = to.x = 0.0;
+            to.y = 120.0;
+            [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
+        cout << from.x << to.y << endl;
         glPopMatrix();
         
     }
     
     glPopMatrix();
 };
+
+-(void)drawLine:(PointAzimuth)from to:(PointAzimuth)to rot:(float)rot {
+    //glRotatef(rot, 0, 0, 1);
+    glBegin(GL_LINE);
+        glVertex2d(from.x,from.y);
+        glVertex2d(to.x,to.y);
+    glEnd();
+}
 
 -(void)drawCircle:(float)cx cy:(float)cy r:(float)r num_segments:(int)num_segments {
     glBegin(GL_LINE_LOOP);
