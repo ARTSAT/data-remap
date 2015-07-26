@@ -12,7 +12,7 @@
 
 -(id)init {
     self = [super init];
-    offsetY = 400;
+    offsetY = 900;
     
     
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
@@ -31,9 +31,8 @@
     glPushMatrix();
     
     glTranslatef(0, self->offsetY, 0);
+    
     for (int i=0; i<telemsInTerm.size(); ++i) {
-        
-        //int time = telemsInAday[i].unixTime - reader->firstUnixTime() - sec;
         int time = telemsInTerm[i].unixTime - sec;
         
         float interm = (float)time/(86400.f*DAY_IN_A_PIC);
@@ -42,17 +41,19 @@
         glColor3f(0,0,0);
         glPushMatrix();
             glTranslatef(interm, 0, 0);
-            [self drawCircle:0 cy:0 r:4 num_segments:32];
+            [self drawCircle:0 cy:0 r:telemsInTerm[i].altitude * 2.0 num_segments:64];
         
         glPopMatrix();
-    
+
+        glColor3f(0,0,255);
         glPushMatrix();
             glTranslatef(interm, 0, 0);
             PointAzimuth from, to;
             from.x = from.y = to.x = 0.0;
-            to.y = 120.0;
-            [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
-        cout << from.x << to.y << endl;
+            to.y = telemsInTerm[i].altitude * 2.0;
+            glPushMatrix();
+                [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
+            glPopMatrix();
         glPopMatrix();
         
     }
@@ -61,10 +62,10 @@
 };
 
 -(void)drawLine:(PointAzimuth)from to:(PointAzimuth)to rot:(float)rot {
-    //glRotatef(rot, 0, 0, 1);
-    glBegin(GL_LINE);
-        glVertex2d(from.x,from.y);
-        glVertex2d(to.x,to.y);
+    glRotatef(rot, 0, 0, 1);
+    glBegin(GL_LINES);
+        glVertex2f(from.x,from.y);
+        glVertex2f(to.x,to.y);
     glEnd();
 }
 

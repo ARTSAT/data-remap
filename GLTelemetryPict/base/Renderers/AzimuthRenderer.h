@@ -26,6 +26,4 @@ typedef struct {
     telemetryReaderAzimuth *telemetry_az;
 }
 
--(void)drawCircle: (float)cx cy:(float)cy r:(float)r num_segments:(int)num_segments;
-
 @end

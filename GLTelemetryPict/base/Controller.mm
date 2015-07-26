@@ -35,7 +35,7 @@ static telemetryReader * reader;
     [self fitToScreen];
 
     targetRenderer = [[RENDERER_CLASS alloc] init];
-    azimuthRanderer = [[AzimuthRenderer alloc] init];
+    azimuthRanderer = [[AzimuthRenderer alloc] init]; // mori
     reader = targetRenderer->reader;
     
 
@@ -111,7 +111,7 @@ static telemetryReader * reader;
         [targetRenderer renderFromUnixTime:secStart
                                   duration:duration];
         
-        [azimuthRanderer renderFromUnixTime:secStart duration:duration];
+        [azimuthRanderer renderFromUnixTime:secStart duration:duration]; // mori
         
         if (needExport) {
 

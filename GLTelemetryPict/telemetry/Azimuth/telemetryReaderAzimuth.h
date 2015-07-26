@@ -61,7 +61,7 @@ public:
         
         fclose(fpr);
         
-        cout << telemetries.size() << " telemetries" << endl;
+        //cout << telemetries.size() << " telemetries" << endl;
         
         return telemetries;
     };
