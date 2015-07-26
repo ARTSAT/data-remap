@@ -45,14 +45,18 @@
         
         glPopMatrix();
 
-        glColor3f(0,0,255);
         glPushMatrix();
             glTranslatef(interm, 0, 0);
             PointAzimuth from, to;
             from.x = from.y = to.x = 0.0;
             to.y = telemsInTerm[i].altitude * 2.0;
             glPushMatrix();
+                glColor3f(0,0,255);
                 [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
+            glPopMatrix();
+            glPushMatrix();
+            glColor3f(0,255,255);
+            [self drawLine:from to:to rot:telemsInTerm[i].settingAzimuth];
             glPopMatrix();
         glPopMatrix();
         
@@ -62,7 +66,7 @@
 };
 
 -(void)drawLine:(PointAzimuth)from to:(PointAzimuth)to rot:(float)rot {
-    glRotatef(rot, 0, 0, 1);
+    glRotatef(rot + 180.0, 0, 0, 1);
     glBegin(GL_LINES);
         glVertex2f(from.x,from.y);
         glVertex2f(to.x,to.y);

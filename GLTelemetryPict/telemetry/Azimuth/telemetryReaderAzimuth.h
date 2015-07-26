@@ -15,14 +15,17 @@ using namespace std;
 
 typedef enum {
     TLM_AZM_TIME_UNIX = 0,
-    TLM_AZM_TIME_ALT = 1,
-    TLM_AZM_TIME_AZ = 2,
+    TLM_AZM_ALT = 1,
+    TLM_AZM_AZ = 2,
+    TLM_AZM_SET_AZ = 3
+    
 }telemetryAzimuthCSVIndex;
 
 typedef struct{
     int unixTime;
     float altitude;
     float azimuth;
+    float settingAzimuth;
 }telemetryAzimuth;
 
 
@@ -52,8 +55,9 @@ public:
             telemetryAzimuth tl;
             
             tl.unixTime = atoi(dummy[ TLM_AZM_TIME_UNIX ]);
-            tl.altitude  = atof(dummy[ TLM_AZM_TIME_ALT ]);
-            tl.azimuth = atof(dummy[TLM_AZM_TIME_AZ]);
+            tl.altitude  = atof(dummy[ TLM_AZM_ALT ]);
+            tl.azimuth = atof(dummy[TLM_AZM_AZ]);
+            tl.settingAzimuth = atof(dummy[TLM_AZM_SET_AZ]);
             
             telemetries.push_back(tl);
             
