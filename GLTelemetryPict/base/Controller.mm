@@ -35,8 +35,9 @@ static telemetryReader * reader;
     [self fitToScreen];
 
     targetRenderer = [[RENDERER_CLASS alloc] init];
+    azimuthRanderer = [[AzimuthRenderer alloc] init];
     reader = targetRenderer->reader;
-
+    
 
     startUnixTime   = unixTimeFromDate(2014, 2, 28, 0, 0, 0);
     int end         = unixTimeFromDate(2014, 9, 3, 0, 0, 0);
@@ -109,6 +110,9 @@ static telemetryReader * reader;
     {
         [targetRenderer renderFromUnixTime:secStart
                                   duration:duration];
+        
+        [azimuthRanderer renderFromUnixTime:secStart duration:duration];
+        
         if (needExport) {
 
             NSFileManager *fn = [NSFileManager defaultManager];

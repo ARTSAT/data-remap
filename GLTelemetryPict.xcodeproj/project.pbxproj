@@ -18,6 +18,7 @@
 		07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE901B6384A800ED5F86 /* NHGLView.mm */; };
 		07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */; };
 		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
+		B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		07D9FE921B6384A800ED5F86 /* NHGLWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHGLWrapper.h; sourceTree = "<group>"; };
 		07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = telemetryReader.cpp; sourceTree = "<group>"; };
 		07D9FE951B6384A800ED5F86 /* telemetryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
+		B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AzimuthRenderer.mm; path = Renderers/AzimuthRenderer.mm; sourceTree = "<group>"; };
+		B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzimuthRenderer.h; path = Renderers/AzimuthRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,7 @@
 				07D9FE861B6384A800ED5F86 /* Controller.mm */,
 				07D9FE871B6384A800ED5F86 /* Renderer.h */,
 				07D9FE881B6384A800ED5F86 /* Renderer.mm */,
+				B207583E1B649894003E0BF0 /* Renderers */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -173,6 +177,15 @@
 				07D9FE951B6384A800ED5F86 /* telemetryReader.h */,
 			);
 			path = telemetry;
+			sourceTree = "<group>";
+		};
+		B207583E1B649894003E0BF0 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
+				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
+			);
+			name = Renderers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +289,7 @@
 			files = (
 				07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */,
 				07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */,
+				B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */,
 				07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */,
 				07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */,
 				07D9FE691B63842100ED5F86 /* main.m in Sources */,

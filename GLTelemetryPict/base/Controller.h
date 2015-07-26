@@ -12,7 +12,7 @@
 #import "NHGLWrapper.h"
 #import "config.h"
 #import "Renderer.h"
-
+#import "AzimuthRenderer.h"
 
 
 
@@ -26,7 +26,8 @@
 
 
     Renderer *targetRenderer;
-
+    AzimuthRenderer *azimuthRanderer;
+    
     IBOutlet NSTextField *indexLabel;
 }
 
