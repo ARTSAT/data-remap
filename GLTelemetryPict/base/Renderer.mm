@@ -91,8 +91,8 @@
         glDisable(GL_BLEND);
 
         glBegin(GL_LINES);
-        glVertex2f(PX_PER_DAY*i, 0);
-        glVertex2f(PX_PER_DAY*i, screen_h);
+        glVertex2f(1+PX_PER_DAY*i, 0);
+        glVertex2f(1+PX_PER_DAY*i, screen_h);
         glEnd();
 
 

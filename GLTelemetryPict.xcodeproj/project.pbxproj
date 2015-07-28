@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A8BB401B66DE61005B53CD /* NHRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */; };
 		07D9FE691B63842100ED5F86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE681B63842100ED5F86 /* main.m */; };
 		07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6A1B63842100ED5F86 /* Images.xcassets */; };
 		07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6C1B63842100ED5F86 /* MainMenu.xib */; };
@@ -21,6 +22,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0768DE761B66CAA400D80B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0768DE4E1B66CAA300D80B9A;
+			remoteInfo = ImageCouple;
+		};
+		0768DE781B66CAA400D80B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0768DE611B66CAA300D80B9A;
+			remoteInfo = ImageCoupleTests;
+		};
 		07D9FE741B63842100ED5F86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07D9FE581B63842100ED5F86 /* Project object */;
@@ -31,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImageCouple.xcodeproj; path = ImageCouple/ImageCouple.xcodeproj; sourceTree = "<group>"; };
+		07A8BB3E1B66DE61005B53CD /* NHRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHRenderer.h; sourceTree = "<group>"; };
+		07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NHRenderer.mm; sourceTree = "<group>"; };
+		07A8BB411B66E03A005B53CD /* setting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = setting.h; sourceTree = "<group>"; };
 		07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLTelemetryPict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D9FE641B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D9FE681B63842100ED5F86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,12 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0768DE721B66CAA300D80B9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0768DE771B66CAA400D80B9A /* ImageCouple.app */,
+				0768DE791B66CAA400D80B9A /* ImageCoupleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		07D9FE571B63842100ED5F86 = {
 			isa = PBXGroup;
 			children = (
 				07D9FE621B63842100ED5F86 /* GLTelemetryPict */,
 				07D9FE761B63842100ED5F86 /* GLTelemetryPictTests */,
 				07D9FE611B63842100ED5F86 /* Products */,
+				0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				07D9FE831B6384A800ED5F86 /* base */,
-				07D9FE891B6384A800ED5F86 /* common */,
 				07D9FE8A1B6384A800ED5F86 /* GL */,
 				07D9FE931B6384A800ED5F86 /* telemetry */,
 				07D9FE6A1B63842100ED5F86 /* Images.xcassets */,
@@ -136,19 +164,15 @@
 			isa = PBXGroup;
 			children = (
 				07D9FE841B6384A800ED5F86 /* config.h */,
+				07A8BB411B66E03A005B53CD /* setting.h */,
 				07D9FE851B6384A800ED5F86 /* Controller.h */,
 				07D9FE861B6384A800ED5F86 /* Controller.mm */,
 				07D9FE871B6384A800ED5F86 /* Renderer.h */,
 				07D9FE881B6384A800ED5F86 /* Renderer.mm */,
+				07A8BB3E1B66DE61005B53CD /* NHRenderer.h */,
+				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 			);
 			path = base;
-			sourceTree = "<group>";
-		};
-		07D9FE891B6384A800ED5F86 /* common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = common;
 			sourceTree = "<group>";
 		};
 		07D9FE8A1B6384A800ED5F86 /* GL */ = {
@@ -169,8 +193,8 @@
 		07D9FE931B6384A800ED5F86 /* telemetry */ = {
 			isa = PBXGroup;
 			children = (
-				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
 				07D9FE951B6384A800ED5F86 /* telemetryReader.h */,
+				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
 			);
 			path = telemetry;
 			sourceTree = "<group>";
@@ -242,6 +266,12 @@
 			mainGroup = 07D9FE571B63842100ED5F86;
 			productRefGroup = 07D9FE611B63842100ED5F86 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0768DE721B66CAA300D80B9A /* Products */;
+					ProjectRef = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				07D9FE5F1B63842100ED5F86 /* GLTelemetryPict */,
@@ -249,6 +279,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0768DE771B66CAA400D80B9A /* ImageCouple.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ImageCouple.app;
+			remoteRef = 0768DE761B66CAA400D80B9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0768DE791B66CAA400D80B9A /* ImageCoupleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ImageCoupleTests.xctest;
+			remoteRef = 0768DE781B66CAA400D80B9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		07D9FE5E1B63842100ED5F86 /* Resources */ = {
@@ -282,6 +329,7 @@
 				07D9FE971B6384A800ED5F86 /* Renderer.mm in Sources */,
 				07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */,
 				07D9FE961B6384A800ED5F86 /* Controller.mm in Sources */,
+				07A8BB401B66DE61005B53CD /* NHRenderer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +516,7 @@
 				07D9FE7F1B63842100ED5F86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07D9FE801B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPictTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +525,7 @@
 				07D9FE821B63842100ED5F86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

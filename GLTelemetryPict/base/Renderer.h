@@ -14,8 +14,7 @@
 #import "config.h"
 #import "charTex.h"
 
-#include "telemetryReader.h"
-
+#import "telemetryReader.h"
 
 
 @interface Renderer : NSObject{

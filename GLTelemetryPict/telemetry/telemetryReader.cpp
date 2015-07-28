@@ -41,6 +41,66 @@ int unixTimeFromDate( int year, int month, int day, int hour, int min, int sec){
 }
 
 
+float averageTMPofSolarPanels(telemetry telem){
+
+    float avr = 0.f;
+
+    avr+=telem.tmp_solar_mX;
+    avr+=telem.tmp_solar_pX;
+    avr+=telem.tmp_solar_mY1;
+    avr+=telem.tmp_solar_pY1;
+    avr+=telem.tmp_solar_mY2;
+    avr+=telem.tmp_solar_pY2;
+    avr+=telem.tmp_solar_mZ1;
+    avr+=telem.tmp_solar_pZ1;
+    avr+=telem.tmp_solar_mZ2;
+    avr+=telem.tmp_solar_pZ2;
+
+    avr/=10.f;
+    return avr;
+}
+
+float averageTMPofSolarPanelX(telemetry telem){
+
+    float avr = 0.f;
+
+    avr+=telem.tmp_solar_mY1;
+    avr+=telem.tmp_solar_pY1;
+    avr+=telem.tmp_solar_mY2;
+    avr+=telem.tmp_solar_pY2;
+
+    avr/=4.f;
+    return avr;
+
+}
+
+
+float averageTMPofSolarPanelY(telemetry telem){
+
+    float avr = 0.f;
+
+    avr+=telem.tmp_solar_mZ1;
+    avr+=telem.tmp_solar_pZ1;
+    avr+=telem.tmp_solar_mZ2;
+    avr+=telem.tmp_solar_pZ2;
+
+    avr/=4.f;
+    return avr;
+    
+}
+
+
+float averageTMPofSolarPanelZ(telemetry telem){
+
+    float avr = 0.f;
+
+    avr+=telem.tmp_solar_mX;
+    avr+=telem.tmp_solar_pX;
+
+    avr/=2.f;
+    return avr;
+    
+}
 
 
 

@@ -10,8 +10,9 @@
 #import "NHGLView.h"
 #import "GLFrameBuffer.h"
 #import "NHGLWrapper.h"
-#import "config.h"
-#import "Renderer.h"
+//#import "config.h"
+#import "setting.h"
+//#import "NHRenderer.h"
 
 
 
