@@ -113,6 +113,12 @@ typedef struct{
 
 int unixTimeFromDate( int year, int month, int day, int hour, int min, int sec);
 
+
+float averageTMPofSolarPanels(telemetry telem);
+float averageTMPofSolarPanelX(telemetry telem);
+float averageTMPofSolarPanelY(telemetry telem);
+float averageTMPofSolarPanelZ(telemetry telem);
+
 vector<telemetry> telemetryFromFile( const char * path );
 void dumpTelemetry( telemetry *tl );
 
@@ -151,19 +157,44 @@ public:
     vector<telemetry> telemetriesInRange( int secStart, int duration ){
 
         vector<telemetry> telems;
+        bool first = true;
+        bool first2 = true;
+
         for (int i=0; i<telemetries.size(); ++i) {
 
             int timeFromLaunch =  telemetries[i].unixTime;// - firstUnixTime();
 
             if (timeFromLaunch >= secStart) {
                 if (timeFromLaunch < secStart + duration) {
+
+                    if (first) {
+                        if (i!=0) {
+                            telems.push_back(telemetries[i-1]);
+                            first = false;
+                        }
+                    }
+
                     telems.push_back(telemetries[i]);
+                }else{
+
+                    if (first2) {
+                        telems.push_back(telemetries[i]);
+                        first2 = false;
+                    }
+
                 }
+
             }
         }
 
         return telems;
     }
+
+
+
+
+
+
 
 
     

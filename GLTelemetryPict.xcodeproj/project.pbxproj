@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A8BB6E1B6718C1005B53CD /* cEci.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB481B6718C1005B53CD /* cEci.cpp */; };
+		07A8BB6F1B6718C1005B53CD /* cJulian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB4A1B6718C1005B53CD /* cJulian.cpp */; };
+		07A8BB701B6718C1005B53CD /* coord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB4C1B6718C1005B53CD /* coord.cpp */; };
+		07A8BB711B6718C1005B53CD /* core.vcxproj in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB4E1B6718C1005B53CD /* core.vcxproj */; };
+		07A8BB721B6718C1005B53CD /* core.vcxproj.filters in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB4F1B6718C1005B53CD /* core.vcxproj.filters */; };
+		07A8BB731B6718C1005B53CD /* cSite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB511B6718C1005B53CD /* cSite.cpp */; };
+		07A8BB741B6718C1005B53CD /* cTLE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB531B6718C1005B53CD /* cTLE.cpp */; };
+		07A8BB751B6718C1005B53CD /* cVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB551B6718C1005B53CD /* cVector.cpp */; };
+		07A8BB761B6718C1005B53CD /* globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB581B6718C1005B53CD /* globals.cpp */; };
+		07A8BB771B6718C1005B53CD /* revHistory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB5A1B6718C1005B53CD /* revHistory.txt */; };
+		07A8BB781B6718C1005B53CD /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB5B1B6718C1005B53CD /* stdafx.cpp */; };
+		07A8BB791B6718C1005B53CD /* cNoradBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB5E1B6718C1005B53CD /* cNoradBase.cpp */; };
+		07A8BB7A1B6718C1005B53CD /* cNoradSDP4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB601B6718C1005B53CD /* cNoradSDP4.cpp */; };
+		07A8BB7B1B6718C1005B53CD /* cNoradSGP4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB621B6718C1005B53CD /* cNoradSGP4.cpp */; };
+		07A8BB7C1B6718C1005B53CD /* cOrbit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB641B6718C1005B53CD /* cOrbit.cpp */; };
+		07A8BB7D1B6718C1005B53CD /* orbit.vcxproj in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB661B6718C1005B53CD /* orbit.vcxproj */; };
+		07A8BB7E1B6718C1005B53CD /* orbit.vcxproj.filters in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB671B6718C1005B53CD /* orbit.vcxproj.filters */; };
+		07A8BB7F1B6718C1005B53CD /* revHistory.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB681B6718C1005B53CD /* revHistory.txt */; };
+		07A8BB801B6718C1005B53CD /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB691B6718C1005B53CD /* stdafx.cpp */; };
+		07A8BB811B6718C1005B53CD /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07A8BB6B1B6718C1005B53CD /* readme.txt */; };
+		07A8BB821B6718C1005B53CD /* TLEReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB6C1B6718C1005B53CD /* TLEReader.cpp */; };
 		07D9FE691B63842100ED5F86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE681B63842100ED5F86 /* main.m */; };
 		07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6A1B63842100ED5F86 /* Images.xcassets */; };
 		07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D9FE6C1B63842100ED5F86 /* MainMenu.xib */; };
@@ -19,9 +40,24 @@
 		07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */; };
 		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
 		B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */; };
+		B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0768DE761B66CAA400D80B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0768DE4E1B66CAA300D80B9A;
+			remoteInfo = ImageCouple;
+		};
+		0768DE781B66CAA400D80B9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0768DE611B66CAA300D80B9A;
+			remoteInfo = ImageCoupleTests;
+		};
 		07D9FE741B63842100ED5F86 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07D9FE581B63842100ED5F86 /* Project object */;
@@ -32,6 +68,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ImageCouple.xcodeproj; path = ImageCouple/ImageCouple.xcodeproj; sourceTree = "<group>"; };
+		07A8BB3E1B66DE61005B53CD /* NHRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHRenderer.h; sourceTree = "<group>"; };
+		07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NHRenderer.mm; sourceTree = "<group>"; };
+		07A8BB411B66E03A005B53CD /* setting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = setting.h; sourceTree = "<group>"; };
+		07A8BB481B6718C1005B53CD /* cEci.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cEci.cpp; sourceTree = "<group>"; };
+		07A8BB491B6718C1005B53CD /* cEci.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cEci.h; sourceTree = "<group>"; };
+		07A8BB4A1B6718C1005B53CD /* cJulian.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cJulian.cpp; sourceTree = "<group>"; };
+		07A8BB4B1B6718C1005B53CD /* cJulian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cJulian.h; sourceTree = "<group>"; };
+		07A8BB4C1B6718C1005B53CD /* coord.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coord.cpp; sourceTree = "<group>"; };
+		07A8BB4D1B6718C1005B53CD /* coord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coord.h; sourceTree = "<group>"; };
+		07A8BB4E1B6718C1005B53CD /* core.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = core.vcxproj; sourceTree = "<group>"; };
+		07A8BB4F1B6718C1005B53CD /* core.vcxproj.filters */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = core.vcxproj.filters; sourceTree = "<group>"; };
+		07A8BB501B6718C1005B53CD /* coreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coreLib.h; sourceTree = "<group>"; };
+		07A8BB511B6718C1005B53CD /* cSite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cSite.cpp; sourceTree = "<group>"; };
+		07A8BB521B6718C1005B53CD /* cSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cSite.h; sourceTree = "<group>"; };
+		07A8BB531B6718C1005B53CD /* cTLE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cTLE.cpp; sourceTree = "<group>"; };
+		07A8BB541B6718C1005B53CD /* cTLE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cTLE.h; sourceTree = "<group>"; };
+		07A8BB551B6718C1005B53CD /* cVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cVector.cpp; sourceTree = "<group>"; };
+		07A8BB561B6718C1005B53CD /* cVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cVector.h; sourceTree = "<group>"; };
+		07A8BB571B6718C1005B53CD /* exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exceptions.h; sourceTree = "<group>"; };
+		07A8BB581B6718C1005B53CD /* globals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = globals.cpp; sourceTree = "<group>"; };
+		07A8BB591B6718C1005B53CD /* globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globals.h; sourceTree = "<group>"; };
+		07A8BB5A1B6718C1005B53CD /* revHistory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = revHistory.txt; sourceTree = "<group>"; };
+		07A8BB5B1B6718C1005B53CD /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		07A8BB5C1B6718C1005B53CD /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		07A8BB5E1B6718C1005B53CD /* cNoradBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cNoradBase.cpp; sourceTree = "<group>"; };
+		07A8BB5F1B6718C1005B53CD /* cNoradBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cNoradBase.h; sourceTree = "<group>"; };
+		07A8BB601B6718C1005B53CD /* cNoradSDP4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cNoradSDP4.cpp; sourceTree = "<group>"; };
+		07A8BB611B6718C1005B53CD /* cNoradSDP4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cNoradSDP4.h; sourceTree = "<group>"; };
+		07A8BB621B6718C1005B53CD /* cNoradSGP4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cNoradSGP4.cpp; sourceTree = "<group>"; };
+		07A8BB631B6718C1005B53CD /* cNoradSGP4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cNoradSGP4.h; sourceTree = "<group>"; };
+		07A8BB641B6718C1005B53CD /* cOrbit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cOrbit.cpp; sourceTree = "<group>"; };
+		07A8BB651B6718C1005B53CD /* cOrbit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cOrbit.h; sourceTree = "<group>"; };
+		07A8BB661B6718C1005B53CD /* orbit.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = orbit.vcxproj; sourceTree = "<group>"; };
+		07A8BB671B6718C1005B53CD /* orbit.vcxproj.filters */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = orbit.vcxproj.filters; sourceTree = "<group>"; };
+		07A8BB681B6718C1005B53CD /* revHistory.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = revHistory.txt; sourceTree = "<group>"; };
+		07A8BB691B6718C1005B53CD /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		07A8BB6A1B6718C1005B53CD /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		07A8BB6B1B6718C1005B53CD /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		07A8BB6C1B6718C1005B53CD /* TLEReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TLEReader.cpp; sourceTree = "<group>"; };
+		07A8BB6D1B6718C1005B53CD /* TLEReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLEReader.h; sourceTree = "<group>"; };
 		07D9FE601B63842100ED5F86 /* GLTelemetryPict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLTelemetryPict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D9FE641B63842100ED5F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D9FE681B63842100ED5F86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,10 +131,10 @@
 		07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NHGLWrapper.cpp; sourceTree = "<group>"; };
 		07D9FE921B6384A800ED5F86 /* NHGLWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NHGLWrapper.h; sourceTree = "<group>"; };
 		07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = telemetryReader.cpp; sourceTree = "<group>"; };
-		07D9FE951B6384A800ED5F86 /* telemetryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
 		B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AzimuthRenderer.mm; path = Renderers/AzimuthRenderer.mm; sourceTree = "<group>"; };
 		B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzimuthRenderer.h; path = Renderers/AzimuthRenderer.h; sourceTree = "<group>"; };
 		B207584B1B64ADF5003E0BF0 /* telemetryReaderAzimuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = telemetryReaderAzimuth.h; path = Azimuth/telemetryReaderAzimuth.h; sourceTree = "<group>"; };
+		B2CCEC4F1B67488A003B8007 /* telemetryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +155,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0768DE721B66CAA300D80B9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0768DE771B66CAA400D80B9A /* ImageCouple.app */,
+				0768DE791B66CAA400D80B9A /* ImageCoupleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07A8BB451B6718C1005B53CD /* TLE */ = {
+			isa = PBXGroup;
+			children = (
+				07A8BB461B6718C1005B53CD /* orbitTools */,
+				07A8BB6D1B6718C1005B53CD /* TLEReader.h */,
+				07A8BB6C1B6718C1005B53CD /* TLEReader.cpp */,
+			);
+			path = TLE;
+			sourceTree = "<group>";
+		};
+		07A8BB461B6718C1005B53CD /* orbitTools */ = {
+			isa = PBXGroup;
+			children = (
+				07A8BB471B6718C1005B53CD /* core */,
+				07A8BB5D1B6718C1005B53CD /* orbit */,
+				07A8BB6B1B6718C1005B53CD /* readme.txt */,
+			);
+			path = orbitTools;
+			sourceTree = "<group>";
+		};
+		07A8BB471B6718C1005B53CD /* core */ = {
+			isa = PBXGroup;
+			children = (
+				07A8BB481B6718C1005B53CD /* cEci.cpp */,
+				07A8BB491B6718C1005B53CD /* cEci.h */,
+				07A8BB4A1B6718C1005B53CD /* cJulian.cpp */,
+				07A8BB4B1B6718C1005B53CD /* cJulian.h */,
+				07A8BB4C1B6718C1005B53CD /* coord.cpp */,
+				07A8BB4D1B6718C1005B53CD /* coord.h */,
+				07A8BB4E1B6718C1005B53CD /* core.vcxproj */,
+				07A8BB4F1B6718C1005B53CD /* core.vcxproj.filters */,
+				07A8BB501B6718C1005B53CD /* coreLib.h */,
+				07A8BB511B6718C1005B53CD /* cSite.cpp */,
+				07A8BB521B6718C1005B53CD /* cSite.h */,
+				07A8BB531B6718C1005B53CD /* cTLE.cpp */,
+				07A8BB541B6718C1005B53CD /* cTLE.h */,
+				07A8BB551B6718C1005B53CD /* cVector.cpp */,
+				07A8BB561B6718C1005B53CD /* cVector.h */,
+				07A8BB571B6718C1005B53CD /* exceptions.h */,
+				07A8BB581B6718C1005B53CD /* globals.cpp */,
+				07A8BB591B6718C1005B53CD /* globals.h */,
+				07A8BB5A1B6718C1005B53CD /* revHistory.txt */,
+				07A8BB5B1B6718C1005B53CD /* stdafx.cpp */,
+				07A8BB5C1B6718C1005B53CD /* stdafx.h */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		07A8BB5D1B6718C1005B53CD /* orbit */ = {
+			isa = PBXGroup;
+			children = (
+				07A8BB5E1B6718C1005B53CD /* cNoradBase.cpp */,
+				07A8BB5F1B6718C1005B53CD /* cNoradBase.h */,
+				07A8BB601B6718C1005B53CD /* cNoradSDP4.cpp */,
+				07A8BB611B6718C1005B53CD /* cNoradSDP4.h */,
+				07A8BB621B6718C1005B53CD /* cNoradSGP4.cpp */,
+				07A8BB631B6718C1005B53CD /* cNoradSGP4.h */,
+				07A8BB641B6718C1005B53CD /* cOrbit.cpp */,
+				07A8BB651B6718C1005B53CD /* cOrbit.h */,
+				07A8BB661B6718C1005B53CD /* orbit.vcxproj */,
+				07A8BB671B6718C1005B53CD /* orbit.vcxproj.filters */,
+				07A8BB681B6718C1005B53CD /* revHistory.txt */,
+				07A8BB691B6718C1005B53CD /* stdafx.cpp */,
+				07A8BB6A1B6718C1005B53CD /* stdafx.h */,
+			);
+			path = orbit;
+			sourceTree = "<group>";
+		};
 		07D9FE571B63842100ED5F86 = {
 			isa = PBXGroup;
 			children = (
 				07D9FE621B63842100ED5F86 /* GLTelemetryPict */,
 				07D9FE761B63842100ED5F86 /* GLTelemetryPictTests */,
 				07D9FE611B63842100ED5F86 /* Products */,
+				0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +254,8 @@
 		07D9FE621B63842100ED5F86 /* GLTelemetryPict */ = {
 			isa = PBXGroup;
 			children = (
+				07A8BB451B6718C1005B53CD /* TLE */,
 				07D9FE831B6384A800ED5F86 /* base */,
-				07D9FE891B6384A800ED5F86 /* common */,
 				07D9FE8A1B6384A800ED5F86 /* GL */,
 				07D9FE931B6384A800ED5F86 /* telemetry */,
 				07D9FE6A1B63842100ED5F86 /* Images.xcassets */,
@@ -140,20 +295,16 @@
 			isa = PBXGroup;
 			children = (
 				07D9FE841B6384A800ED5F86 /* config.h */,
+				07A8BB411B66E03A005B53CD /* setting.h */,
 				07D9FE851B6384A800ED5F86 /* Controller.h */,
 				07D9FE861B6384A800ED5F86 /* Controller.mm */,
 				07D9FE871B6384A800ED5F86 /* Renderer.h */,
 				07D9FE881B6384A800ED5F86 /* Renderer.mm */,
 				B207583E1B649894003E0BF0 /* Renderers */,
+				07A8BB3E1B66DE61005B53CD /* NHRenderer.h */,
+				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 			);
 			path = base;
-			sourceTree = "<group>";
-		};
-		07D9FE891B6384A800ED5F86 /* common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = common;
 			sourceTree = "<group>";
 		};
 		07D9FE8A1B6384A800ED5F86 /* GL */ = {
@@ -174,9 +325,9 @@
 		07D9FE931B6384A800ED5F86 /* telemetry */ = {
 			isa = PBXGroup;
 			children = (
-				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
-				07D9FE951B6384A800ED5F86 /* telemetryReader.h */,
 				B20758491B64ADBA003E0BF0 /* Azimuth */,
+				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
+				B2CCEC4F1B67488A003B8007 /* telemetryReader.h */,
 			);
 			path = telemetry;
 			sourceTree = "<group>";
@@ -265,6 +416,12 @@
 			mainGroup = 07D9FE571B63842100ED5F86;
 			productRefGroup = 07D9FE611B63842100ED5F86 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0768DE721B66CAA300D80B9A /* Products */;
+					ProjectRef = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				07D9FE5F1B63842100ED5F86 /* GLTelemetryPict */,
@@ -273,13 +430,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0768DE771B66CAA400D80B9A /* ImageCouple.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ImageCouple.app;
+			remoteRef = 0768DE761B66CAA400D80B9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0768DE791B66CAA400D80B9A /* ImageCoupleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ImageCoupleTests.xctest;
+			remoteRef = 0768DE781B66CAA400D80B9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		07D9FE5E1B63842100ED5F86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				07D9FE6B1B63842100ED5F86 /* Images.xcassets in Resources */,
+				07A8BB711B6718C1005B53CD /* core.vcxproj in Resources */,
+				07A8BB721B6718C1005B53CD /* core.vcxproj.filters in Resources */,
+				07A8BB7F1B6718C1005B53CD /* revHistory.txt in Resources */,
+				07A8BB7E1B6718C1005B53CD /* orbit.vcxproj.filters in Resources */,
+				07A8BB7D1B6718C1005B53CD /* orbit.vcxproj in Resources */,
+				07A8BB811B6718C1005B53CD /* readme.txt in Resources */,
 				07D9FE6E1B63842100ED5F86 /* MainMenu.xib in Resources */,
+				07A8BB771B6718C1005B53CD /* revHistory.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +478,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07A8BB7B1B6718C1005B53CD /* cNoradSGP4.cpp in Sources */,
+				07A8BB761B6718C1005B53CD /* globals.cpp in Sources */,
 				07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */,
 				07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */,
 				B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */,
+				07A8BB7A1B6718C1005B53CD /* cNoradSDP4.cpp in Sources */,
+				07A8BB791B6718C1005B53CD /* cNoradBase.cpp in Sources */,
 				07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */,
+				07A8BB6E1B6718C1005B53CD /* cEci.cpp in Sources */,
+				07A8BB751B6718C1005B53CD /* cVector.cpp in Sources */,
 				07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */,
+				07A8BB821B6718C1005B53CD /* TLEReader.cpp in Sources */,
+				07A8BB6F1B6718C1005B53CD /* cJulian.cpp in Sources */,
+				07A8BB781B6718C1005B53CD /* stdafx.cpp in Sources */,
 				07D9FE691B63842100ED5F86 /* main.m in Sources */,
 				07D9FE971B6384A800ED5F86 /* Renderer.mm in Sources */,
 				07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */,
+				07A8BB7C1B6718C1005B53CD /* cOrbit.cpp in Sources */,
+				B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */,
+				07A8BB741B6718C1005B53CD /* cTLE.cpp in Sources */,
+				07A8BB701B6718C1005B53CD /* coord.cpp in Sources */,
+				07A8BB731B6718C1005B53CD /* cSite.cpp in Sources */,
+				07A8BB801B6718C1005B53CD /* stdafx.cpp in Sources */,
 				07D9FE961B6384A800ED5F86 /* Controller.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +688,7 @@
 				07D9FE7F1B63842100ED5F86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07D9FE801B63842100ED5F86 /* Build configuration list for PBXNativeTarget "GLTelemetryPictTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +697,7 @@
 				07D9FE821B63842100ED5F86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

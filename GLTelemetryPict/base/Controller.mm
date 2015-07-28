@@ -17,9 +17,10 @@ static float viewScale;
 
 const int secInDay = 86400;
 float numberOfDay;
-int pictureWidth;
+//int pictureWidth;
 
-int startUnixTime;
+//int _startUnixTime;
+//int _endUnixTime;
 
 
 
@@ -39,14 +40,14 @@ static telemetryReader * reader;
     reader = targetRenderer->reader;
     
 
-    startUnixTime   = unixTimeFromDate(2014, 2, 28, 0, 0, 0);
-    int end         = unixTimeFromDate(2014, 9, 3, 0, 0, 0);
+//    _startUnixTime  = startUnixTime;
+//    _endUnixTime    = unixTimeFromDate(2014, 9, 3, 0, 0, 0);
 
-    unsigned long displayDuration = end - startUnixTime;
+    unsigned long displayDuration = endUnixTime - startUnixTime;
     NSLog(@"displayDuration = %lu sec = %f days",displayDuration,displayDuration/(float)secInDay);
 
-    pictureWidth = PX_PER_HOUR*24;
-    NSLog(@"%i px width for 24 hours",pictureWidth);
+//    pictureWidth = PX_PER_HOUR*24;
+//    NSLog(@"%i px width for 24 hours",pictureWidth);
 
     numberOfDay = displayDuration/(float)secInDay;
     NSLog(@"%f days in total",numberOfDay);

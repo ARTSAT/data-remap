@@ -9,12 +9,11 @@
 #ifndef GL_config_h
 #define GL_config_h
 
-#import "Renderer.h"
 
 
 #define DPI             (150)
 #define PX_PER_HOUR     (30)
-#define PX_PER_DAY     (PX_PER_HOUR*24)
+#define PX_PER_DAY      (PX_PER_HOUR*24)
 
 #define DAY_IN_A_PIC    (4)
 
@@ -25,11 +24,10 @@
 const float screen_w = PIC_WIDTH_PX;
 const float screen_h = PIC_HEIGH_PX;
 
+#include "telemetryReader.h"
 
 
-
-#define RENDERER_CLASS TestRenderer
-
-
+const int startUnixTime     = unixTimeFromDate(2014, 2, 28, 0, 0, 0);
+const int endUnixTime       = unixTimeFromDate(2014, 9, 3, 0, 0, 0);
 
 #endif

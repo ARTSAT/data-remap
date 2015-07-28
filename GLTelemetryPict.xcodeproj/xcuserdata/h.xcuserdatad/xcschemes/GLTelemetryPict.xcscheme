@@ -34,6 +34,20 @@
                ReferencedContainer = "container:GLTelemetryPict.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0768DE8F1B66DA4400D80B9A"
+               BuildableName = "tTests.xctest"
+               BlueprintName = "tTests"
+               ReferencedContainer = "container:GLTelemetryPict.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "07D9FE721B63842100ED5F86"
                BuildableName = "GLTelemetryPictTests.xctest"
                BlueprintName = "GLTelemetryPictTests"
+               ReferencedContainer = "container:GLTelemetryPict.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0768DE8F1B66DA4400D80B9A"
+               BuildableName = "tTests.xctest"
+               BlueprintName = "tTests"
                ReferencedContainer = "container:GLTelemetryPict.xcodeproj">
             </BuildableReference>
          </TestableReference>
