@@ -12,10 +12,10 @@
 
 #import "Renderer.h"
 #import "NHRenderer.h"
+#import "AzimuthRenderer.h"
 
 
-
-#define RENDERER_CLASS NHRenderer
+#define RENDERER_CLASS AzimuthRenderer
 
 
 #endif

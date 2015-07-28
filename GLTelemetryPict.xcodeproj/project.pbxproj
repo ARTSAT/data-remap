@@ -301,8 +301,6 @@
 				07D9FE871B6384A800ED5F86 /* Renderer.h */,
 				07D9FE881B6384A800ED5F86 /* Renderer.mm */,
 				B207583E1B649894003E0BF0 /* Renderers */,
-				07A8BB3E1B66DE61005B53CD /* NHRenderer.h */,
-				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -335,6 +333,8 @@
 		B207583E1B649894003E0BF0 /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
+				07A8BB3E1B66DE61005B53CD /* NHRenderer.h */,
+				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
 				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
 			);

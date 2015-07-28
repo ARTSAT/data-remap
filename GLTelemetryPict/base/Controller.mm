@@ -109,6 +109,9 @@ static telemetryReader * reader;
 
     [fbo bind];
     {
+        glClearColor(1, 1, 1, 1);
+        glClear(GL_COLOR_BUFFER_BIT);
+
         [targetRenderer renderFromUnixTime:secStart
                                   duration:duration];
         
