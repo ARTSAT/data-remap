@@ -8,8 +8,13 @@
 
 #import "NHRenderer.h"
 
+
+
+
 @implementation NHRenderer
 
+
+static TestRenderer *ruler;
 
 
 float minAvr = 100;
@@ -27,6 +32,8 @@ float maxZ = 0.f;
 
     self = [super init];
 
+
+    ruler = [TestRenderer new];
 
 
 
@@ -89,6 +96,7 @@ float maxZ = 0.f;
 //    glEnable(GL_BLEND);
 //    glBlendAdd();
 
+    glLineWidth(1);
     glDisable(GL_BLEND);
 
     if (telems.size() >1) {
@@ -133,6 +141,88 @@ float maxZ = 0.f;
 //    glRectf(0, 0, PIC_WIDTH_PX, draw_area_h);
 
 
+    glEnable(GL_BLEND);
+    glBlendAlpha();
+    glEnable(GL_LINE_SMOOTH);
+
+
+
+    glLineWidth(5);
+    glColor4f(0, 0, 0,1);
+    glBegin(GL_LINE_STRIP);
+    for (int unixtm=sec; unixtm<sec+duration; unixtm+=60) {
+
+        cGeoTime geo = invaderTLE->geometryAtUnixTime(unixtm);
+
+        float lat = geo.LatitudeRad();
+        float lon = geo.LongitudeRad();
+        float alt = geo.AltitudeKm();//6370.f +
+
+        float y = alt*sinf(lat);
+        float xz = alt*cosf(lat);
+        float x = xz*cosf(lon);
+        float z = xz*sinf(lon);
+
+        float sin = sinf(lon);
+        float r = 1024;
+
+        float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
+        //glVertex2f(posX, r*sin + PIC_HEIGH_PX - r );
+        glVertex2f(posX, r*sin + PIC_HEIGH_PX*.5f );
+        
+    }
+    glEnd();
+
+
+
+    glColor4f(1, 1, 1,1);
+    glLineWidth(2);
+    glBegin(GL_LINE_STRIP);
+    for (int unixtm=sec; unixtm<sec+duration; unixtm+=60) {
+
+        cGeoTime geo = invaderTLE->geometryAtUnixTime(unixtm);
+
+        float lat = geo.LatitudeRad();
+        float lon = geo.LongitudeRad();
+        float alt = geo.AltitudeKm();//6370.f +
+
+        float y = alt*sinf(lat);
+        float xz = alt*cosf(lat);
+        float x = xz*cosf(lon);
+        float z = xz*sinf(lon);
+
+        float sin = sinf(lon);
+        float r = 128;
+
+        float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
+
+        //glVertex2f(posX, r*sin + PIC_HEIGH_PX*.5f );
+
+
+        float r2 = 2048;
+
+        glVertex2f(posX + r2*x/400.f, PIC_HEIGH_PX*.5f + r2*y/400.f );
+
+    }
+    glEnd();
+
+
+
+
+
+
+
+
+    glDisable(GL_LINE_SMOOTH);
+
+
+
+
+
+    glLineWidth(1);
+    [ruler renderFromUnixTime:sec duration:duration];
+
+
 }
 
 -(void)renderTmpAtX:(int)x
@@ -174,9 +264,9 @@ float maxZ = 0.f;
                 break;
         }
 
-        lim*=64;
+        lim*=72;
         for (int n=0; n<lim; ++n) {
-            glVertex2f(s, rand()%h);
+            glVertex2f(s, 36+48 + rand()%(h - 36-48));
         }
     }
     glEnd();

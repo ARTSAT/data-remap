@@ -24,6 +24,9 @@
     NSLog(@"open %@",csvPath);
     reader = new telemetryReader([csvPath UTF8String]);
 
+    invaderTLE = new TLEManager();
+
+
     timeCodeText = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica" size:24]
                                        forRetina:NO
                                        antiAlias:YES];
@@ -49,8 +52,8 @@
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration{
 
-    glClearColor(1, 1, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
+//    glClearColor(1, 1, 1, 1);
+//    glClear(GL_COLOR_BUFFER_BIT);
 
 
     glViewport(0,0,PIC_WIDTH_PX,PIC_HEIGH_PX);
@@ -109,18 +112,18 @@
 
     glEnd();
 
-    for (int i=0; i<duration; i+=PX_PER_HOUR*6 ) {
-
-        glBegin(GL_LINES);
-        glVertex2f(i, 36);
-        glVertex2f(i, 36 + 8);
-        glVertex2f(i, 36+48);
-        glVertex2f(i, 36+48 - 8);
-
-        glEnd();
-
-
-    }
+//    for (int i=0; i<duration; i+=PX_PER_HOUR*6 ) {
+//
+//        glBegin(GL_LINES);
+//        glVertex2f(i, 36);
+//        glVertex2f(i, 36 + 8);
+//        glVertex2f(i, 36+48);
+//        glVertex2f(i, 36+48 - 8);
+//
+//        glEnd();
+//
+//
+//    }
 
 
 

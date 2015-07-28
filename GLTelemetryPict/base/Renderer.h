@@ -13,6 +13,8 @@
 
 #import "config.h"
 #import "charTex.h"
+#include "TLEReader.h"
+
 
 #import "telemetryReader.h"
 
@@ -23,6 +25,8 @@
 @public
     telemetryReader *reader;
     charTex *timeCodeText;
+
+    TLEManager *invaderTLE;
 
 }
 
