@@ -12,7 +12,7 @@
 
 -(id)init {
     self = [super init];
-    offsetY = 900;
+    offsetY = PIC_HEIGH_PX*.5f;
     
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
     
@@ -57,7 +57,8 @@
             glPopMatrix();
         glPopMatrix();
         
-        glColor4f(0.2,0.2,0.2,0.75);
+        //glColor4f(0.2,0.2,0.2,0.75);
+        glColor4f(1,0.2,0.2,0.75);
         glPushMatrix();
         glTranslatef(interm, 0, 0);
         

@@ -142,7 +142,9 @@ float maxZ = 0.f;
 
 
     glEnable(GL_BLEND);
-    glBlendAlpha();
+    //glBlendAlpha();
+    glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA,GL_ONE); //alpha
+
     glEnable(GL_LINE_SMOOTH);
 
 
@@ -191,13 +193,7 @@ float maxZ = 0.f;
         float x = xz*cosf(lon);
         float z = xz*sinf(lon);
 
-        float sin = sinf(lon);
-        float r = 128;
-
         float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
-
-        //glVertex2f(posX, r*sin + PIC_HEIGH_PX*.5f );
-
 
         float r2 = 2048;
 
@@ -205,12 +201,6 @@ float maxZ = 0.f;
 
     }
     glEnd();
-
-
-
-
-
-
 
 
     glDisable(GL_LINE_SMOOTH);
@@ -234,13 +224,13 @@ float maxZ = 0.f;
 
     switch (ax) {
         case 0:
-            glColor3f(0, 0, 0);
+            glColor4f(0, 0, 0,1);
             break;
         case 1:
-            glColor3f(0, 0, 0);
+            glColor4f(0, 0, 0,1);
             break;
         case 2:
-            glColor3f(0, 0, 0);
+            glColor4f(0, 0, 0,1);
             break;
         default:
             break;

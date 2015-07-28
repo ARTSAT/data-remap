@@ -28,6 +28,7 @@
 
     Renderer *targetRenderer;
     AzimuthRenderer *azimuthRanderer; // mori
+    NHRenderer *nh;
     
     IBOutlet NSTextField *indexLabel;
 }

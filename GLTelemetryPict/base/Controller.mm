@@ -37,6 +37,9 @@ static telemetryReader * reader;
 
     targetRenderer = [[RENDERER_CLASS alloc] init];
     azimuthRanderer = [[AzimuthRenderer alloc] init]; // mori
+    nh = [NHRenderer new];
+
+
     reader = targetRenderer->reader;
     
 
@@ -112,10 +115,10 @@ static telemetryReader * reader;
         glClearColor(1, 1, 1, 1);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        [targetRenderer renderFromUnixTime:secStart
-                                  duration:duration];
-        
+        [nh renderFromUnixTime:secStart duration:duration]; // mori
+        [targetRenderer renderFromUnixTime:secStart duration:duration];
         [azimuthRanderer renderFromUnixTime:secStart duration:duration]; // mori
+
         
         if (needExport) {
 
