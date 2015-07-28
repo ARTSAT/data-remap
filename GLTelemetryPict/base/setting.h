@@ -13,9 +13,9 @@
 #import "Renderer.h"
 #import "NHRenderer.h"
 #import "AzimuthRenderer.h"
+#import "YORenderer.h"
 
-
-#define RENDERER_CLASS AzimuthRenderer
+#define RENDERER_CLASS YORenderer
 
 
 #endif

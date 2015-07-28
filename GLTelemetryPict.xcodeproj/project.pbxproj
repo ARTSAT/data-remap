@@ -41,6 +41,7 @@
 		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
 		B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */; };
 		B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */; };
+		D251DB4C1B6799F300FD595D /* YORenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D251DB4B1B6799F300FD595D /* YORenderer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,8 @@
 		B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzimuthRenderer.h; path = Renderers/AzimuthRenderer.h; sourceTree = "<group>"; };
 		B207584B1B64ADF5003E0BF0 /* telemetryReaderAzimuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = telemetryReaderAzimuth.h; path = Azimuth/telemetryReaderAzimuth.h; sourceTree = "<group>"; };
 		B2CCEC4F1B67488A003B8007 /* telemetryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
+		D251DB4B1B6799F300FD595D /* YORenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YORenderer.mm; sourceTree = "<group>"; };
+		D251DB4F1B679A0600FD595D /* YORenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YORenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
 				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
+				D251DB4F1B679A0600FD595D /* YORenderer.h */,
+				D251DB4B1B6799F300FD595D /* YORenderer.mm */,
 			);
 			name = Renderers;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A8BB7B1B6718C1005B53CD /* cNoradSGP4.cpp in Sources */,
+				D251DB4C1B6799F300FD595D /* YORenderer.mm in Sources */,
 				07A8BB761B6718C1005B53CD /* globals.cpp in Sources */,
 				07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */,
 				07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */,
