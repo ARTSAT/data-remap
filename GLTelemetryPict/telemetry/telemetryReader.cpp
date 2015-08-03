@@ -102,6 +102,18 @@ float averageTMPofSolarPanelZ(telemetry telem){
     
 }
 
+float averageTMPofBatteries(telemetry telem){
+
+    float avr = 0.f;
+
+    avr+=telem.tmp_bat1;
+    avr+=telem.tmp_bat2;
+    avr+=telem.tmp_bat3;
+
+    avr/=3.f;
+    return avr;
+}
+
 
 
 vector<telemetry> telemetryFromFile( const char * path ){

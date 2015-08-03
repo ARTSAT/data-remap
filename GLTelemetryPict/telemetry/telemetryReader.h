@@ -119,6 +119,8 @@ float averageTMPofSolarPanelX(telemetry telem);
 float averageTMPofSolarPanelY(telemetry telem);
 float averageTMPofSolarPanelZ(telemetry telem);
 
+float averageTMPofBatteries(telemetry telem);
+
 vector<telemetry> telemetryFromFile( const char * path );
 void dumpTelemetry( telemetry *tl );
 

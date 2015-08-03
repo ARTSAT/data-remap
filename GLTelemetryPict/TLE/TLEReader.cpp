@@ -64,6 +64,8 @@ vector<TLE> openTLE(){
         }
 
         printf("%i lines\n",lineCnt);
+        printf("%i tles\n",tles.size());
+
     }
     fclose(fpr);
 
