@@ -26,6 +26,14 @@ typedef struct HsvColor
     unsigned char v;
 } HsvColor;
 
+struct Color {
+    float r, g, b, a;
+};
+
+struct Vertex {
+    float x, y, z;
+};
+
 RgbColor HsvToRgb(HsvColor hsv)
 {
     RgbColor rgb;
@@ -182,11 +190,16 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
             
             //cout << (int)cmx1.r << ", " << (int)cmx1.g<< ", " << (int)cmx1.b << endl;
             
+            std::vector<Color> colors;
+            std::vector<Vertex> vertices;
+            glEnableClientState(GL_VERTEX_ARRAY);
+            glEnableClientState(GL_COLOR_ARRAY);
+            
             const int n = x2 - x1;
             glPushMatrix();
             glTranslatef(0.f, 4000.f, 0.f);
-            glBegin(GL_LINES);
-            for (int k=0; k<n; k++) {
+            //glBegin(GL_LINES);
+            for (int k=0; k<n; k+=2) {
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[0] * (1.f - f) + t2.magn[0] * f;
@@ -199,18 +212,35 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mX * (1.f - f) + t2.cur_solar_mX * f;
                 float ap = t1.cur_solar_pX * (1.f - f) + t2.cur_solar_pX * f;
-                am = _map(am, 0.f, 700.f, 0.f, 1.f, true);
-                ap = _map(ap, 0.f, 700.f, 0.f, 1.f, true);
-                glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
-                glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
+                float maxCurrent = 100;
+                am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
+                ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
+                const int ny = (int)h;
+                for (int l=0; l<=ny; l+=2) {
+                    const float f2 = l/(float)ny;
+                    const float r = (cmx.r/255.f)*(1.f-f2) + (cpx.r/255.f)*f2;
+                    const float g = (cmx.g/255.f)*(1.f-f2) + (cpx.g/255.f)*f2;
+                    const float b = (cmx.b/255.f)*(1.f-f2) + (cpx.b/255.f)*f2;
+                    const float a = am*(1.f-f2) + ap*f2;
+                    colors.push_back(Color{r, g, b, a});
+                    vertices.push_back(Vertex{x, -h*0.5f+l});
+                }
+                glVertexPointer(3, GL_FLOAT, 0, &vertices.at(0).x);
+                glColorPointer(4, GL_FLOAT, 0, &colors.at(0).r);
+                //glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
+                //glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
             }
-            glEnd();
+            glDrawArrays(GL_POINTS, 0, (GLsizei)vertices.size());
+            //glEnd();
             glPopMatrix();
+            
+            colors.clear();
+            vertices.clear();
             
             glPushMatrix();
             glTranslatef(0.f, 2000.f, 0.f);
-            glBegin(GL_LINES);
-            for (int k=0; k<n; k++) {
+            //glBegin(GL_LINES);
+            for (int k=0; k<n; k+=2) {
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[1] * (1.f - f) + t2.magn[1] * f;
@@ -223,13 +253,31 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mY1 * (1.f - f) + t2.cur_solar_mY1 * f;
                 float ap = t1.cur_solar_pY1 * (1.f - f) + t2.cur_solar_pY1 * f;
-                am = _map(am, 0.f, 700.f, 0.f, 1.f, true);
-                ap = _map(ap, 0.f, 700.f, 0.f, 1.f, true);
-                glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
-                glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
+                float maxCurrent = 100;
+                am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
+                ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
+                const int ny = (int)h;
+                for (int l=0; l<=ny; l+=2) {
+                    const float f2 = l/(float)ny;
+                    const float r = (cmx.r/255.f)*(1.f-f2) + (cpx.r/255.f)*f2;
+                    const float g = (cmx.g/255.f)*(1.f-f2) + (cpx.g/255.f)*f2;
+                    const float b = (cmx.b/255.f)*(1.f-f2) + (cpx.b/255.f)*f2;
+                    const float a = am*(1.f-f2) + ap*f2;
+                    colors.push_back(Color{r, g, b, a});
+                    vertices.push_back(Vertex{x, -h*0.5f+l});
+                }
+                glVertexPointer(3, GL_FLOAT, 0, &vertices.at(0).x);
+                glColorPointer(4, GL_FLOAT, 0, &colors.at(0).r);
+                //glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
+                //glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
             }
-            glEnd();
+            glDrawArrays(GL_POINTS, 0, (GLsizei)vertices.size());
+            //glEnd();
             glPopMatrix();
+
+            
+            glDisableClientState(GL_VERTEX_ARRAY);
+            glDisableClientState(GL_COLOR_ARRAY);
 
 //            const float x{(x1 + x2) / 2.f};
 //            
