@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+
+#define DPI             (180.f)
+
+
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -74,7 +78,7 @@
 
 
         NSBitmapImageRep *bmpImgRep = [NSBitmapImageRep imageRepWithData:[dstImage TIFFRepresentation]];
-        float factor = 72.f/150.f;
+        float factor = 72.f/DPI;
         [bmpImgRep setSize:NSMakeSize(w*pngCnt*factor, h*factor)];
 
 

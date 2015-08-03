@@ -327,8 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				B20758491B64ADBA003E0BF0 /* Azimuth */,
-				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
 				B2CCEC4F1B67488A003B8007 /* telemetryReader.h */,
+				07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */,
 			);
 			path = telemetry;
 			sourceTree = "<group>";

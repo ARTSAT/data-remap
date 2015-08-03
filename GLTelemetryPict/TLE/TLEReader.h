@@ -63,23 +63,21 @@ public:
     cGeoTime geometryAtUnixTime( int unixtime ){
 
         static const float secInMin = 60.f;
-
         cJulian julianTime = cJulian( unixtime );
-
         int index = indexForTime(unixtime);
 
         if (index<0) {
             index = 0;
-
         }
 
 
         cOrbit* obt = allTLEs[index].orbit;
+        printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
 
-        cEciTime eciSDP4( obt->GetPosition( obt->TPlusEpoch(julianTime)/secInMin ) );
+        double temp = obt->TPlusEpoch(julianTime)/secInMin;
+        cEciTime t = obt->GetPosition( temp );
+        cEciTime eciSDP4( t );
         cGeoTime geo(eciSDP4);
-
-        //printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
 
 
 

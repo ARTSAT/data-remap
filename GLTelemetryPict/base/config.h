@@ -11,7 +11,7 @@
 
 
 
-#define DPI             (150)
+
 #define PX_PER_HOUR     (30)
 #define PX_PER_DAY      (PX_PER_HOUR*24)
 
