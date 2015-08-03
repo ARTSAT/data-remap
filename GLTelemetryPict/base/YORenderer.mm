@@ -163,6 +163,7 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
     vector<telemetry> telems = reader->telemetriesInRange(sec, duration);
     
     glLineWidth(1);
+    glPointSize(1);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
