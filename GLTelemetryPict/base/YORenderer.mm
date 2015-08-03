@@ -155,8 +155,6 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration
 {
-    const float y{3000.f};
-    
 //    glClearColor(1, 1, 1, 1);
 //    glClear(GL_COLOR_BUFFER_BIT);
 
@@ -186,6 +184,7 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
             //cout << t1.magn[0] << endl;
             float tmpMin = -10.f;
             float tmpMax =  30.f;
+            float maxCurrent = 80;
             
             //cout << (int)tmx1 << endl;
             
@@ -195,12 +194,14 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
             std::vector<Vertex> vertices;
             glEnableClientState(GL_VERTEX_ARRAY);
             glEnableClientState(GL_COLOR_ARRAY);
+            const int step = 4;
             
             const int n = x2 - x1;
             glPushMatrix();
             glTranslatef(0.f, 4000.f, 0.f);
             //glBegin(GL_LINES);
-            for (int k=0; k<n; k+=2) {
+
+            for (int k=0; k<n; k+=step) {
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[0] * (1.f - f) + t2.magn[0] * f;
@@ -213,11 +214,10 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mX * (1.f - f) + t2.cur_solar_mX * f;
                 float ap = t1.cur_solar_pX * (1.f - f) + t2.cur_solar_pX * f;
-                float maxCurrent = 100;
                 am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
                 ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
                 const int ny = (int)h;
-                for (int l=0; l<=ny; l+=2) {
+                for (int l=0; l<=ny; l+=step) {
                     const float f2 = l/(float)ny;
                     const float r = (cmx.r/255.f)*(1.f-f2) + (cpx.r/255.f)*f2;
                     const float g = (cmx.g/255.f)*(1.f-f2) + (cpx.g/255.f)*f2;
@@ -241,7 +241,7 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
             glPushMatrix();
             glTranslatef(0.f, 2000.f, 0.f);
             //glBegin(GL_LINES);
-            for (int k=0; k<n; k+=2) {
+            for (int k=0; k<n; k+=step) {
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[1] * (1.f - f) + t2.magn[1] * f;
@@ -254,11 +254,10 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mY1 * (1.f - f) + t2.cur_solar_mY1 * f;
                 float ap = t1.cur_solar_pY1 * (1.f - f) + t2.cur_solar_pY1 * f;
-                float maxCurrent = 100;
                 am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
                 ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
                 const int ny = (int)h;
-                for (int l=0; l<=ny; l+=2) {
+                for (int l=0; l<=ny; l+=step) {
                     const float f2 = l/(float)ny;
                     const float r = (cmx.r/255.f)*(1.f-f2) + (cpx.r/255.f)*f2;
                     const float g = (cmx.g/255.f)*(1.f-f2) + (cpx.g/255.f)*f2;
