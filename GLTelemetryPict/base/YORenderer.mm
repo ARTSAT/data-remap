@@ -12,6 +12,118 @@
 #import "YORenderer.h"
 #import "NHRenderer.h"
 
+typedef struct RgbColor
+{
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+} RgbColor;
+
+typedef struct HsvColor
+{
+    unsigned char h;
+    unsigned char s;
+    unsigned char v;
+} HsvColor;
+
+RgbColor HsvToRgb(HsvColor hsv)
+{
+    RgbColor rgb;
+    unsigned char region, remainder, p, q, t;
+    
+    if (hsv.s == 0)
+    {
+        rgb.r = hsv.v;
+        rgb.g = hsv.v;
+        rgb.b = hsv.v;
+        return rgb;
+    }
+    
+    region = hsv.h / 43;
+    remainder = (hsv.h - (region * 43)) * 6;
+    
+    p = (hsv.v * (255 - hsv.s)) >> 8;
+    q = (hsv.v * (255 - ((hsv.s * remainder) >> 8))) >> 8;
+    t = (hsv.v * (255 - ((hsv.s * (255 - remainder)) >> 8))) >> 8;
+    
+    switch (region)
+    {
+        case 0:
+            rgb.r = hsv.v; rgb.g = t; rgb.b = p;
+            break;
+        case 1:
+            rgb.r = q; rgb.g = hsv.v; rgb.b = p;
+            break;
+        case 2:
+            rgb.r = p; rgb.g = hsv.v; rgb.b = t;
+            break;
+        case 3:
+            rgb.r = p; rgb.g = q; rgb.b = hsv.v;
+            break;
+        case 4:
+            rgb.r = t; rgb.g = p; rgb.b = hsv.v;
+            break;
+        default:
+            rgb.r = hsv.v; rgb.g = p; rgb.b = q;
+            break;
+    }
+    
+    return rgb;
+}
+
+HsvColor RgbToHsv(RgbColor rgb)
+{
+    HsvColor hsv;
+    unsigned char rgbMin, rgbMax;
+    
+    rgbMin = rgb.r < rgb.g ? (rgb.r < rgb.b ? rgb.r : rgb.b) : (rgb.g < rgb.b ? rgb.g : rgb.b);
+    rgbMax = rgb.r > rgb.g ? (rgb.r > rgb.b ? rgb.r : rgb.b) : (rgb.g > rgb.b ? rgb.g : rgb.b);
+    
+    hsv.v = rgbMax;
+    if (hsv.v == 0)
+    {
+        hsv.h = 0;
+        hsv.s = 0;
+        return hsv;
+    }
+    
+    hsv.s = 255 * long(rgbMax - rgbMin) / hsv.v;
+    if (hsv.s == 0)
+    {
+        hsv.h = 0;
+        return hsv;
+    }
+    
+    if (rgbMax == rgb.r)
+        hsv.h = 0 + 43 * (rgb.g - rgb.b) / (rgbMax - rgbMin);
+    else if (rgbMax == rgb.g)
+        hsv.h = 85 + 43 * (rgb.b - rgb.r) / (rgbMax - rgbMin);
+    else
+        hsv.h = 171 + 43 * (rgb.r - rgb.g) / (rgbMax - rgbMin);
+    
+    return hsv;
+}
+
+static float _map(float value, float inputMin, float inputMax, float outputMin, float outputMax, bool clamp)
+{
+    if (fabs(inputMin - inputMax) < FLT_EPSILON){
+        return outputMin;
+    } else {
+        float outVal = ((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin);
+        
+        if( clamp ){
+            if(outputMax < outputMin){
+                if( outVal < outputMax )outVal = outputMax;
+                else if( outVal > outputMin )outVal = outputMin;
+            }else{
+                if( outVal > outputMax )outVal = outputMax;
+                else if( outVal < outputMin )outVal = outputMin;
+            }
+        }
+        return outVal;
+    }
+}
+
 @interface YORenderer() {
 #ifdef YO_DEBUG
     TestRenderer* mRuler;
@@ -20,6 +132,7 @@
 @end
 
 @implementation YORenderer
+
 
 -(id)init
 {
@@ -34,7 +147,7 @@
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration
 {
-    const float y{500.f};
+    const float y{3000.f};
     
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -42,64 +155,123 @@
     vector<telemetry> telems = reader->telemetriesInRange(sec, duration);
     
     glLineWidth(1);
-    glDisable(GL_BLEND);
-    
-    glPushMatrix();
-    glTranslatef(0.f, y, 0.f);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     if (telems.size() >1) {
         
         for (int i=0; i<telems.size()-1; ++i) {
             int tm_shifted = telems[i].unixTime - sec;
-            float x1 = PIC_WIDTH_PX * tm_shifted/duration;
+            float x1 = (int)(PIC_WIDTH_PX * tm_shifted/duration);
             
             int tm_shiftedNext = telems[i+1].unixTime - sec;
-            float x2 = PIC_WIDTH_PX * tm_shiftedNext/duration;
+            float x2 = (int)(PIC_WIDTH_PX * tm_shiftedNext/duration);
             
-            const auto& t = telems.at(i);
+            const auto& t1 = telems.at(i+0);
+            const auto& t2 = telems.at(i+1);
             
-            //cout << t.gyro[0] << ", " << t.gyro[1] << ", " << t.gyro[2] << endl;
+            // -40 to 60
             
-            const float x{(x1 + x2) / 2.f};
+            //cout << t1.tmp_solar_mX << ", " << t1.tmp_solar_pX << endl;
+            //cout << t1.cur_solar_mX << ", " << t1.cur_solar_pX << endl;
+            //cout << t1.magn[0] << endl;
+            float tmpMin = -10.f;
+            float tmpMax =  30.f;
             
-            for (int j=0; j<3; j++) {
-                float r, g, b;
-//                switch (j) {
-//                    case 0:
-//                        r = 1.f; g = 0.f; b = 0.f;
-//                        break;
-//                    case 1:
-//                        r = 0.f; g = 1.f; b = 0.f;
-//                        break;
-//                    case 2:
-//                        r = 0.f; g = 0.f; b = 1.f;
-//                        break;
-//                    default:
-//                        r = 0.f; g = 0.f; b = 0.f;
-//                        break;
-//                }
-                r = 0.f; g = 0.f; b = 0.f;
-                glColor3f(0.f, 0.f, 0.f);
-                
-                glPushMatrix();
-                glTranslatef(x, 0.f, 0.f);
-                glRotatef(t.magn[j], 0.f, 0.f, 1.f);
-                
-                const float hlen{100.f * t.gyro[j]};
-                
-                glBegin(GL_LINES);
-                glColor4f(1.f, 1.f, 1.f, 1.f); glVertex2f(-hlen, 0.f);
-                glColor4f(r, g, b, 1.f); glVertex2f(0.f, 0.f);
-                glColor4f(1.f, 1.f, 1.f, 1.f); glVertex2f( hlen, 0.f);
-                glEnd();
-                
-                glPopMatrix();
+            //cout << (int)tmx1 << endl;
+            
+            //cout << (int)cmx1.r << ", " << (int)cmx1.g<< ", " << (int)cmx1.b << endl;
+            
+            const int n = x2 - x1;
+            glPushMatrix();
+            glTranslatef(0.f, 4000.f, 0.f);
+            glBegin(GL_LINES);
+            for (int k=0; k<n; k++) {
+                const float f = k/(float)n;
+                float x = x1 + k;
+                float mgn = t1.magn[0] * (1.f - f) + t2.magn[0] * f;
+                const float h = 15000.f * _map(mgn, 0.f, 360.f, 0.f, 1.f, true);
+                float tmx = t1.tmp_solar_mX * (1.f - f) + t2.tmp_solar_mX;
+                float tpx = t1.tmp_solar_pX * (1.f - f) + t2.tmp_solar_pX;
+                unsigned char _tmx = _map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tpx = _map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
+                RgbColor cmx = HsvToRgb(HsvColor{_tmx, 255, 255});
+                RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
+                float am = t1.cur_solar_mX * (1.f - f) + t2.cur_solar_mX * f;
+                float ap = t1.cur_solar_pX * (1.f - f) + t2.cur_solar_pX * f;
+                am = _map(am, 0.f, 700.f, 0.f, 1.f, true);
+                ap = _map(ap, 0.f, 700.f, 0.f, 1.f, true);
+                glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
+                glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
             }
+            glEnd();
+            glPopMatrix();
             
+            glPushMatrix();
+            glTranslatef(0.f, 2000.f, 0.f);
+            glBegin(GL_LINES);
+            for (int k=0; k<n; k++) {
+                const float f = k/(float)n;
+                float x = x1 + k;
+                float mgn = t1.magn[1] * (1.f - f) + t2.magn[1] * f;
+                const float h = 15000.f * _map(mgn, 0.f, 360.f, 0.f, 1.f, true);
+                float tmx = t1.tmp_solar_mY1 * (1.f - f) + t2.tmp_solar_mY1;
+                float tpx = t1.tmp_solar_pY1 * (1.f - f) + t2.tmp_solar_pY1;
+                unsigned char _tmx = _map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tpx = _map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
+                RgbColor cmx = HsvToRgb(HsvColor{_tmx, 255, 255});
+                RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
+                float am = t1.cur_solar_mY1 * (1.f - f) + t2.cur_solar_mY1 * f;
+                float ap = t1.cur_solar_pY1 * (1.f - f) + t2.cur_solar_pY1 * f;
+                am = _map(am, 0.f, 700.f, 0.f, 1.f, true);
+                ap = _map(ap, 0.f, 700.f, 0.f, 1.f, true);
+                glColor4f(cmx.r/255.f, cmx.g/255.f, cmx.b/255.f, am); glVertex2f(x, -h*0.5f);
+                glColor4f(cpx.r/255.f, cpx.g/255.f, cpx.b/255.f, ap); glVertex2f(x,  h*0.5f);
+            }
+            glEnd();
+            glPopMatrix();
+
+//            const float x{(x1 + x2) / 2.f};
+//            
+//            for (int j=0; j<3; j++) {
+//                float r, g, b;
+////                switch (j) {
+////                    case 0:
+////                        r = 1.f; g = 0.f; b = 0.f;
+////                        break;
+////                    case 1:
+////                        r = 0.f; g = 1.f; b = 0.f;
+////                        break;
+////                    case 2:
+////                        r = 0.f; g = 0.f; b = 1.f;
+////                        break;
+////                    default:
+////                        r = 0.f; g = 0.f; b = 0.f;
+////                        break;
+////                }
+//                
+//                RgbColor c = HsvToRgb(HsvColor{0, 255, 255});
+//                
+//                r = c.r/255.f; g = c.g/255.f; b = c.b/255.f;
+//                glColor3f(0.f, 0.f, 0.f);
+//                
+//                glPushMatrix();
+//                glTranslatef(x, 0.f, 0.f);
+//                glRotatef(t1.magn[j], 0.f, 0.f, 1.f);
+//                
+//                const float hlen{100.f * t1.gyro[j]};
+//                
+//                glBegin(GL_LINES);
+//                glColor4f(1.f, 1.f, 1.f, 1.f); glVertex2f(-hlen, 0.f);
+//                glColor4f(r, g, b, 1.f); glVertex2f(0.f, 0.f);
+//                glColor4f(1.f, 1.f, 1.f, 1.f); glVertex2f( hlen, 0.f);
+//                glEnd();
+//                
+//                glPopMatrix();
+//            }
+//            
         }
     }
-    
-    glPopMatrix();
     
 #ifdef YO_DEBUG
     [mRuler renderFromUnixTime:sec duration:duration];
