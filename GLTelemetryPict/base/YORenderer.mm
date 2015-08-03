@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 h. All rights reserved.
 //
 
-#define YO_DEBUG
+//#define YO_DEBUG
 
 #import <Foundation/Foundation.h>
 #import "YORenderer.h"
@@ -149,9 +149,9 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
 {
     const float y{3000.f};
     
-    glClearColor(1, 1, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-    
+//    glClearColor(1, 1, 1, 1);
+//    glClear(GL_COLOR_BUFFER_BIT);
+
     vector<telemetry> telems = reader->telemetriesInRange(sec, duration);
     
     glLineWidth(1);
