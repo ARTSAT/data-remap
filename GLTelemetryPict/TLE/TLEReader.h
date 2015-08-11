@@ -72,7 +72,7 @@ public:
 
 
         cOrbit* obt = allTLEs[index].orbit;
-        printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
+        //printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
 
         double temp = obt->TPlusEpoch(julianTime)/secInMin;
         cEciTime t = obt->GetPosition( temp );

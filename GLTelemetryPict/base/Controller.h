@@ -26,10 +26,13 @@
     GLFrameBuffer *fbo;
 
 
-    Renderer *targetRenderer;
-    AzimuthRenderer *azimuthRanderer; // mori
-    NHRenderer *nh;
-    
+//    Renderer *targetRenderer;
+//    AzimuthRenderer *azimuthRanderer; // mori
+//    NHRenderer *nh;
+
+    NSMutableArray *renderers;
+
+
     IBOutlet NSTextField *indexLabel;
 }
 

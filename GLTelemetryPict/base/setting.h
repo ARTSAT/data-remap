@@ -15,7 +15,11 @@
 #import "AzimuthRenderer.h"
 #import "YORenderer.h"
 
-#define RENDERER_CLASS YORenderer
 
+#define USE_SINGLE_RENDERER
+#define RENDERER_CLASS NHRenderer
+
+
+#define USE_RULER
 
 #endif

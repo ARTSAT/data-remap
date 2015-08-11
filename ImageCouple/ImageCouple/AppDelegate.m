@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 
-#define DPI             (180.f)
+#define DPI             (150.f)
 
 
 @interface AppDelegate ()
