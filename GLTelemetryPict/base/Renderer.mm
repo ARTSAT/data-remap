@@ -56,6 +56,7 @@
 //    glClear(GL_COLOR_BUFFER_BIT);
 
 
+    glLineWidth(1);
     glViewport(0,0,PIC_WIDTH_PX,PIC_HEIGH_PX);
 
     glMatrixMode( GL_PROJECTION );
@@ -86,7 +87,7 @@
 
         glColor4f(0, 0, 0, 1);
         glPushMatrix();
-        glTranslatef(PX_PER_DAY*i, 0, 0);
+        glTranslatef(4 + PX_PER_DAY*i, 0, 0);
 
         [timeCodeText renderString:timeCode];
 
@@ -108,6 +109,11 @@
 
     glVertex2f(0, 36+48);
     glVertex2f(screen_w, 36+48);
+
+
+    glVertex2f(0, 1);
+    glVertex2f(screen_w, 1);
+
 
 
     glEnd();
@@ -144,33 +150,6 @@
         glEnd();
 
     }
-
-
-
-
-
-
-
-
-
-
-//    glClearColor(1, 1, 1, 1);
-//    glClear(GL_COLOR_BUFFER_BIT);
-
-//    for (int n = 0; n<TLM_ELEM_COUNT; ++n) {
-//
-//        glColor3f(0,0,0);
-//        glBegin(GL_LINES);
-//        glVertex2f(0,           12 + n*12);
-//        glVertex2f(PIC_WIDTH_PX, 12 + n*12);
-//        glEnd();
-//    }
-
-
-
-
-
-//    NSLog(@"%lu telemetries",telemsInAday.size());
 
     
 }

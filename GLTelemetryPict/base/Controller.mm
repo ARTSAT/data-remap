@@ -35,12 +35,25 @@ static telemetryReader * reader;
     viewScale = 1.f;
     [self fitToScreen];
 
-    targetRenderer = [[RENDERER_CLASS alloc] init];
-    azimuthRanderer = [[AzimuthRenderer alloc] init]; // mori
-    nh = [NHRenderer new];
+    renderers = [[NSMutableArray alloc] init];
 
 
-    reader = targetRenderer->reader;
+#ifdef USE_SINGLE_RENDERER
+    [renderers addObject: [[RENDERER_CLASS alloc] init] ];
+#else
+    [renderers addObject: [NHRenderer new] ];
+    [renderers addObject: [AzimuthRenderer new] ];
+    [renderers addObject: [YORenderer new]];
+#endif
+
+
+#ifdef USE_RULER
+    [renderers addObject: [TestRenderer new]];
+#endif
+
+
+    Renderer* temp = [renderers objectAtIndex:0];
+    reader = temp->reader;
     
 
 //    _startUnixTime  = startUnixTime;
@@ -115,11 +128,10 @@ static telemetryReader * reader;
         glClearColor(1, 1, 1, 1);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        [nh renderFromUnixTime:secStart duration:duration]; // mori
-        [targetRenderer renderFromUnixTime:secStart duration:duration];
-        [azimuthRanderer renderFromUnixTime:secStart duration:duration]; // mori
+        for( Renderer* r in renderers){
+            [r renderFromUnixTime:secStart duration:duration];
+        }
 
-        
         if (needExport) {
 
             NSFileManager *fn = [NSFileManager defaultManager];

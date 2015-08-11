@@ -194,6 +194,7 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
             std::vector<Vertex> vertices;
             glEnableClientState(GL_VERTEX_ARRAY);
             glEnableClientState(GL_COLOR_ARRAY);
+            //const int step = 4;
             const int step = 4;
             
             const int n = x2 - x1;
@@ -224,7 +225,7 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                     const float b = (cmx.b/255.f)*(1.f-f2) + (cpx.b/255.f)*f2;
                     const float a = am*(1.f-f2) + ap*f2;
                     colors.push_back(Color{r, g, b, a});
-                    vertices.push_back(Vertex{x, -h*0.5f+l});
+                    vertices.push_back(Vertex{x, -h*0.5f+l +1});
                 }
                 glVertexPointer(3, GL_FLOAT, 0, &vertices.at(0).x);
                 glColorPointer(4, GL_FLOAT, 0, &colors.at(0).r);
