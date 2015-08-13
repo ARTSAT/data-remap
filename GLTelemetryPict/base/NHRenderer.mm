@@ -192,14 +192,14 @@ vector<float> rotations[3];
                 glColor3f(1, 1, 0);
             }
 
-//            glPointSize(3);
-//            glColor3f(0, 0, 0);
-//            glBegin(GL_POINTS);
-//            for (int n=0; n<fabsf(lim); ++n) {
-//                //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
-//                glVertex2f(x, LINE*(rand()%(draw_area_h/LINE)) + 6);
-//            }
-//            glEnd();
+            glPointSize(2);
+            glColor3f(0, 0, 0);
+            glBegin(GL_POINTS);
+            for (int n=0; n<fabsf(lim); ++n) {
+                //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
+                glVertex2f(x, LINE*(rand()%(draw_area_h/LINE)) + 6);
+            }
+            glEnd();
 
 
 
@@ -271,6 +271,8 @@ vector<float> rotations[3];
             float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
             //glVertex2f(posX, r*sin + PIC_HEIGH_PX - r );
             glVertex2f(posX, r*sin + screen_h*.5f );
+
+
         }
 
 
@@ -500,15 +502,15 @@ vector<float> rotations[3];
 
         lim = telem.tmp_powerOBC - minPowerOBCtmp;
 
-        int len = 3;
+        int length = 3;
 
         lim*=(64);//64
         for (int n=0; n<lim; ++n) {
 
             int y = rand()%((h)/LINE);
 
-            glVertex2f(s+len,  + y*LINE+4+len);
-            glVertex2f(s-len,  + y*LINE+4-len);
+            glVertex2f(s+length,  + y*LINE+4+length);
+            glVertex2f(s-length,  + y*LINE+4-length);
 
 
         }

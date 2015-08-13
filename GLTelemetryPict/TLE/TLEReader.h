@@ -28,6 +28,7 @@ typedef struct{
     cOrbit* orbit;
     unsigned long epochSecInUnixTime;
 
+
     
 }TLE;
 
@@ -44,9 +45,17 @@ public:
     vector<TLE> allTLEs;
 
 
+        cSite *site;
+
+    //L Latitude : 35.610603 Longitude : 139.351124 Altitude : 148[m]
 
     TLEManager(){
         allTLEs = openTLE();
+
+        site = new cSite(35.610603, 139.351124, 0.148);
+
+
+
     }
 
 
@@ -56,6 +65,47 @@ public:
             index--;
         }
         return index;
+    }
+
+
+
+
+    cTopo lookingAngle( int targetTime ){
+
+
+        static const float secInMin = 60.f;
+        cJulian julianTime = cJulian( targetTime );
+        int index = indexForTime(targetTime);
+
+        if (index<0) {
+            index = 0;
+        }
+
+
+        cOrbit* obt = allTLEs[index].orbit;
+        //printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
+
+        double temp = obt->TPlusEpoch(julianTime)/secInMin;
+        cEciTime t = obt->GetPosition( temp );
+        cEciTime eciSDP4( t );
+
+
+        cTopo topo = site->GetLookAngle( t );
+
+        return topo;
+    }
+
+
+    float elevation( cTopo topo ){
+        return topo.ElevationDeg();
+    }
+
+    bool isVisible( int targetTime ){
+
+        float ele = elevation( lookingAngle(targetTime) );
+
+
+        return ele>0. ? true : false;
     }
 
 
