@@ -43,7 +43,6 @@ using namespace fl;
     
     ScopedLineWidth lw{1.f};
     ScopedPointSize ps{1.f};
-    ScopedBlending bld{BLEND_ALPHA};
     ScopedAlign algn{false};
     ScopedFill fill{true};
     ScopedTranslate t{0.f, ruler_h};
