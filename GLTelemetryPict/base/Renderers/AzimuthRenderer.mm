@@ -46,31 +46,13 @@
         float interm = (float)time/(86400.f*DAY_IN_A_PIC);
         interm*=PIC_WIDTH_PX;
         
-//        glPushMatrix();
-//            glTranslatef(interm, 0, 0);
-//            PointAzimuth from, to;
-//            from.x = from.y = to.x = 0.0;
-//            to.y = telemsInTerm[i].altitude * scaleFact;
-//            glPushMatrix();
-//                glColor4f(0.0,0.0,0.0, 0.8);
-//                [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
-//            glPopMatrix();
-//            glPushMatrix();
-//                glColor3f(0,255,255);
-//                //[self drawLine:from to:to rot:telemsInTerm[i].settingAzimuth];
-//            glPopMatrix();
-//        glPopMatrix();
-        
-        //glColor4f(0.2,0.2,0.2,0.75);
         
         glPushMatrix();
         glTranslatef(interm, (telemsInTerm[i].azimuth - 90) * scaleFact * 0.5, 0);
         
-        //[self drawArc:0 y:0 r:telemsInTerm[i].altitude * 2.0 start_angle: telemsInTerm[i].azimuth * 3.145 /180 d_angle: telemsInTerm[i].settingAzimuth * 3.145 /180 segments:64];
         if (whitening) {
             if (0 > (telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth)) {
                 glColor4f(1.0,1.0,1.0,1.0);
-                //[self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
                 
                 [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact  * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.05) quards:NO];
             }
@@ -95,7 +77,6 @@
 -(void)drawRect:(float)x_ y_:(float)y_ width:(float)width height:(float)height {
     
     glBegin(GL_QUADS);
-//    glLineWidth(2);
         glVertex2f(0 + x_, 0 + y_);
         glVertex2f(0 + x_ + width, 0 + y_);
         glVertex2f(0 + x_ + width, 0 + y_ + height);
@@ -115,10 +96,9 @@
             glVertex2f(0 + x_, vHeight * i + (vHeight * 0.5));
         } else {
             glBegin(GL_LINE_LOOP);
-            //glLineWidth(2);
             glVertex2f(0 + x_ + sin(i) * factor , vHeight * i);
-            glVertex2f(0 + x_ + width + sin(i) * factor, vHeight * i);
-            glVertex2f(0 + x_ + width + sin(i) * factor, vHeight * i + (vHeight * 0.5));
+            glVertex2f(0 + x_ + width, vHeight * i);
+            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
             glVertex2f(0 + x_ + sin(i) * factor, vHeight * i + (vHeight * 0.5));
         }
         glEnd();
@@ -145,7 +125,6 @@
     float x = _r * cos(start_angle);
     float y = _r * sin(start_angle);
 
-    //glRotatef(-270, 0, 0, 1);
     glBegin(GL_LINE_STRIP);
     for(int ii = 0; ii < segments; ii++) {
         glVertex2d(x + _x, y + _y);
