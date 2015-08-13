@@ -50,7 +50,7 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{PIC_HEIGH_PX};
+    const int h{50};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
@@ -95,7 +95,6 @@ using namespace fl;
                             MC::Color c;
                             v.x = (i - x1) / (float)PIC_WIDTH_PX;
                             v.y = _j / (float)(PIC_HEIGH_PX);
-                            v.y = fmodf(v.y, 0.005f);
                             v.z = 5.0;
                             c.r = c.g = c.b = 1.0;
                             MC::multicolor(v, &c,
@@ -121,8 +120,13 @@ using namespace fl;
         
         setColor(Color::white);
         enableColorArray();
-        for (auto& v : mVbos)
-            v->draw(GL_POINTS);
+        const int repeat{PIC_HEIGH_PX / h};
+        for (int i = 0; i < repeat; i++) {
+            ScopedTranslate t(0.f, i * h);
+            for (auto& v : mVbos) {
+                v->draw(GL_POINTS);
+            }
+        }
         disableColorArray();
     }
     
