@@ -12,7 +12,7 @@
 
 -(id)init {
     self = [super init];
-    offsetY = PIC_HEIGH_PX*0.5f;
+    offsetY = PIC_HEIGH_PX * 0.5f + ruler_h;
     
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
     
@@ -66,6 +66,9 @@
         
         [self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
         
+        glColor4f(0.0,0.0,0.0,1.0);
+        [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth];
+        
         glPopMatrix();
     }
     
@@ -81,13 +84,28 @@
 }
 
 -(void)drawRect:(float)x_ y_:(float)y_ width:(float)width height:(float)height {
-    //glBegin(GL_QUADS);
-    glBegin(GL_LINE_LOOP);
+    
+    glBegin(GL_QUADS);
+//    glLineWidth(2);
         glVertex2f(0 + x_, 0 + y_);
         glVertex2f(0 + x_ + width, 0 + y_);
         glVertex2f(0 + x_ + width, 0 + y_ + height);
         glVertex2f(0 + x_, 0 + y_ + height);
     glEnd();
+}
+
+-(void)drawIntermittentRect:(float)x_ y_:(float)y_ width:(float)width height:(float)height factor:(int)factor {
+    for (int i=0; i<factor; i++) {
+        //float vY = y_ / factor;
+        float vHeight = height / factor;
+        glBegin(GL_QUADS);
+        //    glLineWidth(2);
+            glVertex2f(0 + x_, vHeight * i);
+            glVertex2f(0 + x_ + width, vHeight * i);
+            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
+            glVertex2f(0 + x_, vHeight * i + (vHeight * 0.5));
+        glEnd();
+    }
 }
 
 -(void)drawCircle:(float)cx cy:(float)cy r:(float)r num_segments:(int)num_segments {
