@@ -15,7 +15,8 @@ MULTI_COLOR_NAMESPACE_BEGIN
 
 #define B 0x100
 #define BM 0xff
-#define N 0x10000000
+//#define N 0x10000000
+  #define N 0x100
 #define NP 12
 #define NM 0xfff
 
@@ -28,15 +29,15 @@ MULTI_COLOR_NAMESPACE_BEGIN
     r1 = r0 - 1.;
 
 static int p[B + B + 2];
-static double g[B + B + 2][3];
+static float g[B + B + 2][3];
 
 void initNoise()
 {
     for (int i = 0; i < B; i++) {
-        double v[3], s;
+        float v[3], s;
         do {
             for (int j = 0; j < 3; j++)
-                v[j] = (double)((::random() % (B + B)) - B) / B;
+                v[j] = (float)((::random() % (B + B)) - B) / B;
             s = ADOT(v, v);
         } while (s > 1.0);
         s = sqrt(s);
@@ -60,15 +61,23 @@ void initNoise()
     }
 }
 
-double noise3(Vector vec)
+float noise3(Vector vec)
 {
 	int bx0, bx1, by0, by1, bz0, bz1, b00, b10, b01, b11;
-	double rx0, rx1, ry0, ry1, rz0, rz1, *q, sy, sz, a, b, c, d, t, u, v;
+    float rx0, rx1, ry0, ry1, rz0, rz1, sy, sz, *q, a, b, c, d, t, u, v;
     
 	setup(vec.x, bx0, bx1, rx0, rx1);
 	setup(vec.y, by0, by1, ry0, ry1);
 	setup(vec.z, bz0, bz1, rz0, rz1);
 
+//    t = ((float)vec.x) + N;
+//    int i0 = ((int)t) & BM;
+//    int i1 = (i0+1) & BM;
+//    float f0 = t - (int)t;
+//    float f1 = f0 - 1.;
+//    printf("%f %i %i %f %f\n", t, i0, i1, f0, f1);
+//    exit(0);
+    
 	const int i = p[bx0];
 	const int j = p[bx1];
 
@@ -79,7 +88,7 @@ double noise3(Vector vec)
 
 #define at(rx, ry, rz) (rx * q[0] + ry * q[1] + rz * q[2])
 
-#define s_curve(t) (t * t * (3. - 2. * t))
+#define s_curve(t) (t * t * (3.f - 2.f * t))
 
 #define lerp(t, a, b) (a + t * (b - a))
 
@@ -107,7 +116,7 @@ double noise3(Vector vec)
 
 	d = lerp(sy, a, b);
 
-	return 1.5 * lerp(sz, c, d);
+	return 1.5f * lerp(sz, c, d);
     
 #undef at
 #undef s_curve
@@ -119,9 +128,9 @@ Vector vecNoise3(Vector point)
 	Vector result;
 
 	result.x = noise3(point);
-	point.x += 10.0;
+	point.x += 10.0f;
 	result.y = noise3(point);
-	point.y += 10.0;
+	point.y += 10.0f;
 	result.z = noise3(point);
 
 	return result;

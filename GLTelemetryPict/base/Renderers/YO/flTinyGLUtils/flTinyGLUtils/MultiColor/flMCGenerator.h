@@ -15,15 +15,15 @@ MULTI_COLOR_NAMESPACE_BEGIN
 
 void multicolor(Vector texture,
                 Color *color,
-                double arg0, double arg1, double arg2, double arg3,
-                double arg4, double arg5, double arg6, double arg7,
-                double arg8, double arg9, double arg10);
-Vector wrinkled(Vector point, double lacunarity, double H, double octaves);
-double multifractal(Vector pos,
-                    double H,
-                    double lacunarity,
-                    double octaves,
-                    double zero_offset);
+                float arg0, float arg1, float arg2, float arg3,
+                float arg4, float arg5, float arg6, float arg7,
+                float arg8, float arg9, float arg10);
+Vector wrinkled(Vector point, float lacunarity, float H, float octaves);
+float multifractal(Vector pos,
+                    float H,
+                    float lacunarity,
+                    float octaves,
+                    float zero_offset);
 
 MULTI_COLOR_NAMESPACE_END
 

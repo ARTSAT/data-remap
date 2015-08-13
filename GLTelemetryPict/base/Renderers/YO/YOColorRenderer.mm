@@ -96,7 +96,7 @@ using namespace fl;
                             v.x = (i - x1) / (float)PIC_WIDTH_PX;
                             v.y = _j / (float)PIC_HEIGH_PX;
                             v.z = 5.0;
-                            c.r = c.g = c.b = 0.5;
+                            c.r = c.g = c.b = 1.0;
                             MC::multicolor(v, &c,
                                            0.7, 2.0, 8.0, 0.2,
                                            mZ, pZ, mY, pY,

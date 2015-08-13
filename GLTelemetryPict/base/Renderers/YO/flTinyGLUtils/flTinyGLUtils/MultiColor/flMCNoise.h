@@ -14,7 +14,7 @@
 MULTI_COLOR_NAMESPACE_BEGIN
 
 void initNoise();
-double noise3(Vector vec);
+float noise3(Vector vec);
 Vector vecNoise3(Vector point);
 
 MULTI_COLOR_NAMESPACE_END

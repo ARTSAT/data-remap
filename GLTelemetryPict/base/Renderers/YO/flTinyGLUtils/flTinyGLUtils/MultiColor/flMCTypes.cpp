@@ -12,10 +12,10 @@
 MULTI_COLOR_NAMESPACE_BEGIN
 
 const Matrix kIdentityMatrix = {
-    1.0, 0.0, 0.0, 0.0,
-    0.0, 1.0, 0.0, 0.0,
-    0.0, 0.0, 1.0, 0.0,
-    0.0, 0.0, 0.0, 1.0,
+    1.0f, 0.0f, 0.0f, 0.0f,
+    0.0f, 1.0f, 0.0f, 0.0f,
+    0.0f, 0.0f, 1.0f, 0.0f,
+    0.0f, 0.0f, 0.0f, 1.0f,
 };
 
 void copyMatrix(const Matrix a, Matrix b)
@@ -27,7 +27,7 @@ void copyMatrix(const Matrix a, Matrix b)
 
 void multMatrix(const Matrix a, const Matrix b, Matrix c)
 {
-    double sum;
+    float sum;
     
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
@@ -39,10 +39,10 @@ void multMatrix(const Matrix a, const Matrix b, Matrix c)
     }
 }
 
-void rotateX(double theta, Matrix m)
+void rotateX(float theta, Matrix m)
 {
-    double sine = ::sin(theta);
-    double cosine = ::cos(theta);
+    float sine = ::sinf(theta);
+    float cosine = ::cosf(theta);
     
     copyMatrix(kIdentityMatrix, m);
     m[1][1] = cosine;
@@ -51,10 +51,10 @@ void rotateX(double theta, Matrix m)
     m[2][2] = cosine;
 }
 
-void rotateY(double theta, Matrix m)
+void rotateY(float theta, Matrix m)
 {
-    double sine = ::sin(theta);
-    double cosine = ::cos(theta);
+    float sine = ::sinf(theta);
+    float cosine = ::cosf(theta);
     
     copyMatrix(kIdentityMatrix, m);
     m[0][0] = cosine;
@@ -63,10 +63,10 @@ void rotateY(double theta, Matrix m)
     m[2][2] = cosine;
 }
 
-void rotateZ(double theta, Matrix m)
+void rotateZ(float theta, Matrix m)
 {
-    double sine = ::sin(theta);
-    double cosine = ::cos(theta);
+    float sine = ::sinf(theta);
+    float cosine = ::cosf(theta);
     
     copyMatrix(kIdentityMatrix, m);
     m[0][0] = cosine;
