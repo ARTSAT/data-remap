@@ -45,12 +45,14 @@ using namespace fl;
     ScopedPointSize ps{1.f};
     ScopedAlign algn{false};
     ScopedFill fill{true};
-    ScopedTranslate t{0.f, ruler_h};
+
     
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{200};
+    const int h{100};
+    
+    ScopedTranslate t{0.f, PIC_HEIGH_PX * 0.5f - h * 0.5f};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
@@ -96,7 +98,7 @@ using namespace fl;
                             v.x = (i - x1) / (float)PIC_WIDTH_PX;
                             v.y = _j / (float)(PIC_HEIGH_PX);
                             v.z = 5.0;
-                            c.r = c.g = c.b = 1.0;
+                            c.r = c.g = c.b = 0.5;
                             MC::multicolor(v, &c,
                                            0.7, 2.0, 8.0, 0.2,
                                            mZ, pZ, mY, pY,
@@ -120,13 +122,13 @@ using namespace fl;
         
         setColor(Color::white);
         enableColorArray();
-        const int repeat{PIC_HEIGH_PX / h};
-        for (int i = 0; i < repeat; i++) {
-            ScopedTranslate t(0.f, i * h);
+//        const int repeat{PIC_HEIGH_PX / h};
+//        for (int i = 0; i < repeat; i++) {
+//            ScopedTranslate t(0.f, i * h);
             for (auto& v : mVbos) {
                 v->draw(GL_POINTS);
             }
-        }
+//        }
         disableColorArray();
     }
     
