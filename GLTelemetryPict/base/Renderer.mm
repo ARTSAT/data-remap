@@ -27,6 +27,8 @@
     invaderTLE = new TLEManager();
 
 
+    deorbitUnixTime = unixTimeFromDate(2014, 9, 2, 9, 47, 0) - 9*3600;
+
     timeCodeText = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica" size:24]
                                        forRetina:NO
                                        antiAlias:YES];
@@ -48,6 +50,18 @@
 
 
 @implementation TestRenderer
+
+
+
+-(id)init{
+    self = [super init];
+
+    smallFont = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica" size:12]
+                                    forRetina:NO
+                                    antiAlias:YES];
+
+    return self;
+}
 
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration{
@@ -87,7 +101,7 @@
 
         glColor4f(0, 0, 0, 1);
         glPushMatrix();
-        glTranslatef(4 + PX_PER_DAY*i, 0, 0);
+        glTranslatef(4 + PX_PER_DAY*i, 3, 0);
 
         [timeCodeText renderString:timeCode];
 
@@ -107,29 +121,49 @@
     glVertex2f(0, 36);
     glVertex2f(screen_w, 36);
 
-    glVertex2f(0, 36+48);
-    glVertex2f(screen_w, 36+48);
+    glVertex2f(0, 36+24);
+    glVertex2f(screen_w, 36+24);
 
+
+    glVertex2f(0, 36+24+24);
+    glVertex2f(screen_w, 36+24+24);
 
     glVertex2f(0, 1);
     glVertex2f(screen_w, 1);
-
-
-
     glEnd();
 
-//    for (int i=0; i<duration; i+=PX_PER_HOUR*6 ) {
-//
-//        glBegin(GL_LINES);
-//        glVertex2f(i, 36);
-//        glVertex2f(i, 36 + 8);
-//        glVertex2f(i, 36+48);
-//        glVertex2f(i, 36+48 - 8);
-//
-//        glEnd();
-//
-//
-//    }
+
+    //hours
+    int len = 3;
+    for (int i=0; i<duration; i+=PX_PER_HOUR ) {
+
+        int hour = (i/PX_PER_HOUR)%24;
+
+        if((i/PX_PER_HOUR)%6==0){
+
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);//alpha
+            glColor4f(0, 0, 0, 1);
+            glPushMatrix();
+            glTranslatef(i+2, 36, 0);
+            [smallFont renderString:[NSString stringWithFormat:@"%02i",hour]];
+
+            glPopMatrix();
+            glDisable(GL_BLEND);
+
+
+            len = 12;
+
+        }else{
+            len = 6;
+        }
+
+        glBegin(GL_LINES);
+        glVertex2f(i+1, 36+24);
+        glVertex2f(i+1, 36+24 - len);
+
+        glEnd();
+    }
 
 
 
@@ -145,7 +179,7 @@
 
         glColor3f(0,0,0);
         glBegin(GL_LINES);
-        glVertex2f(interm, 36);
+        glVertex2f(interm, 36+24);
         glVertex2f(interm, 36+48);
         glEnd();
 

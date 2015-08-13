@@ -1,3 +1,11 @@
-build
+build/
 GLTelemetryPict.xcodeproj/xcuserdata/moxuse.xcuserdatad
 GLTelemetryPict.xcodeproj/project.xcworkspace
+*.swp
+.DS_Store
+*.lock
+DerivedData/
+*.xccheckout
+xcuserdata/
+*.xcuserstate
+project.xcworkspace/

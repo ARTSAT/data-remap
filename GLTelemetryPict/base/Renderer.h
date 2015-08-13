@@ -28,6 +28,11 @@
 
     TLEManager *invaderTLE;
 
+
+    unsigned long deorbitUnixTime;
+
+
+
 }
 
 -(void)renderFromUnixTime:(int)sec
@@ -38,5 +43,10 @@
 
 
 
-@interface TestRenderer : Renderer
+@interface TestRenderer : Renderer{
+
+
+    charTex *smallFont;
+
+}
 @end

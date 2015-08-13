@@ -12,7 +12,7 @@
 
 -(id)init {
     self = [super init];
-    offsetY = PIC_HEIGH_PX*.5f;
+    offsetY = PIC_HEIGH_PX*0.5f;
     
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
     
@@ -25,7 +25,7 @@
 
 -(void)renderFromUnixTime:(int)sec duration:(int)duration {
     
-    float scaleFact = 2.5;
+    float scaleFact = 18.0;
     
     vector<telemetryAzimuth> telemsInTerm = telemetry_az->telemetriesInRangeAz(sec , duration);
     
@@ -42,29 +42,29 @@
         float interm = (float)time/(86400.f*DAY_IN_A_PIC);
         interm*=PIC_WIDTH_PX;
         
-        glPushMatrix();
-            glTranslatef(interm, 0, 0);
-            PointAzimuth from, to;
-            from.x = from.y = to.x = 0.0;
-            to.y = telemsInTerm[i].altitude * scaleFact;
-            glPushMatrix();
-                glColor4f(0.75,0.75,1.0, 0.8);
-                [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
-            glPopMatrix();
-            glPushMatrix();
-                glColor3f(0,255,255);
-                //[self drawLine:from to:to rot:telemsInTerm[i].settingAzimuth];
-            glPopMatrix();
-        glPopMatrix();
+//        glPushMatrix();
+//            glTranslatef(interm, 0, 0);
+//            PointAzimuth from, to;
+//            from.x = from.y = to.x = 0.0;
+//            to.y = telemsInTerm[i].altitude * scaleFact;
+//            glPushMatrix();
+//                glColor4f(0.0,0.0,0.0, 0.8);
+//                [self drawLine:from to:to rot:telemsInTerm[i].azimuth];
+//            glPopMatrix();
+//            glPushMatrix();
+//                glColor3f(0,255,255);
+//                //[self drawLine:from to:to rot:telemsInTerm[i].settingAzimuth];
+//            glPopMatrix();
+//        glPopMatrix();
         
         //glColor4f(0.2,0.2,0.2,0.75);
-        glColor4f(1,0.2,0.2,0.75);
+        glColor4f(1.0,1.0,1.0,1.0);
         glPushMatrix();
-        glTranslatef(interm, 0, 0);
+        glTranslatef(interm, (telemsInTerm[i].azimuth - 90) * scaleFact * 0.5, 0);
         
         //[self drawArc:0 y:0 r:telemsInTerm[i].altitude * 2.0 start_angle: telemsInTerm[i].azimuth * 3.145 /180 d_angle: telemsInTerm[i].settingAzimuth * 3.145 /180 segments:64];
         
-        [self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
+        [self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
         
         glPopMatrix();
     }
@@ -81,6 +81,7 @@
 }
 
 -(void)drawRect:(float)x_ y_:(float)y_ width:(float)width height:(float)height {
+    //glBegin(GL_QUADS);
     glBegin(GL_LINE_LOOP);
         glVertex2f(0 + x_, 0 + y_);
         glVertex2f(0 + x_ + width, 0 + y_);
