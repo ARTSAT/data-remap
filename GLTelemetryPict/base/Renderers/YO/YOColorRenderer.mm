@@ -50,7 +50,7 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{50};
+    const int h{200};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
