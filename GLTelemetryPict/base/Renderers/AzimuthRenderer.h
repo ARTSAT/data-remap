@@ -19,11 +19,13 @@ typedef struct {
 }PointAzimuth;
 
 @interface AzimuthRenderer : Renderer {
-
+    
 @private
-
+    BOOL whitening;
     int offsetY;
     telemetryReaderAzimuth *telemetry_az;
 }
+
+-(id)initWithWhitening:(BOOL)whitening_;
 
 @end

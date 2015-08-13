@@ -42,8 +42,9 @@ static telemetryReader * reader;
     [renderers addObject: [[RENDERER_CLASS alloc] init] ];
 #else
 //    [renderers addObject: [YORenderer new]];
-    [renderers addObject: [AzimuthRenderer new] ];
+    [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: NO]];
         [renderers addObject: [NHRenderer new] ];
+    [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: YES] ];
 #endif
 
 

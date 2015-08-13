@@ -10,10 +10,13 @@
 
 @implementation AzimuthRenderer
 
--(id)init {
+
+
+-(id)initWithWhitening:(BOOL)whitening_ {
     self = [super init];
     offsetY = PIC_HEIGH_PX * 0.5f + ruler_h;
     
+    whitening = whitening_;
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
     
     NSString *path = [NSString stringWithFormat:@"../../data/INVADER_azimuth.csv"];
@@ -22,6 +25,7 @@
     
     return self;
 };
+
 
 -(void)renderFromUnixTime:(int)sec duration:(int)duration {
     
@@ -58,17 +62,20 @@
 //        glPopMatrix();
         
         //glColor4f(0.2,0.2,0.2,0.75);
-        glColor4f(1.0,1.0,1.0,1.0);
+        
         glPushMatrix();
         glTranslatef(interm, (telemsInTerm[i].azimuth - 90) * scaleFact * 0.5, 0);
         
         //[self drawArc:0 y:0 r:telemsInTerm[i].altitude * 2.0 start_angle: telemsInTerm[i].azimuth * 3.145 /180 d_angle: telemsInTerm[i].settingAzimuth * 3.145 /180 segments:64];
-        
-        //[self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
-        
-        glColor4f(0.0,0.0,0.0,1.0);
-        [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth];
-        
+        if (whitening) {
+            if (0 > (telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth)) {
+                glColor4f(1.0,1.0,1.0,1.0);
+                [self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
+            }
+        } else {
+            glColor4f(0.0,0.0,0.0,1.0);
+            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth];
+        }
         glPopMatrix();
     }
     
