@@ -16,7 +16,7 @@
 #import "YORenderer.h"
 
 
-#define USE_SINGLE_RENDERER
+//#define USE_SINGLE_RENDERER
 #define RENDERER_CLASS NHRenderer
 
 

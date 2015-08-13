@@ -130,7 +130,7 @@ vector<float> rotations[3];
 
 }
 
-
+#define LINE (9)//7
 
 
 
@@ -138,8 +138,8 @@ vector<float> rotations[3];
                  duration:(int)duration{
 
 
-    glClearColor(1, 1, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
+//    glClearColor(1, 1, 1, 1);
+//    glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix();
     glTranslatef(0, ruler_h, 0);
 
@@ -168,7 +168,8 @@ vector<float> rotations[3];
             for (int t=0; t<3; ++t) {
                 int target = (t+seed)%3;
 
-                [self renderTmpAtX:x to:x2
+                [self renderTmpAtX:x
+                                to:x2
                              telem:telems[i]
                              areaH:draw_area_h
                               axis:target];
@@ -191,13 +192,14 @@ vector<float> rotations[3];
                 glColor3f(1, 1, 0);
             }
 
-            glColor3f(0, 0, 0);
-            glBegin(GL_POINTS);
-            for (int n=0; n<fabsf(lim); ++n) {
-                //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
-                glVertex2f(x, rand()%(draw_area_h));
-            }
-            glEnd();
+//            glPointSize(3);
+//            glColor3f(0, 0, 0);
+//            glBegin(GL_POINTS);
+//            for (int n=0; n<fabsf(lim); ++n) {
+//                //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
+//                glVertex2f(x, LINE*(rand()%(draw_area_h/LINE)) + 6);
+//            }
+//            glEnd();
 
 
 
@@ -432,7 +434,7 @@ vector<float> rotations[3];
 
 
 
-#define LINE (9)//7
+
 
 
 -(void)renderPowerOBCCurAtX:(int)x
@@ -498,9 +500,9 @@ vector<float> rotations[3];
 
         lim = telem.tmp_powerOBC - minPowerOBCtmp;
 
-        int len = 4;
+        int len = 3;
 
-        lim*=(48);//64
+        lim*=(64);//64
         for (int n=0; n<lim; ++n) {
 
             int y = rand()%((h)/LINE);
@@ -516,6 +518,7 @@ vector<float> rotations[3];
 
 
 
+
 -(void)renderTmpAtX:(int)x
                   to:(int)x2
                telem:(telemetry)telem
@@ -525,6 +528,7 @@ vector<float> rotations[3];
 
     glEnable(GL_BLEND);
     glBlendMulti();
+
 
 
 //    switch (ax) {
@@ -576,7 +580,7 @@ vector<float> rotations[3];
                 break;
         }
 
-        lim*=(64*1);//64
+        lim*=(32*1);//64
         for (int n=0; n<lim; ++n) {
 
             int y = rand()%((h )/LINE);

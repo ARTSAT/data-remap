@@ -41,9 +41,9 @@ static telemetryReader * reader;
 #ifdef USE_SINGLE_RENDERER
     [renderers addObject: [[RENDERER_CLASS alloc] init] ];
 #else
-    [renderers addObject: [NHRenderer new] ];
-    [renderers addObject: [YORenderer new]];
+//    [renderers addObject: [YORenderer new]];
     [renderers addObject: [AzimuthRenderer new] ];
+        [renderers addObject: [NHRenderer new] ];
 #endif
 
 
