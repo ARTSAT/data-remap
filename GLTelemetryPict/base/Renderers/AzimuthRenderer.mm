@@ -76,7 +76,7 @@
             }
         } else {
             glColor4f(0.0,0.0,0.0,1.0);
-            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.8 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
         }
         glPopMatrix();
     }
