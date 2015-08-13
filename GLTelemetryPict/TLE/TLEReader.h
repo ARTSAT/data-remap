@@ -85,6 +85,11 @@ public:
     }
 
 
+    int firstUnixEpoch(){
+        int tmp = allTLEs[0].epochSecInUnixTime;
+        return tmp;
+    }
+
 
 
 };

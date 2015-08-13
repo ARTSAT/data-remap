@@ -58,7 +58,11 @@
 
 
     //---
-    [stanStringAttrib setObject:[NSNumber numberWithFloat:-2.]
+//    [stanStringAttrib setObject:[NSNumber numberWithFloat:-2.]
+//                         forKey:NSStrokeWidthAttributeName];
+
+
+    [stanStringAttrib setObject:[NSNumber numberWithFloat:-1.]
                          forKey:NSStrokeWidthAttributeName];
 
 
