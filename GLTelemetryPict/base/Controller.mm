@@ -41,9 +41,10 @@ static telemetryReader * reader;
 #ifdef USE_SINGLE_RENDERER
     [renderers addObject: [[RENDERER_CLASS alloc] init] ];
 #else
-    [renderers addObject: [NHRenderer new] ];
-    [renderers addObject: [AzimuthRenderer new] ];
-    [renderers addObject: [YORenderer new]];
+//    [renderers addObject: [YORenderer new]];
+    [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: NO]];
+        [renderers addObject: [NHRenderer new] ];
+    [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: YES] ];
 #endif
 
 
@@ -98,10 +99,10 @@ static telemetryReader * reader;
 
 -(void)setup{
 
-    NSRect screenRect = NSMakeRect(0, 0, screen_w, screen_h);
+    NSRect screenRect = NSMakeRect(0, 0, screen_w, PIC_HEIGH_PX);
     
     glView      = [[NHGLView alloc] initWithFrame:screenRect];
-    fbo         = [[GLFrameBuffer alloc] initWithSize:NSMakeSize(screen_w, screen_h)];
+    fbo         = [[GLFrameBuffer alloc] initWithSize:NSMakeSize(screen_w, PIC_HEIGH_PX)];
     fsWindow    = [[NSWindow alloc] initWithContentRect:screenRect
                                            styleMask:NSBorderlessWindowMask
                                              backing:NSBackingStoreBuffered
@@ -151,7 +152,7 @@ static telemetryReader * reader;
     glClearColor(0.1, 0.1, 0.1, 0);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    set2dViewPortFromBottom(screen_w, screen_h);
+    set2dViewPortFromBottom(screen_w, PIC_HEIGH_PX);
     glPushMatrix();
     {
         glScalef(viewScale, viewScale, 1.f);
@@ -169,11 +170,11 @@ static telemetryReader * reader;
 
 -(void)renderContents{
 
-    set2dViewPortFromTop(screen_w, screen_h);
+    set2dViewPortFromTop(screen_w, PIC_HEIGH_PX);
     glColor4f(1, 1, 1,1);
     glBegin(GL_LINES);
     glVertex2d(0, 0);
-    glVertex2d(screen_w, screen_h);
+    glVertex2d(screen_w, PIC_HEIGH_PX);
     glEnd();
 }
 
@@ -197,7 +198,7 @@ static telemetryReader * reader;
 
     NSRect mainRect = [[NSScreen mainScreen] visibleFrame];
 
-    viewScale = mainRect.size.height/(float)screen_h;
+    viewScale = mainRect.size.height/(float)PIC_HEIGH_PX;
 
     [fsWindow setFrame:mainRect display:YES];
     [glView setFrameOrigin:NSMakePoint(0, 0)];
@@ -208,9 +209,9 @@ static telemetryReader * reader;
 
 -(void)fitToOriginalSize{
 
-    int y = [[NSScreen mainScreen] visibleFrame].size.height - screen_h;
+    int y = [[NSScreen mainScreen] visibleFrame].size.height - PIC_HEIGH_PX;
 
-    NSRect rect = NSMakeRect(0, y, screen_w, screen_h);
+    NSRect rect = NSMakeRect(0, y, screen_w, PIC_HEIGH_PX);
 
     viewScale = 1.f;
     [fsWindow setFrame:rect display:YES];
