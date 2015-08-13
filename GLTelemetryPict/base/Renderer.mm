@@ -8,6 +8,58 @@
 
 #import "Renderer.h"
 
+
+
+NSString* monthStr( int mon ){
+
+    NSString *month;
+
+    switch (mon) {
+        case 1:
+            month = @"Jan";
+            break;
+        case 2:
+            month = @"Feb";
+            break;
+        case 3:
+            month = @"Mar";
+            break;
+        case 4:
+            month = @"Apr";
+            break;
+        case 5:
+            month = @"May";
+            break;
+        case 6:
+            month = @"Jun";
+            break;
+        case 7:
+            month = @"Jul";
+            break;
+        case 8:
+            month = @"Aug";
+            break;
+        case 9:
+            month = @"Sep";
+            break;
+        case 10:
+            month = @"Oct";
+            break;
+        case 11:
+            month = @"Nov";
+            break;
+        case 12:
+            month = @"Dec";
+            break;
+
+        default:
+            break;
+    }
+
+    return month;
+}
+
+
 @implementation Renderer
 
 
@@ -63,6 +115,10 @@
     return self;
 }
 
+
+
+
+
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration{
 
@@ -93,7 +149,10 @@
         strftime(date, sizeof(date), "%Y/%m/%d %H:%M:%S", tm);
         NSLog(@"%s",date);
 
-        NSString* timeCode = [NSString stringWithFormat:@"%i/%02i/%02i",tm->tm_year+1900,tm->tm_mon+1,tm->tm_mday];
+        int mon = tm->tm_mon+1;
+        NSString *month = monthStr(mon);
+
+        NSString* timeCode = [NSString stringWithFormat:@"%02i %@ %02i",tm->tm_mday,month,tm->tm_year+1900];
 
 
         glEnable(GL_BLEND);
@@ -110,7 +169,7 @@
 
         glBegin(GL_LINES);
         glVertex2f(1+PX_PER_DAY*i, 0);
-        glVertex2f(1+PX_PER_DAY*i, screen_h);
+        glVertex2f(1+PX_PER_DAY*i, PIC_HEIGH_PX);
         glEnd();
 
 
@@ -145,14 +204,14 @@
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);//alpha
             glColor4f(0, 0, 0, 1);
             glPushMatrix();
-            glTranslatef(i+2, 36, 0);
+            glTranslatef(i+2, 36+12-8, 0);
             [smallFont renderString:[NSString stringWithFormat:@"%02i",hour]];
 
             glPopMatrix();
             glDisable(GL_BLEND);
 
 
-            len = 12;
+            len = 24;
 
         }else{
             len = 6;
@@ -165,6 +224,26 @@
         glEnd();
     }
 
+
+    glColor3f(1, 0, 0);
+    glBegin(GL_LINES);
+    for (int i=sec; i<sec+duration; i+=10 ) {
+        bool visible = invaderTLE->isVisible(i);
+
+        float tm = i - sec;
+        float x = PIC_WIDTH_PX*(float)tm/(float)(PX_PER_HOUR*dayCnount*24);
+
+        if (visible) {
+            glVertex2f(x, 0);
+            glVertex2f(x, 100);
+
+        }
+
+
+
+
+    }
+    glEnd();
 
 
     vector<telemetry> telemsInTerm = reader->telemetriesInRange( sec , duration);
