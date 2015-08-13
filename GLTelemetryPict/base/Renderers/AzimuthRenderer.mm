@@ -72,11 +72,11 @@
                 glColor4f(1.0,1.0,1.0,1.0);
                 //[self drawRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180)];
                 
-                [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.5 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.5) quards:NO];
+                [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact  * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.05) quards:NO];
             }
         } else {
             glColor4f(0.0,0.0,0.0,1.0);
-            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.5 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.8 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
         }
         glPopMatrix();
     }
