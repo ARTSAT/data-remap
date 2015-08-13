@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D28169061B2E28D0002EC616 /* flEasing.mm in Sources */ = {isa = PBXBuildFile; fileRef = D28169051B2E28D0002EC616 /* flEasing.mm */; };
+		D2990C8C1B2AF1DE0001689A /* flArcball.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C521B2AF1DE0001689A /* flArcball.h */; };
+		D2990C8D1B2AF1DE0001689A /* flArcball.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C531B2AF1DE0001689A /* flArcball.mm */; };
+		D2990C8E1B2AF1DE0001689A /* flCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C541B2AF1DE0001689A /* flCamera.h */; };
+		D2990C8F1B2AF1DE0001689A /* flCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C551B2AF1DE0001689A /* flCamera.mm */; };
+		D2990C901B2AF1DE0001689A /* flMatrixStack.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C561B2AF1DE0001689A /* flMatrixStack.h */; };
+		D2990C911B2AF1DE0001689A /* flMatrixStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C571B2AF1DE0001689A /* flMatrixStack.mm */; };
+		D2990C921B2AF1DE0001689A /* flNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C581B2AF1DE0001689A /* flNode.h */; };
+		D2990C931B2AF1DE0001689A /* flNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C591B2AF1DE0001689A /* flNode.mm */; };
+		D2990C941B2AF1DE0001689A /* flBridgeIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C5B1B2AF1DE0001689A /* flBridgeIOS.h */; };
+		D2990C951B2AF1DE0001689A /* flBridgeIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C5C1B2AF1DE0001689A /* flBridgeIOS.mm */; };
+		D2990C961B2AF1DE0001689A /* flTinyGLUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C5D1B2AF1DE0001689A /* flTinyGLUtils.h */; };
+		D2990C971B2AF1DE0001689A /* flFbo.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C5F1B2AF1DE0001689A /* flFbo.h */; };
+		D2990C981B2AF1DE0001689A /* flFbo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C601B2AF1DE0001689A /* flFbo.mm */; };
+		D2990C991B2AF1DE0001689A /* flGLProps.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C611B2AF1DE0001689A /* flGLProps.h */; };
+		D2990C9A1B2AF1DE0001689A /* flGLProps.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C621B2AF1DE0001689A /* flGLProps.mm */; };
+		D2990C9B1B2AF1DE0001689A /* flGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C631B2AF1DE0001689A /* flGraphics.h */; };
+		D2990C9C1B2AF1DE0001689A /* flGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C641B2AF1DE0001689A /* flGraphics.mm */; };
+		D2990C9D1B2AF1DE0001689A /* flPrimitives.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C651B2AF1DE0001689A /* flPrimitives.h */; };
+		D2990C9E1B2AF1DE0001689A /* flPrimitives.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C661B2AF1DE0001689A /* flPrimitives.mm */; };
+		D2990C9F1B2AF1DE0001689A /* flShader.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C671B2AF1DE0001689A /* flShader.h */; };
+		D2990CA01B2AF1DE0001689A /* flShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C681B2AF1DE0001689A /* flShader.mm */; };
+		D2990CA11B2AF1DE0001689A /* flShaders.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C691B2AF1DE0001689A /* flShaders.h */; };
+		D2990CA21B2AF1DE0001689A /* flShaders.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C6A1B2AF1DE0001689A /* flShaders.mm */; };
+		D2990CA31B2AF1DE0001689A /* flStencilMask.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C6B1B2AF1DE0001689A /* flStencilMask.h */; };
+		D2990CA41B2AF1DE0001689A /* flStencilMask.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C6C1B2AF1DE0001689A /* flStencilMask.mm */; };
+		D2990CA51B2AF1DE0001689A /* flTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C6D1B2AF1DE0001689A /* flTexture.h */; };
+		D2990CA61B2AF1DE0001689A /* flTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C6E1B2AF1DE0001689A /* flTexture.mm */; };
+		D2990CA71B2AF1DE0001689A /* flVbo.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C6F1B2AF1DE0001689A /* flVbo.h */; };
+		D2990CA81B2AF1DE0001689A /* flVbo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C701B2AF1DE0001689A /* flVbo.mm */; };
+		D2990CA91B2AF1DE0001689A /* flEasing.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C721B2AF1DE0001689A /* flEasing.h */; };
+		D2990CAA1B2AF1DE0001689A /* flMath.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C731B2AF1DE0001689A /* flMath.h */; };
+		D2990CAB1B2AF1DE0001689A /* flMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C741B2AF1DE0001689A /* flMath.mm */; };
+		D2990CAC1B2AF1DE0001689A /* flMatrix4x4.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C751B2AF1DE0001689A /* flMatrix4x4.h */; };
+		D2990CAD1B2AF1DE0001689A /* flMatrix4x4.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C761B2AF1DE0001689A /* flMatrix4x4.mm */; };
+		D2990CAE1B2AF1DE0001689A /* flNoise.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C771B2AF1DE0001689A /* flNoise.h */; };
+		D2990CAF1B2AF1DE0001689A /* flNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C781B2AF1DE0001689A /* flNoise.mm */; };
+		D2990CB01B2AF1DE0001689A /* flQuaternion.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C791B2AF1DE0001689A /* flQuaternion.h */; };
+		D2990CB11B2AF1DE0001689A /* flQuaternion.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C7A1B2AF1DE0001689A /* flQuaternion.mm */; };
+		D2990CB21B2AF1DE0001689A /* flRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C7B1B2AF1DE0001689A /* flRectangle.h */; };
+		D2990CB31B2AF1DE0001689A /* flRectangle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C7C1B2AF1DE0001689A /* flRectangle.mm */; };
+		D2990CB41B2AF1DE0001689A /* flVec2f.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C7D1B2AF1DE0001689A /* flVec2f.h */; };
+		D2990CB51B2AF1DE0001689A /* flVec3f.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C7E1B2AF1DE0001689A /* flVec3f.h */; };
+		D2990CB61B2AF1DE0001689A /* flVec3f.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C7F1B2AF1DE0001689A /* flVec3f.mm */; };
+		D2990CB71B2AF1DE0001689A /* flVec4f.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C801B2AF1DE0001689A /* flVec4f.h */; };
+		D2990CB81B2AF1DE0001689A /* flVec4f.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C811B2AF1DE0001689A /* flVec4f.mm */; };
+		D2990CB91B2AF1DE0001689A /* flColor.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C831B2AF1DE0001689A /* flColor.h */; };
+		D2990CBA1B2AF1DE0001689A /* flColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C841B2AF1DE0001689A /* flColor.mm */; };
+		D2990CBB1B2AF1DE0001689A /* flCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C861B2AF1DE0001689A /* flCommon.h */; };
+		D2990CBC1B2AF1DE0001689A /* flCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C871B2AF1DE0001689A /* flCommon.mm */; };
+		D2990CBD1B2AF1DE0001689A /* flException.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C881B2AF1DE0001689A /* flException.h */; };
+		D2990CBE1B2AF1DE0001689A /* flException.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C891B2AF1DE0001689A /* flException.mm */; };
+		D2990CBF1B2AF1DE0001689A /* flUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990C8A1B2AF1DE0001689A /* flUtils.h */; };
+		D2990CC01B2AF1DE0001689A /* flUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990C8B1B2AF1DE0001689A /* flUtils.mm */; };
+		D2990CCA1B2AF2E10001689A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2990CC11B2AF1ED0001689A /* OpenGL.framework */; };
+		D2990CCB1B2AF2E50001689A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2990CC31B2AF1FE0001689A /* Cocoa.framework */; };
+		D2990CCC1B2AF2ED0001689A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2990CC51B2AF2250001689A /* CoreGraphics.framework */; };
+		D2990CCD1B2AF2F40001689A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2990CC71B2AF2290001689A /* QuartzCore.framework */; };
+		D2990CDD1B2CF5100001689A /* flRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2990CDB1B2CF5100001689A /* flRandom.mm */; };
+		D2990CDE1B2CF5100001689A /* flRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = D2990CDC1B2CF5100001689A /* flRandom.h */; };
+		D2E86B5D1B31CA94005ABB78 /* flStopWatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2E86B5B1B31CA94005ABB78 /* flStopWatch.mm */; };
+		D2E86B5E1B31CA94005ABB78 /* flStopWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E86B5C1B31CA94005ABB78 /* flStopWatch.h */; };
+		D2E86B611B31CB1C005ABB78 /* flLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2E86B5F1B31CB1C005ABB78 /* flLoop.mm */; };
+		D2E86B621B31CB1C005ABB78 /* flLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = D2E86B601B31CB1C005ABB78 /* flLoop.h */; };
+		D2ECCCB41B7C693C003D2D75 /* flMCGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCAE1B7C693C003D2D75 /* flMCGenerator.cpp */; };
+		D2ECCCB51B7C693C003D2D75 /* flMCGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = D2ECCCAF1B7C693C003D2D75 /* flMCGenerator.h */; };
+		D2ECCCB61B7C693C003D2D75 /* flMCNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCB01B7C693C003D2D75 /* flMCNoise.cpp */; };
+		D2ECCCB71B7C693C003D2D75 /* flMCNoise.h in Headers */ = {isa = PBXBuildFile; fileRef = D2ECCCB11B7C693C003D2D75 /* flMCNoise.h */; };
+		D2ECCCB81B7C693C003D2D75 /* flMCTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCB21B7C693C003D2D75 /* flMCTypes.cpp */; };
+		D2ECCCB91B7C693C003D2D75 /* flMCTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = D2ECCCB31B7C693C003D2D75 /* flMCTypes.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D28169051B2E28D0002EC616 /* flEasing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flEasing.mm; sourceTree = "<group>"; };
+		D2990C431B2AF15A0001689A /* libflTinyGLUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libflTinyGLUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2990C521B2AF1DE0001689A /* flArcball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flArcball.h; sourceTree = "<group>"; };
+		D2990C531B2AF1DE0001689A /* flArcball.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flArcball.mm; sourceTree = "<group>"; };
+		D2990C541B2AF1DE0001689A /* flCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flCamera.h; sourceTree = "<group>"; };
+		D2990C551B2AF1DE0001689A /* flCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flCamera.mm; sourceTree = "<group>"; };
+		D2990C561B2AF1DE0001689A /* flMatrixStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMatrixStack.h; sourceTree = "<group>"; };
+		D2990C571B2AF1DE0001689A /* flMatrixStack.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMatrixStack.mm; sourceTree = "<group>"; };
+		D2990C581B2AF1DE0001689A /* flNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flNode.h; sourceTree = "<group>"; };
+		D2990C591B2AF1DE0001689A /* flNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flNode.mm; sourceTree = "<group>"; };
+		D2990C5B1B2AF1DE0001689A /* flBridgeIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flBridgeIOS.h; sourceTree = "<group>"; };
+		D2990C5C1B2AF1DE0001689A /* flBridgeIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flBridgeIOS.mm; sourceTree = "<group>"; };
+		D2990C5D1B2AF1DE0001689A /* flTinyGLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flTinyGLUtils.h; sourceTree = "<group>"; };
+		D2990C5F1B2AF1DE0001689A /* flFbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flFbo.h; sourceTree = "<group>"; };
+		D2990C601B2AF1DE0001689A /* flFbo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flFbo.mm; sourceTree = "<group>"; };
+		D2990C611B2AF1DE0001689A /* flGLProps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flGLProps.h; sourceTree = "<group>"; };
+		D2990C621B2AF1DE0001689A /* flGLProps.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flGLProps.mm; sourceTree = "<group>"; };
+		D2990C631B2AF1DE0001689A /* flGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flGraphics.h; sourceTree = "<group>"; };
+		D2990C641B2AF1DE0001689A /* flGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flGraphics.mm; sourceTree = "<group>"; };
+		D2990C651B2AF1DE0001689A /* flPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flPrimitives.h; sourceTree = "<group>"; };
+		D2990C661B2AF1DE0001689A /* flPrimitives.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flPrimitives.mm; sourceTree = "<group>"; };
+		D2990C671B2AF1DE0001689A /* flShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flShader.h; sourceTree = "<group>"; };
+		D2990C681B2AF1DE0001689A /* flShader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flShader.mm; sourceTree = "<group>"; };
+		D2990C691B2AF1DE0001689A /* flShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flShaders.h; sourceTree = "<group>"; };
+		D2990C6A1B2AF1DE0001689A /* flShaders.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flShaders.mm; sourceTree = "<group>"; };
+		D2990C6B1B2AF1DE0001689A /* flStencilMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flStencilMask.h; sourceTree = "<group>"; };
+		D2990C6C1B2AF1DE0001689A /* flStencilMask.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flStencilMask.mm; sourceTree = "<group>"; };
+		D2990C6D1B2AF1DE0001689A /* flTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flTexture.h; sourceTree = "<group>"; };
+		D2990C6E1B2AF1DE0001689A /* flTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flTexture.mm; sourceTree = "<group>"; };
+		D2990C6F1B2AF1DE0001689A /* flVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVbo.h; sourceTree = "<group>"; };
+		D2990C701B2AF1DE0001689A /* flVbo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVbo.mm; sourceTree = "<group>"; };
+		D2990C721B2AF1DE0001689A /* flEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flEasing.h; sourceTree = "<group>"; };
+		D2990C731B2AF1DE0001689A /* flMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMath.h; sourceTree = "<group>"; };
+		D2990C741B2AF1DE0001689A /* flMath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMath.mm; sourceTree = "<group>"; };
+		D2990C751B2AF1DE0001689A /* flMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMatrix4x4.h; sourceTree = "<group>"; };
+		D2990C761B2AF1DE0001689A /* flMatrix4x4.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMatrix4x4.mm; sourceTree = "<group>"; };
+		D2990C771B2AF1DE0001689A /* flNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flNoise.h; sourceTree = "<group>"; };
+		D2990C781B2AF1DE0001689A /* flNoise.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flNoise.mm; sourceTree = "<group>"; };
+		D2990C791B2AF1DE0001689A /* flQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flQuaternion.h; sourceTree = "<group>"; };
+		D2990C7A1B2AF1DE0001689A /* flQuaternion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flQuaternion.mm; sourceTree = "<group>"; };
+		D2990C7B1B2AF1DE0001689A /* flRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flRectangle.h; sourceTree = "<group>"; };
+		D2990C7C1B2AF1DE0001689A /* flRectangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flRectangle.mm; sourceTree = "<group>"; };
+		D2990C7D1B2AF1DE0001689A /* flVec2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec2f.h; sourceTree = "<group>"; };
+		D2990C7E1B2AF1DE0001689A /* flVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec3f.h; sourceTree = "<group>"; };
+		D2990C7F1B2AF1DE0001689A /* flVec3f.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVec3f.mm; sourceTree = "<group>"; };
+		D2990C801B2AF1DE0001689A /* flVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec4f.h; sourceTree = "<group>"; };
+		D2990C811B2AF1DE0001689A /* flVec4f.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVec4f.mm; sourceTree = "<group>"; };
+		D2990C831B2AF1DE0001689A /* flColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flColor.h; sourceTree = "<group>"; };
+		D2990C841B2AF1DE0001689A /* flColor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flColor.mm; sourceTree = "<group>"; };
+		D2990C861B2AF1DE0001689A /* flCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flCommon.h; sourceTree = "<group>"; };
+		D2990C871B2AF1DE0001689A /* flCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flCommon.mm; sourceTree = "<group>"; };
+		D2990C881B2AF1DE0001689A /* flException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flException.h; sourceTree = "<group>"; };
+		D2990C891B2AF1DE0001689A /* flException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flException.mm; sourceTree = "<group>"; };
+		D2990C8A1B2AF1DE0001689A /* flUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flUtils.h; sourceTree = "<group>"; };
+		D2990C8B1B2AF1DE0001689A /* flUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flUtils.mm; sourceTree = "<group>"; };
+		D2990CC11B2AF1ED0001689A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D2990CC31B2AF1FE0001689A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D2990CC51B2AF2250001689A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D2990CC71B2AF2290001689A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D2990CDB1B2CF5100001689A /* flRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flRandom.mm; sourceTree = "<group>"; };
+		D2990CDC1B2CF5100001689A /* flRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flRandom.h; sourceTree = "<group>"; };
+		D2E86B5B1B31CA94005ABB78 /* flStopWatch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flStopWatch.mm; sourceTree = "<group>"; };
+		D2E86B5C1B31CA94005ABB78 /* flStopWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flStopWatch.h; sourceTree = "<group>"; };
+		D2E86B5F1B31CB1C005ABB78 /* flLoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flLoop.mm; sourceTree = "<group>"; };
+		D2E86B601B31CB1C005ABB78 /* flLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flLoop.h; sourceTree = "<group>"; };
+		D2ECCCAE1B7C693C003D2D75 /* flMCGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCGenerator.cpp; sourceTree = "<group>"; };
+		D2ECCCAF1B7C693C003D2D75 /* flMCGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCGenerator.h; sourceTree = "<group>"; };
+		D2ECCCB01B7C693C003D2D75 /* flMCNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCNoise.cpp; sourceTree = "<group>"; };
+		D2ECCCB11B7C693C003D2D75 /* flMCNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCNoise.h; sourceTree = "<group>"; };
+		D2ECCCB21B7C693C003D2D75 /* flMCTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCTypes.cpp; sourceTree = "<group>"; };
+		D2ECCCB31B7C693C003D2D75 /* flMCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCTypes.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2990C401B2AF15A0001689A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2990CCD1B2AF2F40001689A /* QuartzCore.framework in Frameworks */,
+				D2990CCC1B2AF2ED0001689A /* CoreGraphics.framework in Frameworks */,
+				D2990CCB1B2AF2E50001689A /* Cocoa.framework in Frameworks */,
+				D2990CCA1B2AF2E10001689A /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2990C3A1B2AF15A0001689A = {
+			isa = PBXGroup;
+			children = (
+				D2990C451B2AF15A0001689A /* flTinyGLUtils */,
+				D2990CC91B2AF2330001689A /* frameworks */,
+				D2990C441B2AF15A0001689A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2990C441B2AF15A0001689A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C431B2AF15A0001689A /* libflTinyGLUtils.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2990C451B2AF15A0001689A /* flTinyGLUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCCAD1B7C693C003D2D75 /* MultiColor */,
+				D2990C511B2AF1DE0001689A /* 3D */,
+				D2990C5A1B2AF1DE0001689A /* bridge */,
+				D2990C5D1B2AF1DE0001689A /* flTinyGLUtils.h */,
+				D2990C5E1B2AF1DE0001689A /* gl */,
+				D2990C711B2AF1DE0001689A /* math */,
+				D2990C821B2AF1DE0001689A /* types */,
+				D2990C851B2AF1DE0001689A /* utils */,
+			);
+			path = flTinyGLUtils;
+			sourceTree = "<group>";
+		};
+		D2990C511B2AF1DE0001689A /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C521B2AF1DE0001689A /* flArcball.h */,
+				D2990C531B2AF1DE0001689A /* flArcball.mm */,
+				D2990C541B2AF1DE0001689A /* flCamera.h */,
+				D2990C551B2AF1DE0001689A /* flCamera.mm */,
+				D2990C561B2AF1DE0001689A /* flMatrixStack.h */,
+				D2990C571B2AF1DE0001689A /* flMatrixStack.mm */,
+				D2990C581B2AF1DE0001689A /* flNode.h */,
+				D2990C591B2AF1DE0001689A /* flNode.mm */,
+			);
+			path = 3D;
+			sourceTree = "<group>";
+		};
+		D2990C5A1B2AF1DE0001689A /* bridge */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C5B1B2AF1DE0001689A /* flBridgeIOS.h */,
+				D2990C5C1B2AF1DE0001689A /* flBridgeIOS.mm */,
+			);
+			path = bridge;
+			sourceTree = "<group>";
+		};
+		D2990C5E1B2AF1DE0001689A /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C5F1B2AF1DE0001689A /* flFbo.h */,
+				D2990C601B2AF1DE0001689A /* flFbo.mm */,
+				D2990C611B2AF1DE0001689A /* flGLProps.h */,
+				D2990C621B2AF1DE0001689A /* flGLProps.mm */,
+				D2990C631B2AF1DE0001689A /* flGraphics.h */,
+				D2990C641B2AF1DE0001689A /* flGraphics.mm */,
+				D2990C651B2AF1DE0001689A /* flPrimitives.h */,
+				D2990C661B2AF1DE0001689A /* flPrimitives.mm */,
+				D2990C671B2AF1DE0001689A /* flShader.h */,
+				D2990C681B2AF1DE0001689A /* flShader.mm */,
+				D2990C691B2AF1DE0001689A /* flShaders.h */,
+				D2990C6A1B2AF1DE0001689A /* flShaders.mm */,
+				D2990C6B1B2AF1DE0001689A /* flStencilMask.h */,
+				D2990C6C1B2AF1DE0001689A /* flStencilMask.mm */,
+				D2990C6D1B2AF1DE0001689A /* flTexture.h */,
+				D2990C6E1B2AF1DE0001689A /* flTexture.mm */,
+				D2990C6F1B2AF1DE0001689A /* flVbo.h */,
+				D2990C701B2AF1DE0001689A /* flVbo.mm */,
+			);
+			path = gl;
+			sourceTree = "<group>";
+		};
+		D2990C711B2AF1DE0001689A /* math */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C721B2AF1DE0001689A /* flEasing.h */,
+				D28169051B2E28D0002EC616 /* flEasing.mm */,
+				D2990C731B2AF1DE0001689A /* flMath.h */,
+				D2990C741B2AF1DE0001689A /* flMath.mm */,
+				D2990C751B2AF1DE0001689A /* flMatrix4x4.h */,
+				D2990C761B2AF1DE0001689A /* flMatrix4x4.mm */,
+				D2990C771B2AF1DE0001689A /* flNoise.h */,
+				D2990C781B2AF1DE0001689A /* flNoise.mm */,
+				D2990C791B2AF1DE0001689A /* flQuaternion.h */,
+				D2990C7A1B2AF1DE0001689A /* flQuaternion.mm */,
+				D2990C7B1B2AF1DE0001689A /* flRectangle.h */,
+				D2990C7C1B2AF1DE0001689A /* flRectangle.mm */,
+				D2990C7D1B2AF1DE0001689A /* flVec2f.h */,
+				D2990C7E1B2AF1DE0001689A /* flVec3f.h */,
+				D2990C7F1B2AF1DE0001689A /* flVec3f.mm */,
+				D2990C801B2AF1DE0001689A /* flVec4f.h */,
+				D2990C811B2AF1DE0001689A /* flVec4f.mm */,
+				D2990CDC1B2CF5100001689A /* flRandom.h */,
+				D2990CDB1B2CF5100001689A /* flRandom.mm */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		D2990C821B2AF1DE0001689A /* types */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C831B2AF1DE0001689A /* flColor.h */,
+				D2990C841B2AF1DE0001689A /* flColor.mm */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		D2990C851B2AF1DE0001689A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D2990C861B2AF1DE0001689A /* flCommon.h */,
+				D2990C871B2AF1DE0001689A /* flCommon.mm */,
+				D2990C881B2AF1DE0001689A /* flException.h */,
+				D2990C891B2AF1DE0001689A /* flException.mm */,
+				D2990C8A1B2AF1DE0001689A /* flUtils.h */,
+				D2990C8B1B2AF1DE0001689A /* flUtils.mm */,
+				D2E86B5C1B31CA94005ABB78 /* flStopWatch.h */,
+				D2E86B5B1B31CA94005ABB78 /* flStopWatch.mm */,
+				D2E86B601B31CB1C005ABB78 /* flLoop.h */,
+				D2E86B5F1B31CB1C005ABB78 /* flLoop.mm */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D2990CC91B2AF2330001689A /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2990CC71B2AF2290001689A /* QuartzCore.framework */,
+				D2990CC51B2AF2250001689A /* CoreGraphics.framework */,
+				D2990CC31B2AF1FE0001689A /* Cocoa.framework */,
+				D2990CC11B2AF1ED0001689A /* OpenGL.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		D2ECCCAD1B7C693C003D2D75 /* MultiColor */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCCAE1B7C693C003D2D75 /* flMCGenerator.cpp */,
+				D2ECCCAF1B7C693C003D2D75 /* flMCGenerator.h */,
+				D2ECCCB01B7C693C003D2D75 /* flMCNoise.cpp */,
+				D2ECCCB11B7C693C003D2D75 /* flMCNoise.h */,
+				D2ECCCB21B7C693C003D2D75 /* flMCTypes.cpp */,
+				D2ECCCB31B7C693C003D2D75 /* flMCTypes.h */,
+			);
+			path = MultiColor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2990C411B2AF15A0001689A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2990CB01B2AF1DE0001689A /* flQuaternion.h in Headers */,
+				D2E86B621B31CB1C005ABB78 /* flLoop.h in Headers */,
+				D2990CAC1B2AF1DE0001689A /* flMatrix4x4.h in Headers */,
+				D2990CAE1B2AF1DE0001689A /* flNoise.h in Headers */,
+				D2990CB91B2AF1DE0001689A /* flColor.h in Headers */,
+				D2990C971B2AF1DE0001689A /* flFbo.h in Headers */,
+				D2990C8C1B2AF1DE0001689A /* flArcball.h in Headers */,
+				D2990CAA1B2AF1DE0001689A /* flMath.h in Headers */,
+				D2990CA51B2AF1DE0001689A /* flTexture.h in Headers */,
+				D2990C991B2AF1DE0001689A /* flGLProps.h in Headers */,
+				D2990C961B2AF1DE0001689A /* flTinyGLUtils.h in Headers */,
+				D2990CB71B2AF1DE0001689A /* flVec4f.h in Headers */,
+				D2990C9F1B2AF1DE0001689A /* flShader.h in Headers */,
+				D2990CB21B2AF1DE0001689A /* flRectangle.h in Headers */,
+				D2ECCCB51B7C693C003D2D75 /* flMCGenerator.h in Headers */,
+				D2990CBB1B2AF1DE0001689A /* flCommon.h in Headers */,
+				D2990CB41B2AF1DE0001689A /* flVec2f.h in Headers */,
+				D2990CA71B2AF1DE0001689A /* flVbo.h in Headers */,
+				D2ECCCB91B7C693C003D2D75 /* flMCTypes.h in Headers */,
+				D2ECCCB71B7C693C003D2D75 /* flMCNoise.h in Headers */,
+				D2990C9B1B2AF1DE0001689A /* flGraphics.h in Headers */,
+				D2990C901B2AF1DE0001689A /* flMatrixStack.h in Headers */,
+				D2990CA91B2AF1DE0001689A /* flEasing.h in Headers */,
+				D2990C921B2AF1DE0001689A /* flNode.h in Headers */,
+				D2990C8E1B2AF1DE0001689A /* flCamera.h in Headers */,
+				D2990CDE1B2CF5100001689A /* flRandom.h in Headers */,
+				D2990CA11B2AF1DE0001689A /* flShaders.h in Headers */,
+				D2990C9D1B2AF1DE0001689A /* flPrimitives.h in Headers */,
+				D2990CBD1B2AF1DE0001689A /* flException.h in Headers */,
+				D2990CB51B2AF1DE0001689A /* flVec3f.h in Headers */,
+				D2990C941B2AF1DE0001689A /* flBridgeIOS.h in Headers */,
+				D2990CBF1B2AF1DE0001689A /* flUtils.h in Headers */,
+				D2E86B5E1B31CA94005ABB78 /* flStopWatch.h in Headers */,
+				D2990CA31B2AF1DE0001689A /* flStencilMask.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2990C421B2AF15A0001689A /* flTinyGLUtils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2990C4E1B2AF15A0001689A /* Build configuration list for PBXNativeTarget "flTinyGLUtils" */;
+			buildPhases = (
+				D2990C3F1B2AF15A0001689A /* Sources */,
+				D2990C401B2AF15A0001689A /* Frameworks */,
+				D2990C411B2AF15A0001689A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = flTinyGLUtils;
+			productName = flTinyGLUtils;
+			productReference = D2990C431B2AF15A0001689A /* libflTinyGLUtils.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2990C3B1B2AF15A0001689A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = YoshitoONISHI;
+				TargetAttributes = {
+					D2990C421B2AF15A0001689A = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = D2990C3E1B2AF15A0001689A /* Build configuration list for PBXProject "flTinyGLUtils" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2990C3A1B2AF15A0001689A;
+			productRefGroup = D2990C441B2AF15A0001689A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2990C421B2AF15A0001689A /* flTinyGLUtils */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2990C3F1B2AF15A0001689A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2990C9C1B2AF1DE0001689A /* flGraphics.mm in Sources */,
+				D2ECCCB61B7C693C003D2D75 /* flMCNoise.cpp in Sources */,
+				D2E86B611B31CB1C005ABB78 /* flLoop.mm in Sources */,
+				D2990CB11B2AF1DE0001689A /* flQuaternion.mm in Sources */,
+				D2990CDD1B2CF5100001689A /* flRandom.mm in Sources */,
+				D2990CA21B2AF1DE0001689A /* flShaders.mm in Sources */,
+				D2990C951B2AF1DE0001689A /* flBridgeIOS.mm in Sources */,
+				D2990CA01B2AF1DE0001689A /* flShader.mm in Sources */,
+				D2990CA41B2AF1DE0001689A /* flStencilMask.mm in Sources */,
+				D2990C8F1B2AF1DE0001689A /* flCamera.mm in Sources */,
+				D2990CAB1B2AF1DE0001689A /* flMath.mm in Sources */,
+				D28169061B2E28D0002EC616 /* flEasing.mm in Sources */,
+				D2990C931B2AF1DE0001689A /* flNode.mm in Sources */,
+				D2990CBC1B2AF1DE0001689A /* flCommon.mm in Sources */,
+				D2990CBA1B2AF1DE0001689A /* flColor.mm in Sources */,
+				D2990C9E1B2AF1DE0001689A /* flPrimitives.mm in Sources */,
+				D2990C981B2AF1DE0001689A /* flFbo.mm in Sources */,
+				D2E86B5D1B31CA94005ABB78 /* flStopWatch.mm in Sources */,
+				D2990CB81B2AF1DE0001689A /* flVec4f.mm in Sources */,
+				D2990C8D1B2AF1DE0001689A /* flArcball.mm in Sources */,
+				D2990CBE1B2AF1DE0001689A /* flException.mm in Sources */,
+				D2ECCCB81B7C693C003D2D75 /* flMCTypes.cpp in Sources */,
+				D2990CB31B2AF1DE0001689A /* flRectangle.mm in Sources */,
+				D2990C9A1B2AF1DE0001689A /* flGLProps.mm in Sources */,
+				D2990CA61B2AF1DE0001689A /* flTexture.mm in Sources */,
+				D2ECCCB41B7C693C003D2D75 /* flMCGenerator.cpp in Sources */,
+				D2990CC01B2AF1DE0001689A /* flUtils.mm in Sources */,
+				D2990CAF1B2AF1DE0001689A /* flNoise.mm in Sources */,
+				D2990CAD1B2AF1DE0001689A /* flMatrix4x4.mm in Sources */,
+				D2990C911B2AF1DE0001689A /* flMatrixStack.mm in Sources */,
+				D2990CA81B2AF1DE0001689A /* flVbo.mm in Sources */,
+				D2990CB61B2AF1DE0001689A /* flVec3f.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D2990C4C1B2AF15A0001689A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D2990C4D1B2AF15A0001689A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D2990C4F1B2AF15A0001689A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D2990C501B2AF15A0001689A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2990C3E1B2AF15A0001689A /* Build configuration list for PBXProject "flTinyGLUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2990C4C1B2AF15A0001689A /* Debug */,
+				D2990C4D1B2AF15A0001689A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2990C4E1B2AF15A0001689A /* Build configuration list for PBXNativeTarget "flTinyGLUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2990C4F1B2AF15A0001689A /* Debug */,
+				D2990C501B2AF15A0001689A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2990C3B1B2AF15A0001689A /* Project object */;
+}
