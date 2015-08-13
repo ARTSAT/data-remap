@@ -12,6 +12,7 @@
 #include "flTinyGLUtils.h"
 #include "flMCGenerator.h"
 #include "flMCNoise.h"
+#include "YOBatches.h"
 
 using namespace fl;
 
@@ -50,9 +51,10 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{100};
+    const int h{(int)ruler_h};
     
     ScopedTranslate t{0.f, (float)PIC_HEIGH_PX - h};
+    //ScopedTranslate t{0.f, ruler_h};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
@@ -103,8 +105,17 @@ using namespace fl;
                                            0.7, 2.0, 8.0, 0.2,
                                            mZ, pZ, mY, pY,
                                            mX, pX, 2e4);
+                            
+                            YO::RgbColor rgb{(unsigned char)(255.f * c.r),
+                                             (unsigned char)(255.f * c.g),
+                                             (unsigned char)(255.f * c.b)};
+                            auto hsv = YO::RgbToHsv(rgb);
+                            const float brightness{easeOutExpo(hsv.s / 255.f)};
+                            hsv.v *= brightness;
+                            rgb = YO::HsvToRgb(hsv);
+                            
                             vertices.at(i + _j * w).set(x1 + i, _j, 0.f);
-                            colors.at(i + _j * w).set(c.r, c.g, c.b, 1.f);
+                            colors.at(i + _j * w).set(rgb.r / 255.f, rgb.g / 255.f, rgb.b / 255.f, 1.f);
                         }
                     });
                 }
