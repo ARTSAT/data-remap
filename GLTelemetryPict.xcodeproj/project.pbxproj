@@ -41,7 +41,41 @@
 		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
 		B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */; };
 		B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */; };
-		D251DB4C1B6799F300FD595D /* YORenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D251DB4B1B6799F300FD595D /* YORenderer.mm */; };
+		D2ECCCAA1B7C6896003D2D75 /* YOBatches.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCA11B7C6896003D2D75 /* YOBatches.cpp */; };
+		D2ECCCAB1B7C6896003D2D75 /* YOColorRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCA41B7C6896003D2D75 /* YOColorRenderer.mm */; };
+		D2ECCCAC1B7C6896003D2D75 /* YORenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCA61B7C6896003D2D75 /* YORenderer.mm */; };
+		D2ECCD851B7C6A17003D2D75 /* flArcball.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD3B1B7C6A17003D2D75 /* flArcball.mm */; };
+		D2ECCD861B7C6A17003D2D75 /* flCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD3D1B7C6A17003D2D75 /* flCamera.mm */; };
+		D2ECCD871B7C6A17003D2D75 /* flMatrixStack.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD3F1B7C6A17003D2D75 /* flMatrixStack.mm */; };
+		D2ECCD881B7C6A17003D2D75 /* flNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD411B7C6A17003D2D75 /* flNode.mm */; };
+		D2ECCD891B7C6A17003D2D75 /* flBridgeIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD441B7C6A17003D2D75 /* flBridgeIOS.mm */; };
+		D2ECCD8A1B7C6A17003D2D75 /* flFbo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD481B7C6A17003D2D75 /* flFbo.mm */; };
+		D2ECCD8B1B7C6A17003D2D75 /* flGLProps.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD4A1B7C6A17003D2D75 /* flGLProps.mm */; };
+		D2ECCD8C1B7C6A17003D2D75 /* flGraphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD4C1B7C6A17003D2D75 /* flGraphics.mm */; };
+		D2ECCD8D1B7C6A17003D2D75 /* flPrimitives.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD4E1B7C6A17003D2D75 /* flPrimitives.mm */; };
+		D2ECCD8E1B7C6A17003D2D75 /* flShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD501B7C6A17003D2D75 /* flShader.mm */; };
+		D2ECCD8F1B7C6A17003D2D75 /* flShaders.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD521B7C6A17003D2D75 /* flShaders.mm */; };
+		D2ECCD901B7C6A17003D2D75 /* flStencilMask.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD541B7C6A17003D2D75 /* flStencilMask.mm */; };
+		D2ECCD911B7C6A17003D2D75 /* flTexture.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD561B7C6A17003D2D75 /* flTexture.mm */; };
+		D2ECCD921B7C6A17003D2D75 /* flVbo.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD581B7C6A17003D2D75 /* flVbo.mm */; };
+		D2ECCD931B7C6A17003D2D75 /* flEasing.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD5B1B7C6A17003D2D75 /* flEasing.mm */; };
+		D2ECCD941B7C6A17003D2D75 /* flMath.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD5D1B7C6A17003D2D75 /* flMath.mm */; };
+		D2ECCD951B7C6A17003D2D75 /* flMatrix4x4.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD5F1B7C6A17003D2D75 /* flMatrix4x4.mm */; };
+		D2ECCD961B7C6A17003D2D75 /* flNoise.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD611B7C6A17003D2D75 /* flNoise.mm */; };
+		D2ECCD971B7C6A17003D2D75 /* flQuaternion.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD631B7C6A17003D2D75 /* flQuaternion.mm */; };
+		D2ECCD981B7C6A17003D2D75 /* flRandom.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD651B7C6A17003D2D75 /* flRandom.mm */; };
+		D2ECCD991B7C6A17003D2D75 /* flRectangle.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD671B7C6A17003D2D75 /* flRectangle.mm */; };
+		D2ECCD9A1B7C6A17003D2D75 /* flVec3f.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD6A1B7C6A17003D2D75 /* flVec3f.mm */; };
+		D2ECCD9B1B7C6A17003D2D75 /* flVec4f.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD6C1B7C6A17003D2D75 /* flVec4f.mm */; };
+		D2ECCD9C1B7C6A17003D2D75 /* flMCGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD6E1B7C6A17003D2D75 /* flMCGenerator.cpp */; };
+		D2ECCD9D1B7C6A17003D2D75 /* flMCNoise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD701B7C6A17003D2D75 /* flMCNoise.cpp */; };
+		D2ECCD9E1B7C6A17003D2D75 /* flMCTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD721B7C6A17003D2D75 /* flMCTypes.cpp */; };
+		D2ECCD9F1B7C6A17003D2D75 /* flColor.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD761B7C6A17003D2D75 /* flColor.mm */; };
+		D2ECCDA01B7C6A17003D2D75 /* flCommon.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD791B7C6A17003D2D75 /* flCommon.mm */; };
+		D2ECCDA11B7C6A17003D2D75 /* flException.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD7B1B7C6A17003D2D75 /* flException.mm */; };
+		D2ECCDA21B7C6A17003D2D75 /* flLoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD7D1B7C6A17003D2D75 /* flLoop.mm */; };
+		D2ECCDA31B7C6A17003D2D75 /* flStopWatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD7F1B7C6A17003D2D75 /* flStopWatch.mm */; };
+		D2ECCDA41B7C6A17003D2D75 /* flUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCD811B7C6A17003D2D75 /* flUtils.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +99,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 07D9FE5F1B63842100ED5F86;
 			remoteInfo = GLTelemetryPict;
+		};
+		D2ECCDA61B7C6A17003D2D75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2ECCD821B7C6A17003D2D75 /* flTinyGLUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2990C431B2AF15A0001689A;
+			remoteInfo = flTinyGLUtils;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -136,8 +177,79 @@
 		B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzimuthRenderer.h; path = Renderers/AzimuthRenderer.h; sourceTree = "<group>"; };
 		B207584B1B64ADF5003E0BF0 /* telemetryReaderAzimuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = telemetryReaderAzimuth.h; path = Azimuth/telemetryReaderAzimuth.h; sourceTree = "<group>"; };
 		B2CCEC4F1B67488A003B8007 /* telemetryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
-		D251DB4B1B6799F300FD595D /* YORenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YORenderer.mm; sourceTree = "<group>"; };
-		D251DB4F1B679A0600FD595D /* YORenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YORenderer.h; sourceTree = "<group>"; };
+		D2ECCCA11B7C6896003D2D75 /* YOBatches.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YOBatches.cpp; sourceTree = "<group>"; };
+		D2ECCCA21B7C6896003D2D75 /* YOBatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOBatches.h; sourceTree = "<group>"; };
+		D2ECCCA31B7C6896003D2D75 /* YOColorRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOColorRenderer.h; sourceTree = "<group>"; };
+		D2ECCCA41B7C6896003D2D75 /* YOColorRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YOColorRenderer.mm; sourceTree = "<group>"; };
+		D2ECCCA51B7C6896003D2D75 /* YORenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YORenderer.h; sourceTree = "<group>"; };
+		D2ECCCA61B7C6896003D2D75 /* YORenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YORenderer.mm; sourceTree = "<group>"; };
+		D2ECCD3A1B7C6A17003D2D75 /* flArcball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flArcball.h; sourceTree = "<group>"; };
+		D2ECCD3B1B7C6A17003D2D75 /* flArcball.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flArcball.mm; sourceTree = "<group>"; };
+		D2ECCD3C1B7C6A17003D2D75 /* flCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flCamera.h; sourceTree = "<group>"; };
+		D2ECCD3D1B7C6A17003D2D75 /* flCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flCamera.mm; sourceTree = "<group>"; };
+		D2ECCD3E1B7C6A17003D2D75 /* flMatrixStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMatrixStack.h; sourceTree = "<group>"; };
+		D2ECCD3F1B7C6A17003D2D75 /* flMatrixStack.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMatrixStack.mm; sourceTree = "<group>"; };
+		D2ECCD401B7C6A17003D2D75 /* flNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flNode.h; sourceTree = "<group>"; };
+		D2ECCD411B7C6A17003D2D75 /* flNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flNode.mm; sourceTree = "<group>"; };
+		D2ECCD431B7C6A17003D2D75 /* flBridgeIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flBridgeIOS.h; sourceTree = "<group>"; };
+		D2ECCD441B7C6A17003D2D75 /* flBridgeIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flBridgeIOS.mm; sourceTree = "<group>"; };
+		D2ECCD451B7C6A17003D2D75 /* flTinyGLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flTinyGLUtils.h; sourceTree = "<group>"; };
+		D2ECCD471B7C6A17003D2D75 /* flFbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flFbo.h; sourceTree = "<group>"; };
+		D2ECCD481B7C6A17003D2D75 /* flFbo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flFbo.mm; sourceTree = "<group>"; };
+		D2ECCD491B7C6A17003D2D75 /* flGLProps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flGLProps.h; sourceTree = "<group>"; };
+		D2ECCD4A1B7C6A17003D2D75 /* flGLProps.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flGLProps.mm; sourceTree = "<group>"; };
+		D2ECCD4B1B7C6A17003D2D75 /* flGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flGraphics.h; sourceTree = "<group>"; };
+		D2ECCD4C1B7C6A17003D2D75 /* flGraphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flGraphics.mm; sourceTree = "<group>"; };
+		D2ECCD4D1B7C6A17003D2D75 /* flPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flPrimitives.h; sourceTree = "<group>"; };
+		D2ECCD4E1B7C6A17003D2D75 /* flPrimitives.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flPrimitives.mm; sourceTree = "<group>"; };
+		D2ECCD4F1B7C6A17003D2D75 /* flShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flShader.h; sourceTree = "<group>"; };
+		D2ECCD501B7C6A17003D2D75 /* flShader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flShader.mm; sourceTree = "<group>"; };
+		D2ECCD511B7C6A17003D2D75 /* flShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flShaders.h; sourceTree = "<group>"; };
+		D2ECCD521B7C6A17003D2D75 /* flShaders.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flShaders.mm; sourceTree = "<group>"; };
+		D2ECCD531B7C6A17003D2D75 /* flStencilMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flStencilMask.h; sourceTree = "<group>"; };
+		D2ECCD541B7C6A17003D2D75 /* flStencilMask.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flStencilMask.mm; sourceTree = "<group>"; };
+		D2ECCD551B7C6A17003D2D75 /* flTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flTexture.h; sourceTree = "<group>"; };
+		D2ECCD561B7C6A17003D2D75 /* flTexture.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flTexture.mm; sourceTree = "<group>"; };
+		D2ECCD571B7C6A17003D2D75 /* flVbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVbo.h; sourceTree = "<group>"; };
+		D2ECCD581B7C6A17003D2D75 /* flVbo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVbo.mm; sourceTree = "<group>"; };
+		D2ECCD5A1B7C6A17003D2D75 /* flEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flEasing.h; sourceTree = "<group>"; };
+		D2ECCD5B1B7C6A17003D2D75 /* flEasing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flEasing.mm; sourceTree = "<group>"; };
+		D2ECCD5C1B7C6A17003D2D75 /* flMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMath.h; sourceTree = "<group>"; };
+		D2ECCD5D1B7C6A17003D2D75 /* flMath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMath.mm; sourceTree = "<group>"; };
+		D2ECCD5E1B7C6A17003D2D75 /* flMatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMatrix4x4.h; sourceTree = "<group>"; };
+		D2ECCD5F1B7C6A17003D2D75 /* flMatrix4x4.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flMatrix4x4.mm; sourceTree = "<group>"; };
+		D2ECCD601B7C6A17003D2D75 /* flNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flNoise.h; sourceTree = "<group>"; };
+		D2ECCD611B7C6A17003D2D75 /* flNoise.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flNoise.mm; sourceTree = "<group>"; };
+		D2ECCD621B7C6A17003D2D75 /* flQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flQuaternion.h; sourceTree = "<group>"; };
+		D2ECCD631B7C6A17003D2D75 /* flQuaternion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flQuaternion.mm; sourceTree = "<group>"; };
+		D2ECCD641B7C6A17003D2D75 /* flRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flRandom.h; sourceTree = "<group>"; };
+		D2ECCD651B7C6A17003D2D75 /* flRandom.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flRandom.mm; sourceTree = "<group>"; };
+		D2ECCD661B7C6A17003D2D75 /* flRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flRectangle.h; sourceTree = "<group>"; };
+		D2ECCD671B7C6A17003D2D75 /* flRectangle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flRectangle.mm; sourceTree = "<group>"; };
+		D2ECCD681B7C6A17003D2D75 /* flVec2f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec2f.h; sourceTree = "<group>"; };
+		D2ECCD691B7C6A17003D2D75 /* flVec3f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec3f.h; sourceTree = "<group>"; };
+		D2ECCD6A1B7C6A17003D2D75 /* flVec3f.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVec3f.mm; sourceTree = "<group>"; };
+		D2ECCD6B1B7C6A17003D2D75 /* flVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flVec4f.h; sourceTree = "<group>"; };
+		D2ECCD6C1B7C6A17003D2D75 /* flVec4f.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flVec4f.mm; sourceTree = "<group>"; };
+		D2ECCD6E1B7C6A17003D2D75 /* flMCGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCGenerator.cpp; sourceTree = "<group>"; };
+		D2ECCD6F1B7C6A17003D2D75 /* flMCGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCGenerator.h; sourceTree = "<group>"; };
+		D2ECCD701B7C6A17003D2D75 /* flMCNoise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCNoise.cpp; sourceTree = "<group>"; };
+		D2ECCD711B7C6A17003D2D75 /* flMCNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCNoise.h; sourceTree = "<group>"; };
+		D2ECCD721B7C6A17003D2D75 /* flMCTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flMCTypes.cpp; sourceTree = "<group>"; };
+		D2ECCD731B7C6A17003D2D75 /* flMCTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flMCTypes.h; sourceTree = "<group>"; };
+		D2ECCD751B7C6A17003D2D75 /* flColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flColor.h; sourceTree = "<group>"; };
+		D2ECCD761B7C6A17003D2D75 /* flColor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flColor.mm; sourceTree = "<group>"; };
+		D2ECCD781B7C6A17003D2D75 /* flCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flCommon.h; sourceTree = "<group>"; };
+		D2ECCD791B7C6A17003D2D75 /* flCommon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flCommon.mm; sourceTree = "<group>"; };
+		D2ECCD7A1B7C6A17003D2D75 /* flException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flException.h; sourceTree = "<group>"; };
+		D2ECCD7B1B7C6A17003D2D75 /* flException.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flException.mm; sourceTree = "<group>"; };
+		D2ECCD7C1B7C6A17003D2D75 /* flLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flLoop.h; sourceTree = "<group>"; };
+		D2ECCD7D1B7C6A17003D2D75 /* flLoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flLoop.mm; sourceTree = "<group>"; };
+		D2ECCD7E1B7C6A17003D2D75 /* flStopWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flStopWatch.h; sourceTree = "<group>"; };
+		D2ECCD7F1B7C6A17003D2D75 /* flStopWatch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flStopWatch.mm; sourceTree = "<group>"; };
+		D2ECCD801B7C6A17003D2D75 /* flUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flUtils.h; sourceTree = "<group>"; };
+		D2ECCD811B7C6A17003D2D75 /* flUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = flUtils.mm; sourceTree = "<group>"; };
+		D2ECCD821B7C6A17003D2D75 /* flTinyGLUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = flTinyGLUtils.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,8 +452,7 @@
 				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
 				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
-				D251DB4F1B679A0600FD595D /* YORenderer.h */,
-				D251DB4B1B6799F300FD595D /* YORenderer.mm */,
+				D2ECCC981B7C6896003D2D75 /* YO */,
 			);
 			name = Renderers;
 			sourceTree = "<group>";
@@ -352,6 +463,167 @@
 				B207584B1B64ADF5003E0BF0 /* telemetryReaderAzimuth.h */,
 			);
 			name = Azimuth;
+			sourceTree = "<group>";
+		};
+		D2ECCC981B7C6896003D2D75 /* YO */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD371B7C6A17003D2D75 /* flTinyGLUtils */,
+				D2ECCCA21B7C6896003D2D75 /* YOBatches.h */,
+				D2ECCCA11B7C6896003D2D75 /* YOBatches.cpp */,
+				D2ECCCA31B7C6896003D2D75 /* YOColorRenderer.h */,
+				D2ECCCA41B7C6896003D2D75 /* YOColorRenderer.mm */,
+				D2ECCCA51B7C6896003D2D75 /* YORenderer.h */,
+				D2ECCCA61B7C6896003D2D75 /* YORenderer.mm */,
+			);
+			name = YO;
+			path = Renderers/YO;
+			sourceTree = "<group>";
+		};
+		D2ECCD371B7C6A17003D2D75 /* flTinyGLUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD381B7C6A17003D2D75 /* flTinyGLUtils */,
+				D2ECCD821B7C6A17003D2D75 /* flTinyGLUtils.xcodeproj */,
+			);
+			path = flTinyGLUtils;
+			sourceTree = "<group>";
+		};
+		D2ECCD381B7C6A17003D2D75 /* flTinyGLUtils */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD391B7C6A17003D2D75 /* 3D */,
+				D2ECCD421B7C6A17003D2D75 /* bridge */,
+				D2ECCD451B7C6A17003D2D75 /* flTinyGLUtils.h */,
+				D2ECCD461B7C6A17003D2D75 /* gl */,
+				D2ECCD591B7C6A17003D2D75 /* math */,
+				D2ECCD6D1B7C6A17003D2D75 /* MultiColor */,
+				D2ECCD741B7C6A17003D2D75 /* types */,
+				D2ECCD771B7C6A17003D2D75 /* utils */,
+			);
+			path = flTinyGLUtils;
+			sourceTree = "<group>";
+		};
+		D2ECCD391B7C6A17003D2D75 /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD3A1B7C6A17003D2D75 /* flArcball.h */,
+				D2ECCD3B1B7C6A17003D2D75 /* flArcball.mm */,
+				D2ECCD3C1B7C6A17003D2D75 /* flCamera.h */,
+				D2ECCD3D1B7C6A17003D2D75 /* flCamera.mm */,
+				D2ECCD3E1B7C6A17003D2D75 /* flMatrixStack.h */,
+				D2ECCD3F1B7C6A17003D2D75 /* flMatrixStack.mm */,
+				D2ECCD401B7C6A17003D2D75 /* flNode.h */,
+				D2ECCD411B7C6A17003D2D75 /* flNode.mm */,
+			);
+			path = 3D;
+			sourceTree = "<group>";
+		};
+		D2ECCD421B7C6A17003D2D75 /* bridge */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD431B7C6A17003D2D75 /* flBridgeIOS.h */,
+				D2ECCD441B7C6A17003D2D75 /* flBridgeIOS.mm */,
+			);
+			path = bridge;
+			sourceTree = "<group>";
+		};
+		D2ECCD461B7C6A17003D2D75 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD471B7C6A17003D2D75 /* flFbo.h */,
+				D2ECCD481B7C6A17003D2D75 /* flFbo.mm */,
+				D2ECCD491B7C6A17003D2D75 /* flGLProps.h */,
+				D2ECCD4A1B7C6A17003D2D75 /* flGLProps.mm */,
+				D2ECCD4B1B7C6A17003D2D75 /* flGraphics.h */,
+				D2ECCD4C1B7C6A17003D2D75 /* flGraphics.mm */,
+				D2ECCD4D1B7C6A17003D2D75 /* flPrimitives.h */,
+				D2ECCD4E1B7C6A17003D2D75 /* flPrimitives.mm */,
+				D2ECCD4F1B7C6A17003D2D75 /* flShader.h */,
+				D2ECCD501B7C6A17003D2D75 /* flShader.mm */,
+				D2ECCD511B7C6A17003D2D75 /* flShaders.h */,
+				D2ECCD521B7C6A17003D2D75 /* flShaders.mm */,
+				D2ECCD531B7C6A17003D2D75 /* flStencilMask.h */,
+				D2ECCD541B7C6A17003D2D75 /* flStencilMask.mm */,
+				D2ECCD551B7C6A17003D2D75 /* flTexture.h */,
+				D2ECCD561B7C6A17003D2D75 /* flTexture.mm */,
+				D2ECCD571B7C6A17003D2D75 /* flVbo.h */,
+				D2ECCD581B7C6A17003D2D75 /* flVbo.mm */,
+			);
+			path = gl;
+			sourceTree = "<group>";
+		};
+		D2ECCD591B7C6A17003D2D75 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD5A1B7C6A17003D2D75 /* flEasing.h */,
+				D2ECCD5B1B7C6A17003D2D75 /* flEasing.mm */,
+				D2ECCD5C1B7C6A17003D2D75 /* flMath.h */,
+				D2ECCD5D1B7C6A17003D2D75 /* flMath.mm */,
+				D2ECCD5E1B7C6A17003D2D75 /* flMatrix4x4.h */,
+				D2ECCD5F1B7C6A17003D2D75 /* flMatrix4x4.mm */,
+				D2ECCD601B7C6A17003D2D75 /* flNoise.h */,
+				D2ECCD611B7C6A17003D2D75 /* flNoise.mm */,
+				D2ECCD621B7C6A17003D2D75 /* flQuaternion.h */,
+				D2ECCD631B7C6A17003D2D75 /* flQuaternion.mm */,
+				D2ECCD641B7C6A17003D2D75 /* flRandom.h */,
+				D2ECCD651B7C6A17003D2D75 /* flRandom.mm */,
+				D2ECCD661B7C6A17003D2D75 /* flRectangle.h */,
+				D2ECCD671B7C6A17003D2D75 /* flRectangle.mm */,
+				D2ECCD681B7C6A17003D2D75 /* flVec2f.h */,
+				D2ECCD691B7C6A17003D2D75 /* flVec3f.h */,
+				D2ECCD6A1B7C6A17003D2D75 /* flVec3f.mm */,
+				D2ECCD6B1B7C6A17003D2D75 /* flVec4f.h */,
+				D2ECCD6C1B7C6A17003D2D75 /* flVec4f.mm */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		D2ECCD6D1B7C6A17003D2D75 /* MultiColor */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD6E1B7C6A17003D2D75 /* flMCGenerator.cpp */,
+				D2ECCD6F1B7C6A17003D2D75 /* flMCGenerator.h */,
+				D2ECCD701B7C6A17003D2D75 /* flMCNoise.cpp */,
+				D2ECCD711B7C6A17003D2D75 /* flMCNoise.h */,
+				D2ECCD721B7C6A17003D2D75 /* flMCTypes.cpp */,
+				D2ECCD731B7C6A17003D2D75 /* flMCTypes.h */,
+			);
+			path = MultiColor;
+			sourceTree = "<group>";
+		};
+		D2ECCD741B7C6A17003D2D75 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD751B7C6A17003D2D75 /* flColor.h */,
+				D2ECCD761B7C6A17003D2D75 /* flColor.mm */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		D2ECCD771B7C6A17003D2D75 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCD781B7C6A17003D2D75 /* flCommon.h */,
+				D2ECCD791B7C6A17003D2D75 /* flCommon.mm */,
+				D2ECCD7A1B7C6A17003D2D75 /* flException.h */,
+				D2ECCD7B1B7C6A17003D2D75 /* flException.mm */,
+				D2ECCD7C1B7C6A17003D2D75 /* flLoop.h */,
+				D2ECCD7D1B7C6A17003D2D75 /* flLoop.mm */,
+				D2ECCD7E1B7C6A17003D2D75 /* flStopWatch.h */,
+				D2ECCD7F1B7C6A17003D2D75 /* flStopWatch.mm */,
+				D2ECCD801B7C6A17003D2D75 /* flUtils.h */,
+				D2ECCD811B7C6A17003D2D75 /* flUtils.mm */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D2ECCD831B7C6A17003D2D75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2ECCDA71B7C6A17003D2D75 /* libflTinyGLUtils.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +695,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = D2ECCD831B7C6A17003D2D75 /* Products */;
+					ProjectRef = D2ECCD821B7C6A17003D2D75 /* flTinyGLUtils.xcodeproj */;
+				},
+				{
 					ProductGroup = 0768DE721B66CAA300D80B9A /* Products */;
 					ProjectRef = 0768DE711B66CAA300D80B9A /* ImageCouple.xcodeproj */;
 				},
@@ -448,6 +724,13 @@
 			fileType = wrapper.cfbundle;
 			path = ImageCoupleTests.xctest;
 			remoteRef = 0768DE781B66CAA400D80B9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D2ECCDA71B7C6A17003D2D75 /* libflTinyGLUtils.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libflTinyGLUtils.a;
+			remoteRef = D2ECCDA61B7C6A17003D2D75 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -483,31 +766,65 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2ECCD891B7C6A17003D2D75 /* flBridgeIOS.mm in Sources */,
 				07A8BB7B1B6718C1005B53CD /* cNoradSGP4.cpp in Sources */,
-				D251DB4C1B6799F300FD595D /* YORenderer.mm in Sources */,
+				D2ECCDA41B7C6A17003D2D75 /* flUtils.mm in Sources */,
 				07A8BB761B6718C1005B53CD /* globals.cpp in Sources */,
 				07D9FE991B6384A800ED5F86 /* GLFrameBuffer.mm in Sources */,
 				07D9FE981B6384A800ED5F86 /* charTex.mm in Sources */,
 				B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */,
 				07A8BB7A1B6718C1005B53CD /* cNoradSDP4.cpp in Sources */,
 				07A8BB791B6718C1005B53CD /* cNoradBase.cpp in Sources */,
+				D2ECCD851B7C6A17003D2D75 /* flArcball.mm in Sources */,
 				07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */,
 				07A8BB6E1B6718C1005B53CD /* cEci.cpp in Sources */,
+				D2ECCD8C1B7C6A17003D2D75 /* flGraphics.mm in Sources */,
 				07A8BB751B6718C1005B53CD /* cVector.cpp in Sources */,
+				D2ECCD8D1B7C6A17003D2D75 /* flPrimitives.mm in Sources */,
 				07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */,
 				07A8BB821B6718C1005B53CD /* TLEReader.cpp in Sources */,
+				D2ECCCAC1B7C6896003D2D75 /* YORenderer.mm in Sources */,
 				07A8BB6F1B6718C1005B53CD /* cJulian.cpp in Sources */,
+				D2ECCD921B7C6A17003D2D75 /* flVbo.mm in Sources */,
 				07A8BB781B6718C1005B53CD /* stdafx.cpp in Sources */,
+				D2ECCD931B7C6A17003D2D75 /* flEasing.mm in Sources */,
 				07D9FE691B63842100ED5F86 /* main.m in Sources */,
+				D2ECCD881B7C6A17003D2D75 /* flNode.mm in Sources */,
+				D2ECCD871B7C6A17003D2D75 /* flMatrixStack.mm in Sources */,
+				D2ECCD901B7C6A17003D2D75 /* flStencilMask.mm in Sources */,
+				D2ECCD911B7C6A17003D2D75 /* flTexture.mm in Sources */,
+				D2ECCD9D1B7C6A17003D2D75 /* flMCNoise.cpp in Sources */,
+				D2ECCD9E1B7C6A17003D2D75 /* flMCTypes.cpp in Sources */,
+				D2ECCD9C1B7C6A17003D2D75 /* flMCGenerator.cpp in Sources */,
 				07D9FE971B6384A800ED5F86 /* Renderer.mm in Sources */,
+				D2ECCDA01B7C6A17003D2D75 /* flCommon.mm in Sources */,
+				D2ECCD941B7C6A17003D2D75 /* flMath.mm in Sources */,
+				D2ECCD9F1B7C6A17003D2D75 /* flColor.mm in Sources */,
 				07D9FE9A1B6384A800ED5F86 /* NHGLView.mm in Sources */,
+				D2ECCD981B7C6A17003D2D75 /* flRandom.mm in Sources */,
 				07A8BB7C1B6718C1005B53CD /* cOrbit.cpp in Sources */,
+				D2ECCCAA1B7C6896003D2D75 /* YOBatches.cpp in Sources */,
+				D2ECCDA31B7C6A17003D2D75 /* flStopWatch.mm in Sources */,
+				D2ECCD8F1B7C6A17003D2D75 /* flShaders.mm in Sources */,
+				D2ECCD9A1B7C6A17003D2D75 /* flVec3f.mm in Sources */,
+				D2ECCDA21B7C6A17003D2D75 /* flLoop.mm in Sources */,
+				D2ECCD861B7C6A17003D2D75 /* flCamera.mm in Sources */,
 				B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */,
+				D2ECCCAB1B7C6896003D2D75 /* YOColorRenderer.mm in Sources */,
+				D2ECCD961B7C6A17003D2D75 /* flNoise.mm in Sources */,
+				D2ECCD8A1B7C6A17003D2D75 /* flFbo.mm in Sources */,
 				07A8BB741B6718C1005B53CD /* cTLE.cpp in Sources */,
+				D2ECCD951B7C6A17003D2D75 /* flMatrix4x4.mm in Sources */,
+				D2ECCD8B1B7C6A17003D2D75 /* flGLProps.mm in Sources */,
 				07A8BB701B6718C1005B53CD /* coord.cpp in Sources */,
 				07A8BB731B6718C1005B53CD /* cSite.cpp in Sources */,
+				D2ECCD9B1B7C6A17003D2D75 /* flVec4f.mm in Sources */,
 				07A8BB801B6718C1005B53CD /* stdafx.cpp in Sources */,
+				D2ECCD971B7C6A17003D2D75 /* flQuaternion.mm in Sources */,
+				D2ECCD991B7C6A17003D2D75 /* flRectangle.mm in Sources */,
 				07D9FE961B6384A800ED5F86 /* Controller.mm in Sources */,
+				D2ECCD8E1B7C6A17003D2D75 /* flShader.mm in Sources */,
+				D2ECCDA11B7C6A17003D2D75 /* flException.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

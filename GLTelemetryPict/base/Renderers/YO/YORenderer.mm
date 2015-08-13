@@ -11,126 +11,10 @@
 #import <Foundation/Foundation.h>
 #import "YORenderer.h"
 #import "NHRenderer.h"
+#import "YOBatches.h"
+#include "flTinyGLUtils.h"
 
-typedef struct RgbColor
-{
-    unsigned char r;
-    unsigned char g;
-    unsigned char b;
-} RgbColor;
-
-typedef struct HsvColor
-{
-    unsigned char h;
-    unsigned char s;
-    unsigned char v;
-} HsvColor;
-
-struct Color {
-    float r, g, b, a;
-};
-
-struct Vertex {
-    float x, y, z;
-};
-
-RgbColor HsvToRgb(HsvColor hsv)
-{
-    RgbColor rgb;
-    unsigned char region, remainder, p, q, t;
-    
-    if (hsv.s == 0)
-    {
-        rgb.r = hsv.v;
-        rgb.g = hsv.v;
-        rgb.b = hsv.v;
-        return rgb;
-    }
-    
-    region = hsv.h / 43;
-    remainder = (hsv.h - (region * 43)) * 6;
-    
-    p = (hsv.v * (255 - hsv.s)) >> 8;
-    q = (hsv.v * (255 - ((hsv.s * remainder) >> 8))) >> 8;
-    t = (hsv.v * (255 - ((hsv.s * (255 - remainder)) >> 8))) >> 8;
-    
-    switch (region)
-    {
-        case 0:
-            rgb.r = hsv.v; rgb.g = t; rgb.b = p;
-            break;
-        case 1:
-            rgb.r = q; rgb.g = hsv.v; rgb.b = p;
-            break;
-        case 2:
-            rgb.r = p; rgb.g = hsv.v; rgb.b = t;
-            break;
-        case 3:
-            rgb.r = p; rgb.g = q; rgb.b = hsv.v;
-            break;
-        case 4:
-            rgb.r = t; rgb.g = p; rgb.b = hsv.v;
-            break;
-        default:
-            rgb.r = hsv.v; rgb.g = p; rgb.b = q;
-            break;
-    }
-    
-    return rgb;
-}
-
-HsvColor RgbToHsv(RgbColor rgb)
-{
-    HsvColor hsv;
-    unsigned char rgbMin, rgbMax;
-    
-    rgbMin = rgb.r < rgb.g ? (rgb.r < rgb.b ? rgb.r : rgb.b) : (rgb.g < rgb.b ? rgb.g : rgb.b);
-    rgbMax = rgb.r > rgb.g ? (rgb.r > rgb.b ? rgb.r : rgb.b) : (rgb.g > rgb.b ? rgb.g : rgb.b);
-    
-    hsv.v = rgbMax;
-    if (hsv.v == 0)
-    {
-        hsv.h = 0;
-        hsv.s = 0;
-        return hsv;
-    }
-    
-    hsv.s = 255 * long(rgbMax - rgbMin) / hsv.v;
-    if (hsv.s == 0)
-    {
-        hsv.h = 0;
-        return hsv;
-    }
-    
-    if (rgbMax == rgb.r)
-        hsv.h = 0 + 43 * (rgb.g - rgb.b) / (rgbMax - rgbMin);
-    else if (rgbMax == rgb.g)
-        hsv.h = 85 + 43 * (rgb.b - rgb.r) / (rgbMax - rgbMin);
-    else
-        hsv.h = 171 + 43 * (rgb.r - rgb.g) / (rgbMax - rgbMin);
-    
-    return hsv;
-}
-
-static float _map(float value, float inputMin, float inputMax, float outputMin, float outputMax, bool clamp)
-{
-    if (fabs(inputMin - inputMax) < FLT_EPSILON){
-        return outputMin;
-    } else {
-        float outVal = ((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin);
-        
-        if( clamp ){
-            if(outputMax < outputMin){
-                if( outVal < outputMax )outVal = outputMax;
-                else if( outVal > outputMin )outVal = outputMin;
-            }else{
-                if( outVal > outputMax )outVal = outputMax;
-                else if( outVal < outputMin )outVal = outputMin;
-            }
-        }
-        return outVal;
-    }
-}
+using namespace YO;
 
 @interface YORenderer() {
 #ifdef YO_DEBUG
@@ -206,17 +90,17 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[0] * (1.f - f) + t2.magn[0] * f;
-                const float h = 15000.f * _map(mgn, 0.f, 360.f, 0.f, 1.f, true);
+                const float h = 15000.f * fl::map(mgn, 0.f, 360.f, 0.f, 1.f, true);
                 float tmx = t1.tmp_solar_mX * (1.f - f) + t2.tmp_solar_mX;
                 float tpx = t1.tmp_solar_pX * (1.f - f) + t2.tmp_solar_pX;
-                unsigned char _tmx = _map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
-                unsigned char _tpx = _map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tmx = fl::map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tpx = fl::map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
                 RgbColor cmx = HsvToRgb(HsvColor{_tmx, 255, 255});
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mX * (1.f - f) + t2.cur_solar_mX * f;
                 float ap = t1.cur_solar_pX * (1.f - f) + t2.cur_solar_pX * f;
-                am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
-                ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
+                am = fl::map(am, 0.f, maxCurrent, 0.f, 1.f, true);
+                ap = fl::map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
                 const int ny = (int)h;
                 for (int l=0; l<=ny; l+=step) {
                     const float f2 = l/(float)ny;
@@ -246,17 +130,17 @@ static float _map(float value, float inputMin, float inputMax, float outputMin, 
                 const float f = k/(float)n;
                 float x = x1 + k;
                 float mgn = t1.magn[1] * (1.f - f) + t2.magn[1] * f;
-                const float h = 15000.f * _map(mgn, 0.f, 360.f, 0.f, 1.f, true);
+                const float h = 15000.f * fl::map(mgn, 0.f, 360.f, 0.f, 1.f, true);
                 float tmx = t1.tmp_solar_mY1 * (1.f - f) + t2.tmp_solar_mY1;
                 float tpx = t1.tmp_solar_pY1 * (1.f - f) + t2.tmp_solar_pY1;
-                unsigned char _tmx = _map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
-                unsigned char _tpx = _map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tmx = fl::map(tmx, tmpMin, tmpMax, 0.f, 255.f, true);
+                unsigned char _tpx = fl::map(tpx, tmpMin, tmpMax, 0.f, 255.f, true);
                 RgbColor cmx = HsvToRgb(HsvColor{_tmx, 255, 255});
                 RgbColor cpx = HsvToRgb(HsvColor{_tpx, 255, 255});
                 float am = t1.cur_solar_mY1 * (1.f - f) + t2.cur_solar_mY1 * f;
                 float ap = t1.cur_solar_pY1 * (1.f - f) + t2.cur_solar_pY1 * f;
-                am = _map(am, 0.f, maxCurrent, 0.f, 1.f, true);
-                ap = _map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
+                am = fl::map(am, 0.f, maxCurrent, 0.f, 1.f, true);
+                ap = fl::map(ap, 0.f, maxCurrent, 0.f, 1.f, true);
                 const int ny = (int)h;
                 for (int l=0; l<=ny; l+=step) {
                     const float f2 = l/(float)ny;
