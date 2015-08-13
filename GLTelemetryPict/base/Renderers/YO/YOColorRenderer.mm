@@ -50,7 +50,7 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{PIC_HEIGH_PX};
+    const int h{200};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
@@ -94,7 +94,8 @@ using namespace fl;
                             MC::Vector v;
                             MC::Color c;
                             v.x = (i - x1) / (float)PIC_WIDTH_PX;
-                            v.y = _j / (float)PIC_HEIGH_PX;
+                            v.y = _j / (float)(PIC_HEIGH_PX);
+                            v.y = fmodf(v.y, 0.005f);
                             v.z = 5.0;
                             c.r = c.g = c.b = 1.0;
                             MC::multicolor(v, &c,
