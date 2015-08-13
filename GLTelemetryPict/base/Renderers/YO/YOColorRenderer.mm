@@ -52,7 +52,7 @@ using namespace fl;
     
     const int h{100};
     
-    ScopedTranslate t{0.f, PIC_HEIGH_PX * 0.5f - h * 0.5f};
+    ScopedTranslate t{0.f, (float)PIC_HEIGH_PX - h};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
