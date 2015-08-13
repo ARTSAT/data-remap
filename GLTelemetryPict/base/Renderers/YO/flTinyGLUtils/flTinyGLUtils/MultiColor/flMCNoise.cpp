@@ -16,7 +16,7 @@ MULTI_COLOR_NAMESPACE_BEGIN
 #define B 0x100
 #define BM 0xff
 //#define N 0x10000000
-  #define N 0x100
+  #define N 0x10
 #define NP 12
 #define NM 0xfff
 

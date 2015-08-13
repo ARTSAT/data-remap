@@ -51,10 +51,11 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{(int)ruler_h};
+    //const int h{(int)ruler_h};
+    const int h{400};
     
-    ScopedTranslate t{0.f, (float)PIC_HEIGH_PX - h};
-    //ScopedTranslate t{0.f, ruler_h};
+    //ScopedTranslate t{0.f, (float)PIC_HEIGH_PX - h};
+    ScopedTranslate t{0.f, ruler_h};
     
     const float tmpMin{-10.f};
     const float tmpMax{30.f};
