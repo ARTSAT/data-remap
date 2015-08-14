@@ -66,26 +66,5 @@
     glEnd();
 };
 
--(void)drawIntermittentRect:(float)x_ y_:(float)y_ width:(float)width height:(float)height factor:(int)factor quards:(BOOL)quards {
-    for (int i=0; i<factor; i++) {
-        //float vY = y_ / factor;
-        float vHeight = height / factor;
-        if (quards) {
-            glBegin(GL_QUADS);
-            glVertex2f(0 + x_, vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
-            glVertex2f(0 + x_, vHeight * i + (vHeight * 0.5));
-        } else {
-            glBegin(GL_LINE_LOOP);
-            glVertex2f(0 + x_ + sin(i) * factor , vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
-            glVertex2f(0 + x_ + sin(i) * factor, vHeight * i + (vHeight * 0.5));
-        }
-        glEnd();
-    }
-};
-
 @end
 
