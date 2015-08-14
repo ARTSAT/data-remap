@@ -54,7 +54,7 @@ using namespace fl;
     setColor(Color::white);
     enableVertexArray();
     
-    const int h{(int)ruler_h};
+    const int h{(int)(ruler_h*.75f)};
     
     ScopedTranslate t{0.f, (float)PIC_HEIGH_PX - h};
     //ScopedTranslate t{0.f, ruler_h};

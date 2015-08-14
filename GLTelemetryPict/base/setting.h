@@ -17,8 +17,8 @@
 #import "YOColorRenderer.h"
 
 
-#define USE_SINGLE_RENDERER
-#define RENDERER_CLASS YOColorRenderer
+//#define USE_SINGLE_RENDERER
+#define RENDERER_CLASS NHRenderer
 
 
 #define USE_RULER

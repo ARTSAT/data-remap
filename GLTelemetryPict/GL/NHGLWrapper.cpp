@@ -69,3 +69,21 @@ void set2dViewPortFromBottom( int x, int y, int w, int h ){
     
     
 }
+
+
+void getPolar( float x, float y, float z , float* lat, float* lng){
+
+    float val;
+    float kdo;
+    float ido;
+
+    val = hypot(x, z);
+    kdo = atan2f(z,x);
+    ido = atan2f( y,val );
+
+    if (ido>(M_PI/2.))		ido-=(ido - M_PI/2.);
+    else if (ido<-M_PI/2.)	ido-=(ido - (-M_PI/2.));
+
+    *lat = ido;
+    *lng = kdo;
+}

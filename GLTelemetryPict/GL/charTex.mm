@@ -66,7 +66,7 @@
                          forKey:NSStrokeWidthAttributeName];
 
 
-    [stanStringAttrib setObject:[NSColor colorWithDeviceRed:1.f green:1.f blue:1.f alpha:.6f]
+    [stanStringAttrib setObject:[NSColor colorWithDeviceRed:1.f green:1.f blue:1.f alpha:.8f]
                          forKey:NSStrokeColorAttributeName];
 
 

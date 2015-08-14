@@ -18,13 +18,13 @@
 #define DAY_IN_A_PIC    (4)
 
 #define PIC_WIDTH_PX    (24*PX_PER_HOUR*DAY_IN_A_PIC)
-#define PIC_HEIGH_PX    (1024*5)
+#define PIC_HEIGH_PX    (1024*5 + 120)
 
 const float ruler_h = (36+48);
 
 
 const float screen_w = PIC_WIDTH_PX;
-const float screen_h = PIC_HEIGH_PX - ruler_h;
+const float screen_h = PIC_HEIGH_PX - ruler_h*3;
 
 
 

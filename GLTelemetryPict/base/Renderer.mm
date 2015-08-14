@@ -81,7 +81,7 @@ NSString* monthStr( int mon ){
 
     deorbitUnixTime = unixTimeFromDate(2014, 9, 2, 9, 47, 0) - 9*3600;
 
-    timeCodeText = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica" size:24]
+    timeCodeText = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica-Bold" size:24]
                                        forRetina:NO
                                        antiAlias:YES];
 
@@ -108,7 +108,7 @@ NSString* monthStr( int mon ){
 -(id)init{
     self = [super init];
 
-    smallFont = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica" size:12]
+    smallFont = [[charTex alloc] initWithFont:[NSFont fontWithName:@"Helvetica-Bold" size:14]
                                     forRetina:NO
                                     antiAlias:YES];
 
@@ -169,7 +169,8 @@ NSString* monthStr( int mon ){
 
         glBegin(GL_LINES);
         glVertex2f(1+PX_PER_DAY*i, 0);
-        glVertex2f(1+PX_PER_DAY*i, PIC_HEIGH_PX);
+        //glVertex2f(1+PX_PER_DAY*i, PIC_HEIGH_PX);
+        glVertex2f(1+PX_PER_DAY*i, screen_h+ruler_h);
         glEnd();
 
 
@@ -184,8 +185,20 @@ NSString* monthStr( int mon ){
     glVertex2f(screen_w, 36+24);
 
 
+
+    glVertex2f(0, 36+24+12);
+    glVertex2f(screen_w, 36+24+12);
+
+
+    glVertex2f(0, screen_h+ruler_h);
+    glVertex2f(screen_w, screen_h+ruler_h);
+
+
+
     glVertex2f(0, 36+24+24);
     glVertex2f(screen_w, 36+24+24);
+
+
 
     glVertex2f(0, 1);
     glVertex2f(screen_w, 1);
@@ -225,23 +238,29 @@ NSString* monthStr( int mon ){
     }
 
 
-    glColor3f(1, 0, 0);
+    glColor3f(0, 0, 0);
     glBegin(GL_LINES);
     for (int i=sec; i<sec+duration; i+=10 ) {
-        bool visible = invaderTLE->isVisible(i);
 
-        float tm = i - sec;
-        float x = PIC_WIDTH_PX*(float)tm/(float)(PX_PER_HOUR*dayCnount*24);
+        if (i > invaderTLE->firstUnixEpoch() && i<deorbitUnixTime) {
+            bool visible = invaderTLE->isVisible(i);
 
-        if (visible) {
-            glVertex2f(x, 0);
-            glVertex2f(x, 100);
+            float tm = i - sec;
+            float x = PIC_WIDTH_PX*(float)tm/(float)(dayCnount*24*3600);
 
+            if (visible) {
+                glVertex2f(x, 36+24);
+                glVertex2f(x, 36+24+12);
+
+                
+                
+            }
+            
         }
-
-
-
-
+        
+        
+        
+        
     }
     glEnd();
 
@@ -258,7 +277,7 @@ NSString* monthStr( int mon ){
 
         glColor3f(0,0,0);
         glBegin(GL_LINES);
-        glVertex2f(interm, 36+24);
+        glVertex2f(interm, 36+24+12);
         glVertex2f(interm, 36+48);
         glEnd();
 

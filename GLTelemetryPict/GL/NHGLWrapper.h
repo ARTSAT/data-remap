@@ -36,6 +36,8 @@ void set2dViewPortFromBottom( int x, int y, int w, int h );
 
 void renderCross( int x, int y, int length);
 
+void getPolar( float x, float y, float z , float* lat, float* lng);
+
 
 class p3 {
 
@@ -65,6 +67,9 @@ public:
         px = xz*cosf(lon*mpi);
         pz = xz*sinf(lon*mpi);
     }
+
+
+
 
 };
 

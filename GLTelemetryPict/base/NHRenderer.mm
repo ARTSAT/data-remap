@@ -96,6 +96,7 @@ vector<float> rotations[3];
 
         float *rot = reader->telemetries[i].gyro;
 
+
         for (int t=tm; t<tm2; t++) {
 
             float angX = rot[0];
@@ -122,31 +123,26 @@ vector<float> rotations[3];
 
     NSLog(@"max B = %f / min B = %f", maxBatAvr,minBatAvr);
 
-    NSLog(@"powerOBC max  = %f / min B = %f", maxPowerOBCtmp,minPowerOBCtmp);
-    NSLog(@"powerOBC Cur max  = %f / min B = %f", maxPowerOBCcur,minPowerOBCcur);
+    NSLog(@"powerOBC max  = %f / min = %f", maxPowerOBCtmp,minPowerOBCtmp);
+    NSLog(@"powerOBC Cur max  = %f / min = %f", maxPowerOBCcur,minPowerOBCcur);
 
 
     return self;
 
 }
 
-#define LINE (9)//7
-
+#define LINE (8)//7
 
 
 -(void)renderFromUnixTime:(int)sec
                  duration:(int)duration{
 
-
-//    glClearColor(1, 1, 1, 1);
-//    glClear(GL_COLOR_BUFFER_BIT);
     glPushMatrix();
     glTranslatef(0, ruler_h, 0);
 
-    vector<telemetry> telems = reader->telemetriesInRange(sec, duration);
-
     int draw_area_h = screen_h;
 
+    vector<telemetry> telems = reader->telemetriesInRange(sec, duration);
 
     glLineWidth(1);
     glDisable(GL_BLEND);
@@ -176,55 +172,38 @@ vector<float> rotations[3];
             }
 
 
-            [self renderPowerOBCTmpAtX:x to:x2 telem:telems[i] areaH:draw_area_h];
-            [self renderPowerOBCCurAtX:x to:x2 telem:telems[i] areaH:draw_area_h];
 
+            //line
+            [self renderPowerOBCTmpAtX:x
+                                    to:x2
+                                 telem:telems[i]
+                                 areaH:draw_area_h
+                             lineShift:5
+                                  Line:NO];
 
-
-            float batAvr = averageTMPofBatteries(telems[i]);
-
-            float lim = batAvr;// - minBatAvr;
-            lim*=512;
-
-            if (lim<0) {
-                glColor3f(0, 0, 1);
-            }else{
-                glColor3f(1, 1, 0);
-            }
-
-            glPointSize(2);
+            glDisable(GL_BLEND);
             glColor3f(0, 0, 0);
-            glBegin(GL_POINTS);
-            for (int n=0; n<fabsf(lim); ++n) {
-                //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
-                glVertex2f(x, LINE*(rand()%(draw_area_h/LINE)) + 6);
-            }
-            glEnd();
+            [self renderPowerOBCCurAtX:x
+                                    to:x2
+                                 telem:telems[i]
+                                 areaH:draw_area_h
+                               dotSize:1
+                             lineShift:4
+                                factor:12.f]; //4
+
+
+            //[self renderBat:telems[i] :x :draw_area_h lineShift:6];
+
+            glColor3f(0, 0, 0);
+            [self renderBat2:telems[i]
+                           x:x to:x2
+                           h:draw_area_h
+                   lineShift:6
+                      factor:16.f];
 
 
 
-
-#pragma mark temperture power OBC
-//            float tobc = telems[i].tmp_powerOBC;
-//            float tobc2 = telems[i+1].tmp_powerOBC;
-//
-//            glColor3f(1, 0, 0);
-//
-//            glPointSize(4);
-//            glBegin(GL_POINTS);
-//
-//            glVertex2f(x,  screen_w-tobc*160.f );
-//            glVertex2f(x2, screen_w-tobc2*160.f );
-//
-//            glEnd();
-//
-//            glLineWidth(1);
-//            glBegin(GL_LINES);
-//
-//            glVertex2f(x,  screen_w-tobc*160.f );
-//            glVertex2f(x2, screen_w-tobc2*160.f );
-//
-//            glEnd();
+            [self renderMag:x to:x2 telem:telems[i]];
 
 
         }
@@ -232,26 +211,93 @@ vector<float> rotations[3];
 
 
 
-    [self renderRotation:sec duration:duration];
+    [self renderRotation:sec
+                duration:duration
+                     pit:2400
+                     rad:2400];
 
 
-//    glColor3f(1, 1, 1);
-//    glBlendReverse();
-//    glRectf(0, 0, PIC_WIDTH_PX, draw_area_h);
 
-#pragma mark TLE
-
-
-    glEnable(GL_BLEND);
-    //glBlendAlpha();
-    glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA,GL_ONE); //alpha
-    //glEnable(GL_LINE_SMOOTH);
-
-//    glBlendReverse();
+    #pragma mark TLE
+    glDisable(GL_BLEND);
     glPointSize(2);
-    glColor4f(0,0,0,1);
+    glColor3f(0, 0, 0);
+    [self renderOrbitLong:sec
+                       dur:duration
+                       pit:11];
+
+
+    glDisable(GL_BLEND);
+    glColor3f(1,1,1);
+    glPointSize(2);//2
+    [self renderOrbit:sec dur:duration];
+
+
+
+
+    glPopMatrix();
+
+}
+
+
+
+-(void)renderOrbit:(int)sec dur:(int)duration{
+
+    float r2        = 2560;
+    int marginSec   = (r2/PX_PER_HOUR)*3600;
+
+
     glBegin(GL_POINTS);
-    for (double unixtm=sec; unixtm<sec+duration; unixtm+=1) {
+    for (int unixtm = sec - marginSec; unixtm < sec + duration + marginSec ; unixtm+=3) {
+
+
+        if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
+
+            cGeoTime geo = invaderTLE->geometryAtUnixTime( unixtm );
+
+
+            float lat = geo.LatitudeRad();
+            float lon = geo.LongitudeRad();
+            float alt = geo.AltitudeKm();//6370.f +
+
+            float y = alt*sinf(lat);
+            float xz = alt*cosf(lat);
+            float x = xz*cosf(lon);
+            float z = xz*sinf(lon);
+
+            float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
+
+            glVertex2f(posX + r2*x/400.f,
+                       screen_h*.5f + r2*y/400.f );
+            
+        }
+        
+        
+    }
+    glEnd();
+    glDisable(GL_BLEND);
+
+
+
+}
+
+
+
+
+-(void)renderOrbitLong:(int)sec
+                   dur:(int)duration
+                   pit:(int)pit{
+
+//    glEnable(GL_BLEND);
+//    glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA,GL_ONE); //alpha
+//
+//    glPointSize(2);
+//    glColor4f(0,0,0,1);
+
+
+
+    glBegin(GL_POINTS);
+    for (double unixtm=sec; unixtm<sec+duration; unixtm+=pit) {//2
 
         cGeoTime geo = invaderTLE->geometryAtUnixTime(unixtm);
 
@@ -266,75 +312,69 @@ vector<float> rotations[3];
             float z = xz*sinf(lon);
 
             float sin = sinf(lon);
-            float r = screen_h*.5f;//1024;//1024;
+            float r = 1024;//screen_h*.5f;//1024*1.5;//screen_h*.5f;//1024;//1024;
 
             float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
             //glVertex2f(posX, r*sin + PIC_HEIGH_PX - r );
             glVertex2f(posX, r*sin + screen_h*.5f );
 
-
         }
-
-
-        
     }
     glEnd();
-
-
-//
-//    float r2        = 1200;
-//    int marginSec   = (r2/PX_PER_HOUR)*3600;
-//
-//    glDisable(GL_BLEND);
-//    glColor3f(0,0,0);
-//    glPointSize(3);//2
-//
-//    glBegin(GL_POINTS);
-//    for (int unixtm = sec - marginSec; unixtm < sec + duration + marginSec ; unixtm+=5) {
-//
-//
-//        if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
-//
-//            cGeoTime geo = invaderTLE->geometryAtUnixTime( unixtm );
-//
-//
-//            float lat = geo.LatitudeRad();
-//            float lon = geo.LongitudeRad();
-//            float alt = geo.AltitudeKm();//6370.f +
-//
-//            float y = alt*sinf(lat);
-//            float xz = alt*cosf(lat);
-//            float x = xz*cosf(lon);
-//            float z = xz*sinf(lon);
-//
-//            float posX = PIC_WIDTH_PX*(float)(unixtm - sec)/(86400.f*DAY_IN_A_PIC);
-//
-//            glVertex2f(posX + r2*x/400.f,
-//                       screen_h*.5f + r2*y/400.f );
-//
-//        }
-//
-//
-//    }
-//    glEnd();
-//    glDisable(GL_BLEND);
-
-
-
-    glPopMatrix();
 
 }
 
 
 
+
+-(void)renderBat:(telemetry)telem
+                :(int)x
+                :(int)height
+       lineShift:(int)lineShift{
+
+    float batAvr = averageTMPofBatteries(telem);
+
+    float lim = batAvr;// - minBatAvr;
+    lim*=512;
+
+    if (lim<0) {
+        glColor3f(0, 0, 1);
+    }else{
+        glColor3f(1, 1, 0);
+    }
+
+    glPointSize(1);
+    glColor3f(1, 0, 0);
+    glBegin(GL_POINTS);
+    for (int n=0; n<fabsf(lim); ++n) {
+        //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
+        glVertex2f(x, LINE*(rand()%(height/LINE)) + lineShift);
+        //glVertex2f(x, (rand()%(draw_area_h)) );
+    }
+    glEnd();
+
+
+}
+
+
+
+
 -(void)renderRotation:(int)sec
-             duration:(int)duration{
+             duration:(int)duration
+                  pit:(int)pit
+                  rad:(float)ra{
 
     int margin = 86400*4;
+
+
     glEnable(GL_BLEND);
     glBlendAdd();
 
-    int pit = 2400;//1800;
+
+    glLineWidth(1);
+
+    glColor3f(1, 1, 1);
+    glBegin(GL_LINES);
 
     for (int unixtm=sec - margin; unixtm<sec+duration + margin; unixtm+=pit) {
 
@@ -346,46 +386,31 @@ vector<float> rotations[3];
 
             for (int i=0; i<3; ++i) {
 
-                glLineWidth(1);
-                glBegin(GL_LINES);
-
-                if (i==0) {
-                    glColor3f(1, 0, 0);
-                }else if(i==1){
-                    glColor3f(0, 1, 0);
-                }else{
-                    glColor3f(0, 0, 1);
-                }
-
-                glColor3f(1, 1, 1);
-
                 float rot = rotations[i][temp];
 
                 float x_base = PIC_WIDTH_PX * temp2/duration;
                 float y_base = PIC_HEIGH_PX*.5f;
 
-                float ra = 2400;
-
                 float x = x_base + ra*cosf(rot*M_PI/180.f);
                 float y = y_base + ra*sinf(rot*M_PI/180.f);
-
 
                 float x2 = x_base + ra*cosf((rot+180.f)*M_PI/180.f);
                 float y2 = y_base + ra*sinf((rot+180.f)*M_PI/180.f);
 
                 glVertex2f(x, y);
                 glVertex2f(x_base, y_base);
-                glEnd();
-                
+                //glVertex2f(x2, y2);
             }
         }
     }
-
+    glEnd();
 
 
 
     glEnable(GL_BLEND);
     glBlendAdd();
+
+    glColor3f(1, 1, 1);
 
     for (int i=0; i<3; ++i) {
 
@@ -394,33 +419,21 @@ vector<float> rotations[3];
 
         for (int unixtm=sec - margin; unixtm<sec+duration + margin; unixtm+=pit) {
 
-
-        int temp = unixtm - reader->firstUnixTime();
-        int temp2 = unixtm - sec;
+            int temp = unixtm - reader->firstUnixTime();
+            int temp2 = unixtm - sec;
 
 
             if (temp>=0) {
-
-
-                glColor3f(1, 1, 1);
 
                 float rot = rotations[i][temp];
 
                 float x_base = PIC_WIDTH_PX * temp2/duration;
                 float y_base = PIC_HEIGH_PX*.5f;
 
-                float ra = 2400;
-
                 float x = x_base + ra*cosf(rot*M_PI/180.f);
                 float y = y_base + ra*sinf(rot*M_PI/180.f);
 
-
-                float x2 = x_base + ra*cosf((rot+180.f)*M_PI/180.f);
-                float y2 = y_base + ra*sinf((rot+180.f)*M_PI/180.f);
-                
                 glVertex2f(x, y);
-                //glVertex2f(x2, y2);
-                //glVertex2f(x_base, y_base);
             }
         }
         glEnd();
@@ -428,7 +441,53 @@ vector<float> rotations[3];
 
     glDisable(GL_BLEND);
 
+}
 
+
+
+
+-(void)renderMag:(int)x
+              to:(int)x2
+           telem:(telemetry)telem{
+
+
+    float *mag = telem.magn;
+    float mx = mag[0];
+    float my = mag[1];
+    float mz = mag[2];
+
+    float rad = 5000.f;
+
+    float lon,lat;
+    getPolar(mx, my, mz, &lat, &lon);
+
+
+    float pit = sqrtf(powf(mx, 2.f) + powf(my, 2.f) + powf(mz, 2.f));
+
+    glColor3f(0,0,0);
+    glPointSize(1);
+    glBegin(GL_POINTS);
+
+//    float y = rad*sinf(lat);
+//    float xz = rad*cosf(lat);
+//    float z = xz*sinf(lon);
+//    float xx = xz*cosf(lon);
+
+
+
+    int pitTouse = pit*.04f;
+    int numLimit = screen_h/pitTouse;
+
+    for (int s=x; s<x2; s++) {
+        //glVertex2f(s - z,   screen_h*.5f - y);
+        for (int n=0; n<numLimit; n++) {
+            glVertex2f(s, n*pitTouse + s%(pitTouse) );
+
+        }
+
+    }
+
+    glEnd();
 
 
 }
@@ -436,37 +495,34 @@ vector<float> rotations[3];
 
 
 
-
-
-
 -(void)renderPowerOBCCurAtX:(int)x
                          to:(int)x2
                       telem:(telemetry)telem
-                      areaH:(int)h{
+                      areaH:(int)h
+                    dotSize:(int)dotsize
+                  lineShift:(int)lineShift
+                     factor:(float)factor{
+
+    float lim = telem.cur_powerOBC - minPowerOBCcur;
+    //lim*=(1.5f);
+    lim*=(factor);//8.f
 
 
-    glPointSize(5);
+    glPointSize(dotsize);//4
 
-    glDisable(GL_BLEND);
-    glEnable(GL_BLEND);
-    glBlendReverse();
 
-    //glColor3f(.75, .75, .75);
-    glColor3f(1,1,1);
+
+//    glEnable(GL_BLEND);
+//    glBlendReverse();
+//    glBlendFuncSeparate(GL_ONE_MINUS_DST_COLOR, GL_ZERO, GL_SRC_ALPHA, GL_ONE);
+//    glColor4f(1,1,1,1);
+
 
     glBegin(GL_POINTS);
-    for (int s=x; s<x2; s++) {
-
-        float lim;
-
-        lim = telem.cur_powerOBC - minPowerOBCcur;
-
-        lim*=(1.f);
+    for (int s=x; s<x2; s+=dotsize) {
         for (int n=0; n<lim; ++n) {
-
-            int y = rand()%(h/LINE);
-
-            glVertex2f(s,  y*LINE+3);
+            int y = rand()%(1 + h/LINE);
+            glVertex2f(s,  y*LINE+lineShift);//6
         }
     }
     glEnd();
@@ -475,47 +531,100 @@ vector<float> rotations[3];
 }
 
 
+-(void)renderBat2:(telemetry)telem
+                x:(int)x
+               to:(int)x2
+                h:(int)height
+        lineShift:(int)lineShift
+           factor:(float)factor{
+
+    float batAvr = averageTMPofBatteries(telem);
+
+    float lim = batAvr - minBatAvr;
+    lim*=factor;//512;
+
+//    if (lim<0) {
+//        glColor3f(0, 0, 1);
+//    }else{
+//        glColor3f(1, 1, 0);
+//    }
+
+    glPointSize(1);
+
+    glBegin(GL_POINTS);
+
+    for (int s=x; s<x2; s++) {
+        for (int n=0; n<lim; ++n) {
+
+            int y = rand()%(1 + height/LINE);
+            glVertex2f(s,  + y*LINE+lineShift);   //lineShift=5
+
+        }
+    }
+//    for (int n=0; n<fabsf(lim); ++n) {
+//        //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
+//        glVertex2f(x, LINE*(rand()%(height/LINE)) + lineShift);
+//        //glVertex2f(x, (rand()%(draw_area_h)) );
+//    }
+    glEnd();
+    
+    
+}
+
+
+
+
 
 -(void)renderPowerOBCTmpAtX:(int)x
                          to:(int)x2
                       telem:(telemetry)telem
-                      areaH:(int)h{
+                      areaH:(int)h
+                  lineShift:(int)lineShift
+                       Line:(BOOL)isLine{
+
+    int length = 4;
+
+    float lim = telem.tmp_powerOBC - minPowerOBCtmp;
+    lim*=(64*1);//64
 
 
     glDisable(GL_BLEND);
-    //glColor3f(.5, .5, .5);
-
-//    glEnable(GL_BLEND);
-//    glBlendReverse();
-
-
-    //glPointSize(2);
-    //glColor3f(.25,.25,.25);
-
     glColor3f(0,0,0);
 
-    //glBegin(GL_POINTS);
-    glBegin(GL_LINES);
-    for (int s=x; s<x2; s++) {
+    if (isLine) {
+        glLineWidth(1);
+        glBegin(GL_LINES);
 
-        float lim;
+        for (int s=x; s<x2; s++) {
+            for (int n=0; n<lim; ++n) {
 
-        lim = telem.tmp_powerOBC - minPowerOBCtmp;
+                int y = rand()%(1 + (h)/LINE);
 
-        int length = 3;
+//                glVertex2f(s+length,  + y*LINE+lineShift + length);   //lineShift=5
+//                glVertex2f(s-length,  + y*LINE+lineShift - length);
 
-        lim*=(64);//64
-        for (int n=0; n<lim; ++n) {
+                glVertex2f(s,  + y*LINE+lineShift + length);   //lineShift=5
+                glVertex2f(s,  + y*LINE+lineShift);
 
-            int y = rand()%((h)/LINE);
-
-            glVertex2f(s+length,  + y*LINE+4+length);
-            glVertex2f(s-length,  + y*LINE+4-length);
-
-
+            }
         }
+        glEnd();
+
+    }else{
+
+        glPointSize(1);
+        glBegin(GL_POINTS);
+
+        for (int s=x; s<x2; s++) {
+            for (int n=0; n<lim; ++n) {
+
+                int y = rand()%(1 + h/LINE );
+                glVertex2f(s,  + y*LINE+lineShift);   //lineShift=5
+            }
+        }
+        glEnd();
+
     }
-    glEnd();
 }
 
 
@@ -530,36 +639,6 @@ vector<float> rotations[3];
 
     glEnable(GL_BLEND);
     glBlendMulti();
-
-
-
-//    switch (ax) {
-//        case 0:
-//            glColor4f(0, 0, 0,1);
-//            break;
-//        case 1:
-//            glColor4f(0, 0, 0,1);
-//            break;
-//        case 2:
-//            glColor4f(0, 0, 0,1);
-//            break;
-//        default:
-//            break;
-//
-////        case 0:
-////            glColor3f(1, 0, 0);
-////            break;
-////        case 1:
-////            glColor3f(0, 1, 0);
-////            break;
-////        case 2:
-////            glColor3f(0, 0, 1);
-////            break;
-////        default:
-////            break;
-//
-//
-//    }
 
 
     glColor4f(0, 0, 0,1);
@@ -582,10 +661,10 @@ vector<float> rotations[3];
                 break;
         }
 
-        lim*=(32*1);//64
+        lim*=(32*2);//64
         for (int n=0; n<lim; ++n) {
 
-            int y = rand()%((h )/LINE);
+            int y = rand()%(1 + h /LINE);
 
             glVertex2f(s,  y*LINE+ax);
         }
