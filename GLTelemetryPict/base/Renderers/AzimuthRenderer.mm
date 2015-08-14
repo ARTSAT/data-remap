@@ -14,7 +14,7 @@
 
 -(id)initWithWhitening:(BOOL)whitening_ {
     self = [super init];
-    offsetY = PIC_HEIGH_PX * 0.5f + ruler_h;
+    offsetY = ruler_h;//PIC_HEIGH_PX * 0.5f + ruler_h;
     
     whitening = whitening_;
     //NSString *path = [[[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"INVADER_azimuth.csv"];
@@ -34,8 +34,9 @@
     vector<telemetryAzimuth> telemsInTerm = telemetry_az->telemetriesInRangeAz(sec , duration);
     
     glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
+    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_ZERO);
+
     glPushMatrix();
     
     glTranslatef(0, self->offsetY, 0);
@@ -48,17 +49,33 @@
         
         
         glPushMatrix();
-        glTranslatef(interm, (telemsInTerm[i].azimuth - 90) * scaleFact * 0.5, 0);
+//<<<<<<< .merge_file_GE4L3b
+//        glTranslatef(interm, (telemsInTerm[i].azimuth - 90) * scaleFact * 0.5, 0);
+//        
+//        if (whitening) {
+//            if (0 > (telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth)) {
+//                glColor4f(1.0,1.0,1.0,1.0);
+//                
+//                [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact  * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.05) quards:NO];
+//            }
+//        } else {
+//            glColor4f(0.0,0.0,0.0,1.0);
+//            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+//=======
+        glTranslatef(interm, 0, 0);
         
         if (whitening) {
             if (0 > (telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth)) {
-                glColor4f(1.0,1.0,1.0,1.0);
+                //glColor4f(1.0,1.0,1.0,1.0);
                 
-                [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact  * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.05) quards:NO];
+                //[self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact  * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor: (int)(telemsInTerm[i].altitude * 0.05) quards:NO];
             }
         } else {
-            glColor4f(0.0,0.0,0.0,1.0);
-            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.25 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:telemsInTerm[i].altitude * scaleFact *-cos(telemsInTerm[i].azimuth * 3.145 /180) factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+            //glColor4f(0.0,0.0,0.0,1.0);
+            glColor4f(1,1,1,1);
+            int h_ = PIC_WIDTH_PX;
+            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.05 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:h_ factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+//>>>>>>> .merge_file_lXXktR
         }
         glPopMatrix();
     }
@@ -90,10 +107,17 @@
         float vHeight = height / factor;
         if (quards) {
             glBegin(GL_QUADS);
-            glVertex2f(0 + x_, vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i);
-            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
-            glVertex2f(0 + x_, vHeight * i + (vHeight * 0.5));
+//<<<<<<< .merge_file_GE4L3b
+//            glVertex2f(0 + x_, vHeight * i);
+//            glVertex2f(0 + x_ + width, vHeight * i);
+//            glVertex2f(0 + x_ + width, vHeight * i + (vHeight * 0.5));
+//            glVertex2f(0 + x_, vHeight * i + (vHeight * 0.5));
+//=======
+            glVertex2f(0 + x_, vHeight * i * 2);
+            glVertex2f(0 + x_ + width, vHeight * i * 2);
+            glVertex2f(0 + x_ + width, 2 * vHeight * i + (vHeight * 0.5));
+            glVertex2f(0 + x_, 2 * vHeight * i + (vHeight * 0.5));
+//>>>>>>> .merge_file_lXXktR
         } else {
             glBegin(GL_LINE_LOOP);
             glVertex2f(0 + x_ + sin(i) * factor , vHeight * i);

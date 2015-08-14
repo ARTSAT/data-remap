@@ -19,10 +19,7 @@ typedef struct {
 }PointAzimuth;
 
 @interface AzimuthRenderer : Renderer {
-
-@protected
     
-
 @private
     BOOL whitening;
     int offsetY;
