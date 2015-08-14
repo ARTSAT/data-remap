@@ -127,11 +127,15 @@ vector<float> rotations[3];
     NSLog(@"powerOBC Cur max  = %f / min = %f", maxPowerOBCcur,minPowerOBCcur);
 
 
+    unsigned long t = invaderTLE->lastUnixEpoch();
+
+    NSLog(@"last epoch = %lu",t);
+
     return self;
 
 }
 
-#define LINE (8)//7
+#define LINE (8)//9
 
 
 -(void)renderFromUnixTime:(int)sec
@@ -174,11 +178,13 @@ vector<float> rotations[3];
 
 
             //line
+            glDisable(GL_BLEND);
+            glColor3f(0,0,0);
             [self renderPowerOBCTmpAtX:x
                                     to:x2
                                  telem:telems[i]
                                  areaH:draw_area_h
-                             lineShift:5
+                             lineShift:5+2
                                   Line:NO];
 
             glDisable(GL_BLEND);
@@ -188,20 +194,23 @@ vector<float> rotations[3];
                                  telem:telems[i]
                                  areaH:draw_area_h
                                dotSize:1
-                             lineShift:4
+                             lineShift:4+2
                                 factor:12.f]; //4
 
 
-            //[self renderBat:telems[i] :x :draw_area_h lineShift:6];
+
 
             glColor3f(0, 0, 0);
             [self renderBat2:telems[i]
                            x:x to:x2
                            h:draw_area_h
-                   lineShift:6
-                      factor:16.f];
+                   lineShift:6+2
+                      factor:32.f]; //16.f
 
-
+            [self renderBat:telems[i]
+                           :x
+                           :draw_area_h
+                  lineShift:6+2];
 
             [self renderMag:x to:x2 telem:telems[i]];
 
@@ -224,13 +233,15 @@ vector<float> rotations[3];
     glColor3f(0, 0, 0);
     [self renderOrbitLong:sec
                        dur:duration
-                       pit:11];
+                       pit:8];//11
 
 
     glDisable(GL_BLEND);
-    glColor3f(1,1,1);
+    glColor3f(0,0,0);
     glPointSize(2);//2
-    [self renderOrbit:sec dur:duration];
+    [self renderOrbit:sec
+                  dur:duration
+                  pit:3];
 
 
 
@@ -241,17 +252,20 @@ vector<float> rotations[3];
 
 
 
--(void)renderOrbit:(int)sec dur:(int)duration{
+-(void)renderOrbit:(int)sec dur:(int)duration pit:(int)pit{
 
     float r2        = 2560;
     int marginSec   = (r2/PX_PER_HOUR)*3600;
 
 
     glBegin(GL_POINTS);
-    for (int unixtm = sec - marginSec; unixtm < sec + duration + marginSec ; unixtm+=3) {
+    for (int unixtm = sec - marginSec; unixtm < sec + duration + marginSec ; unixtm+=pit) {//4
 
+//deorbitUnixTime
 
-        if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
+        //if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
+        if (unixtm < deorbitUnixTime && unixtm > invaderTLE->firstUnixEpoch() ) {
+       // if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
 
             cGeoTime geo = invaderTLE->geometryAtUnixTime( unixtm );
 
@@ -302,6 +316,7 @@ vector<float> rotations[3];
         cGeoTime geo = invaderTLE->geometryAtUnixTime(unixtm);
 
         if (unixtm < deorbitUnixTime && unixtm > invaderTLE->firstUnixEpoch() ) {
+//        if (unixtm < reader->lastUnixTime() && unixtm > invaderTLE->firstUnixEpoch() ) {
             float lat = geo.LatitudeRad();
             float lon = geo.LongitudeRad();
             float alt = geo.AltitudeKm();//6370.f +
@@ -334,21 +349,24 @@ vector<float> rotations[3];
 
     float batAvr = averageTMPofBatteries(telem);
 
-    float lim = batAvr;// - minBatAvr;
+    float lim = batAvr - minBatAvr;
     lim*=512;
-
-    if (lim<0) {
-        glColor3f(0, 0, 1);
-    }else{
-        glColor3f(1, 1, 0);
-    }
+//
+//    if (lim<0) {
+//        glColor3f(0, 0, 1);
+//    }else{
+//        glColor3f(1, 1, 0);
+//    }
 
     glPointSize(1);
-    glColor3f(1, 0, 0);
+    glColor3f(0, 0, 0);
+
+    //glColor3f(1, 1, 0);
+
     glBegin(GL_POINTS);
     for (int n=0; n<fabsf(lim); ++n) {
         //glVertex2f(x, 36+48 + rand()%(draw_area_h - 36-48));
-        glVertex2f(x, LINE*(rand()%(height/LINE)) + lineShift);
+        glVertex2f(x, rand()%height);
         //glVertex2f(x, (rand()%(draw_area_h)) );
     }
     glEnd();
@@ -381,6 +399,11 @@ vector<float> rotations[3];
         int temp = unixtm - reader->firstUnixTime();
         int temp2 = unixtm - sec;
 
+        float earthSin = sinOfEarthRevolution(unixtm);
+
+
+        float earthY = 1024.f * earthSin;
+
 
         if (temp>=0) {
 
@@ -397,8 +420,8 @@ vector<float> rotations[3];
                 float x2 = x_base + ra*cosf((rot+180.f)*M_PI/180.f);
                 float y2 = y_base + ra*sinf((rot+180.f)*M_PI/180.f);
 
-                glVertex2f(x, y);
-                glVertex2f(x_base, y_base);
+                glVertex2f(x, y + earthY);
+                glVertex2f(x_base, y_base + earthY);
                 //glVertex2f(x2, y2);
             }
         }
@@ -456,7 +479,7 @@ vector<float> rotations[3];
     float my = mag[1];
     float mz = mag[2];
 
-    float rad = 5000.f;
+   // float rad = 5000.f;
 
     float lon,lat;
     getPolar(mx, my, mz, &lat, &lon);
@@ -475,7 +498,7 @@ vector<float> rotations[3];
 
 
 
-    int pitTouse = pit*.04f;
+    int pitTouse = pit*.2f;//4f;//pit*.04f;
     int numLimit = screen_h/pitTouse;
 
     for (int s=x; s<x2; s++) {
@@ -521,7 +544,7 @@ vector<float> rotations[3];
     glBegin(GL_POINTS);
     for (int s=x; s<x2; s+=dotsize) {
         for (int n=0; n<lim; ++n) {
-            int y = rand()%(1 + h/LINE);
+            int y = rand()%( h/LINE);
             glVertex2f(s,  y*LINE+lineShift);//6
         }
     }
@@ -556,7 +579,7 @@ vector<float> rotations[3];
     for (int s=x; s<x2; s++) {
         for (int n=0; n<lim; ++n) {
 
-            int y = rand()%(1 + height/LINE);
+            int y = rand()%( height/LINE);
             glVertex2f(s,  + y*LINE+lineShift);   //lineShift=5
 
         }
@@ -588,8 +611,7 @@ vector<float> rotations[3];
     lim*=(64*1);//64
 
 
-    glDisable(GL_BLEND);
-    glColor3f(0,0,0);
+
 
     if (isLine) {
         glLineWidth(1);
@@ -598,7 +620,7 @@ vector<float> rotations[3];
         for (int s=x; s<x2; s++) {
             for (int n=0; n<lim; ++n) {
 
-                int y = rand()%(1 + (h)/LINE);
+                int y = rand()%(h/LINE);
 
 //                glVertex2f(s+length,  + y*LINE+lineShift + length);   //lineShift=5
 //                glVertex2f(s-length,  + y*LINE+lineShift - length);
@@ -618,7 +640,7 @@ vector<float> rotations[3];
         for (int s=x; s<x2; s++) {
             for (int n=0; n<lim; ++n) {
 
-                int y = rand()%(1 + h/LINE );
+                int y = rand()%( h/LINE );
                 glVertex2f(s,  + y*LINE+lineShift);   //lineShift=5
             }
         }
@@ -664,9 +686,9 @@ vector<float> rotations[3];
         lim*=(32*2);//64
         for (int n=0; n<lim; ++n) {
 
-            int y = rand()%(1 + h /LINE);
+            int y = rand()%( h /LINE);
 
-            glVertex2f(s,  y*LINE+ax);
+            glVertex2f(s,  y*LINE + ax + 2);
         }
     }
     glEnd();

@@ -21,7 +21,7 @@ int unixTimeFromDate( int year, int month, int day, int hour, int min, int sec){
     /* get current timeinfo: */
     time ( &rawtime ); //or: rawtime = time(0);
     /* convert to struct: */
-    timeinfo = localtime ( &rawtime );
+    timeinfo = gmtime ( &rawtime ); //local ??
 
     /* now modify the timeinfo to the given date: */
     timeinfo->tm_year   = year - 1900;
@@ -40,6 +40,25 @@ int unixTimeFromDate( int year, int month, int day, int hour, int min, int sec){
     
 }
 
+
+float sinOfEarthRevolution( unsigned long unixTime ){
+
+
+    time_t tm = unixTime;
+    struct tm * timeinfo = gmtime ( &tm );
+
+    float DayInYear = timeinfo->tm_yday;
+    float SecInDay  = timeinfo->tm_hour*3600 +timeinfo->tm_min*60 + timeinfo->tm_sec;
+
+    float secInYear = DayInYear*86400 + SecInDay;
+
+    float temp = secInYear/(365.f*86400.f);
+    float ang = temp*360.f;
+
+    float sin = sinf(ang*M_PI/180.f);
+
+    return sin;
+}
 
 float averageTMPofSolarPanels(telemetry telem){
 

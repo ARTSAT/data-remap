@@ -48,6 +48,7 @@ vector<TLE> openTLE(){
                     orbitSDP4 = new cOrbit( SDP4 );
                     //orbits.push_back(orbitSDP4);
 
+
                     float d = SDP4.GetField(cTle::FLD_EPOCHDAY);
                     float secIn2014 = d*86400.f;
                     float epochInUnixTime = secIn2014 + startOf2014InSec;
@@ -55,6 +56,7 @@ vector<TLE> openTLE(){
                     TLE tle;
                     tle.orbit = orbitSDP4;
                     tle.epochSecInUnixTime = epochInUnixTime;
+
                     tles.push_back(tle);
                     //printf("number = %i : %f\n",lineCnt-5,epochInUnixTime);
                 }

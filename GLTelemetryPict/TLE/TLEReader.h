@@ -61,7 +61,7 @@ public:
 
     int indexForTime( int targetTime ){
         int index = (int)allTLEs.size()-1;
-        while ( allTLEs[index].epochSecInUnixTime > targetTime ) {
+        while ( allTLEs[index].epochSecInUnixTime >= targetTime ) {
             index--;
         }
         return index;
@@ -88,6 +88,7 @@ public:
         double temp = obt->TPlusEpoch(julianTime)/secInMin;
         cEciTime t = obt->GetPosition( temp );
         cEciTime eciSDP4( t );
+
 
 
         cTopo topo = site->GetLookAngle( t );
@@ -122,10 +123,12 @@ public:
 
 
         cOrbit* obt = allTLEs[index].orbit;
+
         //printf("index = %i, temp = %f\n\n",index,obt->TPlusEpoch(julianTime));
 
         double temp = obt->TPlusEpoch(julianTime)/secInMin;
         cEciTime t = obt->GetPosition( temp );
+
         cEciTime eciSDP4( t );
         cGeoTime geo(eciSDP4);
 
@@ -139,6 +142,13 @@ public:
         int tmp = allTLEs[0].epochSecInUnixTime;
         return tmp;
     }
+
+    int lastUnixEpoch(){
+        int tmp = allTLEs[allTLEs.size()-1].epochSecInUnixTime;
+        return tmp;
+    }
+
+
 
 
 

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 using namespace std;
 
@@ -113,7 +114,6 @@ typedef struct{
 
 int unixTimeFromDate( int year, int month, int day, int hour, int min, int sec);
 
-
 float averageTMPofSolarPanels(telemetry telem);
 float averageTMPofSolarPanelX(telemetry telem);
 float averageTMPofSolarPanelY(telemetry telem);
@@ -123,6 +123,10 @@ float averageTMPofBatteries(telemetry telem);
 
 vector<telemetry> telemetryFromFile( const char * path );
 void dumpTelemetry( telemetry *tl );
+
+
+float sinOfEarthRevolution( unsigned long unixTime );
+
 
 
 class telemetryReader {

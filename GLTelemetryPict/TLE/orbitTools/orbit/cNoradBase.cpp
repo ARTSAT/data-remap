@@ -268,8 +268,10 @@ cEciTime cNoradBase::FinalPosition(double incl, double  omega,
    {
       cJulian decayTime = m_Orbit.Epoch();
 
+
+#pragma mark - EXCEPTION
       decayTime.AddMin(tsince);
-      throw cDecayException(decayTime, m_Orbit.SatName(true));
+      //throw cDecayException(decayTime, m_Orbit.SatName(true));
    }
    
    // Velocity

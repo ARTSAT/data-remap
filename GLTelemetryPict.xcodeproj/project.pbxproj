@@ -455,8 +455,8 @@
 				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
 				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
-				B277C2841B7D79A200EB5764 /* AzimuthSubRenderer.mm */,
 				B277C2891B7D79B600EB5764 /* AzimuthSubRenderer.h */,
+				B277C2841B7D79A200EB5764 /* AzimuthSubRenderer.mm */,
 				D2ECCC981B7C6896003D2D75 /* YO */,
 			);
 			name = Renderers;

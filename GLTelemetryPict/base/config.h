@@ -31,7 +31,8 @@ const float screen_h = PIC_HEIGH_PX - ruler_h*3;
 #include "telemetryReader.h"
 
 
-const int startUnixTime     = unixTimeFromDate(2014, 2, 28, 0, 0, 0);
+//const int startUnixTime     = unixTimeFromDate(2014, 2, 28, 0, 0, 0);
+const int startUnixTime     = unixTimeFromDate(2014, 2, 25, 0, 0, 0);
 const int endUnixTime       = unixTimeFromDate(2014, 9, 3, 0, 0, 0);
 
 #endif

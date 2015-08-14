@@ -93,6 +93,8 @@ static telemetryReader * reader;
     NSLog(@"%s",date);
 
 
+
+
     [self changeRenderingTargetTime:nil];
 
 
