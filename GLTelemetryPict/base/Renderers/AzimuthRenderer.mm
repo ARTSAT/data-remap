@@ -35,7 +35,8 @@
     
     glEnable(GL_BLEND);
     //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_ZERO);
+    //glBlendFunc(GL_ONE_MINUS_DST_COLOR, GL_ZERO);
+    glBlendFuncSeparate(GL_ONE_MINUS_DST_COLOR, GL_ZERO,GL_SRC_ALPHA,GL_ONE);
 
     glPushMatrix();
     
@@ -73,14 +74,22 @@
         } else {
             //glColor4f(0.0,0.0,0.0,1.0);
             glColor4f(1,1,1,1);
-            int h_ = PIC_WIDTH_PX;
-            [self drawIntermittentRect:0 y_:0 width: telemsInTerm[i].altitude * scaleFact * 0.05 * sin(telemsInTerm[i].azimuth * 3.145 /180) height:h_ factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
+            //glColor3f(1, 1, 1);
+            int h_ = screen_h*.5f;//PIC_WIDTH_PX;
+            [self drawIntermittentRect:0
+                                    y_:0
+                                 width: telemsInTerm[i].altitude * scaleFact * 0.05 * sin(telemsInTerm[i].azimuth * 3.145 /180)
+                                height:h_
+                                factor:telemsInTerm[i].settingAzimuth - telemsInTerm[i].azimuth quards:YES];
 //>>>>>>> .merge_file_lXXktR
         }
         glPopMatrix();
     }
     
     glPopMatrix();
+
+    glDisable(GL_BLEND);
+
 };
 
 -(void)drawLine:(PointAzimuth)from to:(PointAzimuth)to rot:(float)rot {

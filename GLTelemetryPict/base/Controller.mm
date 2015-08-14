@@ -48,6 +48,7 @@ static telemetryReader * reader;
     [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: NO]];
     [renderers addObject: [[AzimuthRenderer alloc] initWithWhitening: YES] ];
     [renderers addObject: [AzimuthSubRenderer new]];
+    [renderers addObject: [YOColorRenderer new]];
 
 #endif
 
