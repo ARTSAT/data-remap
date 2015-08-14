@@ -40,6 +40,7 @@
 		07D9FE9B1B6384A800ED5F86 /* NHGLWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE911B6384A800ED5F86 /* NHGLWrapper.cpp */; };
 		07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D9FE941B6384A800ED5F86 /* telemetryReader.cpp */; };
 		B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */; };
+		B277C2851B7D79A200EB5764 /* AzimuthSubRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = B277C2841B7D79A200EB5764 /* AzimuthSubRenderer.mm */; };
 		B2CCEC521B6748D2003B8007 /* NHRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */; };
 		D2ECCCAA1B7C6896003D2D75 /* YOBatches.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCA11B7C6896003D2D75 /* YOBatches.cpp */; };
 		D2ECCCAB1B7C6896003D2D75 /* YOColorRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = D2ECCCA41B7C6896003D2D75 /* YOColorRenderer.mm */; };
@@ -176,6 +177,8 @@
 		B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AzimuthRenderer.mm; path = Renderers/AzimuthRenderer.mm; sourceTree = "<group>"; };
 		B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AzimuthRenderer.h; path = Renderers/AzimuthRenderer.h; sourceTree = "<group>"; };
 		B207584B1B64ADF5003E0BF0 /* telemetryReaderAzimuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = telemetryReaderAzimuth.h; path = Azimuth/telemetryReaderAzimuth.h; sourceTree = "<group>"; };
+		B277C2841B7D79A200EB5764 /* AzimuthSubRenderer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = AzimuthSubRenderer.mm; path = Renderers/AzimuthSubRenderer.mm; sourceTree = "<group>"; };
+		B277C2891B7D79B600EB5764 /* AzimuthSubRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AzimuthSubRenderer.h; path = Renderers/AzimuthSubRenderer.h; sourceTree = "<group>"; };
 		B2CCEC4F1B67488A003B8007 /* telemetryReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = telemetryReader.h; sourceTree = "<group>"; };
 		D2ECCCA11B7C6896003D2D75 /* YOBatches.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YOBatches.cpp; sourceTree = "<group>"; };
 		D2ECCCA21B7C6896003D2D75 /* YOBatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOBatches.h; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				07A8BB3F1B66DE61005B53CD /* NHRenderer.mm */,
 				B20758471B64A1F5003E0BF0 /* AzimuthRenderer.h */,
 				B20758461B64A1F5003E0BF0 /* AzimuthRenderer.mm */,
+				B277C2841B7D79A200EB5764 /* AzimuthSubRenderer.mm */,
+				B277C2891B7D79B600EB5764 /* AzimuthSubRenderer.h */,
 				D2ECCC981B7C6896003D2D75 /* YO */,
 			);
 			name = Renderers;
@@ -775,6 +780,7 @@
 				B20758481B64A1F5003E0BF0 /* AzimuthRenderer.mm in Sources */,
 				07A8BB7A1B6718C1005B53CD /* cNoradSDP4.cpp in Sources */,
 				07A8BB791B6718C1005B53CD /* cNoradBase.cpp in Sources */,
+				B277C2851B7D79A200EB5764 /* AzimuthSubRenderer.mm in Sources */,
 				D2ECCD851B7C6A17003D2D75 /* flArcball.mm in Sources */,
 				07D9FE9C1B6384A800ED5F86 /* telemetryReader.cpp in Sources */,
 				07A8BB6E1B6718C1005B53CD /* cEci.cpp in Sources */,

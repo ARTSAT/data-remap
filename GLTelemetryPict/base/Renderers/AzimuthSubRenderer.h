@@ -1,10 +1,13 @@
 //
-//  AzimuthRenderer.h
+//  AzimuthSubRenderer.h
 //  GLTelemetryPict
 //
-//  Created by Koichiro Mori on 2015/07/26.
+//  Created by Koichiro Mori on 2015/08/14.
 //  Copyright (c) 2015年 h. All rights reserved.
 //
+
+#ifndef GLTelemetryPict_AZRenderer_h
+#define GLTelemetryPict_AZRenderer_h
 
 #import "config.h"
 #import "charTex.h"
@@ -13,22 +16,15 @@
 #import "telemetryReader.h"
 #import "telemetryReaderAzimuth.h"
 
-typedef struct {
-    float y;
-    float x;
-}PointAzimuth;
 
-@interface AzimuthRenderer : Renderer {
-
-@protected
+@interface AzimuthSubRenderer : Renderer {
     
-
 @private
     BOOL whitening;
     int offsetY;
     telemetryReaderAzimuth *telemetry_az;
 }
 
--(id)initWithWhitening:(BOOL)whitening_;
-
 @end
+
+#endif

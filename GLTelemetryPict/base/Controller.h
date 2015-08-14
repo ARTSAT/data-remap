@@ -14,6 +14,7 @@
 #import "setting.h"
 //#import "NHRenderer.h"
 #import "AzimuthRenderer.h"
+#import "AzimuthSubRenderer.h"
 
 
 
@@ -28,6 +29,7 @@
 
 //    Renderer *targetRenderer;
 //    AzimuthRenderer *azimuthRanderer; // mori
+
 //    NHRenderer *nh;
 
     NSMutableArray *renderers;
