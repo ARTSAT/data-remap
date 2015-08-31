@@ -1,29 +1,7 @@
-# README #
+# data-remap #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+"data remap" is a art work for Cyber Arts Exhibition at Ars Electronica 2015.
+This repository includes a Xcode project for to generate same images that used on Exhibition.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+###Test Environment
+ OSX 10.10.5 Xcode 6.4
